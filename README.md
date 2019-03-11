@@ -1,9 +1,7 @@
-# Open APIs for 3gpp
+# Open APIs for 3gpp REL 15
 
-## Release 16
+## APIs
 
-See here: https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/REL-16
 
-## Release 15
-
-See here: https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/REL-15
+*  ApiA
+*  ApiB 

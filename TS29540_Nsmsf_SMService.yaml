@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: '1.0.1'
+  version: '2.0.0'
   title: 'Nsmsf_SMService Service API'
   description: 'SMSF SMService Service API'
 security:
@@ -8,7 +8,7 @@ security:
     - nsmsf-sms
   - {}
 servers:
-  - url: '{apiRoot}/nsmsf-sms/v1'
+  - url: '{apiRoot}/nsmsf-sms/v2'
     variables:
       apiRoot:
         default: https://example.com

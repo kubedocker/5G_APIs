@@ -1,4 +1,4 @@
-# OpenAPI Specification Files for 3GPP 5G Core Network (REL 15)
+# OpenAPI Specification Files for 3GPP 5G Core Network (Release 15)
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
@@ -34,3 +34,61 @@ API version: March 2019
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29518_Namf_MT.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29518_Namf_MT.yaml))
 
+## SMF (Session Management Function)
+* PDU Session
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29502_Nsmf_PDUSession.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29502_Nsmf_PDUSession.yaml))
+
+## UDM (Unified Data Management)
+* Subscriber Data Management
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+* UE Context Management
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_UECM.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+* UE Authentication
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_UEAU.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+* Event Exposure
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_EE.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+* Parameter Provisioning
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_PP.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+
+## UDR (Unified Data Repository)
+* Data Repository
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29504_Nudr_DataRepository.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+  * Subscription Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29505_Subscription_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29503_Nudm_SDM.yaml))
+
+## AUSF (Authentication Server Function)
+* UE Authentication
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))
+* SoR (Steering of Roaming) Protection
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_SoRProtection.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))
+* UPU (UE Parameter Update) Protection
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UPUProtection.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))
+
+## NSSF (Network Slice Selection Function)
+* NSSAI Availability
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29531_Nnssf_NSSAIAvailability.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))
+* NS Selection
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29531_Nnssf_NSSelection.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))
+
+## SMSF (SMS Function)
+* SM Service
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29540_Nsmsf_SMService.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))
+
+## 5G-EIR (5G Equipment Identity Register)
+* Equipment Identity Check
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29511_N5g-eir_EquipmentIdentityCheck.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29509_Nausf_UEAuthentication.yaml))

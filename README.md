@@ -1,11 +1,11 @@
-## OpenAPI Specification Files for 3GPP 5G Core Network (Release 15)
+# OpenAPI Specification Files for 3GPP 5G Core Network (Release 15)
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
 ## Use [this frontend](https://forge.etsi.org/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger editor or to parse OpenAPI files for correctness.
 
 
-### Direct links to load API files in the Rel-15 branch ito the Swagger Editors.
+# Direct links to load API files in the Rel-15 branch ito the Swagger Editors.
 
 You can also use the links below to open yaml files with the Swagger editor or user interface inspector.
 Please note that the links will need to be manually updated in this Readme file if you create a new branch.

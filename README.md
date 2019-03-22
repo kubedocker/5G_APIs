@@ -6,7 +6,7 @@
 
 #
 #
-# Direct links to load API files in the Rel-15 branch ito the Swagger Editors.
+# Direct links to load API files in the Rel-15 branch into the Swagger Editor and User Interface inspector.
 
 You can also use the links below to open yaml files with the Swagger editor or user interface inspector.
 Please note that the links will need to be manually updated in this Readme file if you create a new branch.

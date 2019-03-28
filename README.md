@@ -63,6 +63,9 @@ Please note that the links will need to be manually updated in this Readme file 
 * PDU Session
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29502_Nsmf_PDUSession.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29502_Nsmf_PDUSession.yaml))
+* Event Exposure
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29508_Nsmf_EventExposure))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29508_Nsmf_EventExposure))
 
 ## UDM (Unified Data Management)
 * Subscriber Data Management
@@ -88,6 +91,15 @@ Please note that the links will need to be manually updated in this Readme file 
   * Subscription Data
     ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29505_Subscription_Data.yaml))
     ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29505_Subscription_Data.yaml))
+  * Policy Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Policy_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Policy_Data.yaml))
+  * Exposure Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Exposure_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Exposure_Data.yaml))
+  * Application Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Application_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Application_Data.yaml))
 
 ## AUSF (Authentication Server Function)
 * UE Authentication
@@ -117,3 +129,5 @@ Please note that the links will need to be manually updated in this Readme file 
 * Equipment Identity Check
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29511_N5g-eir_EquipmentIdentityCheck.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29511_N5g-eir_EquipmentIdentityCheck.yaml))
+
+

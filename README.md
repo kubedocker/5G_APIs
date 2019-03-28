@@ -2,7 +2,11 @@
 
 ## Release 16
 
-[API version: March 2019 - CT#83](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/REL-16)
+API version: March 2019 - CT#83
+
+Stored in the present "master" branch
+
+# Use [this frontend](https://forge.etsi.org/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-16) to invoke the Swagger editor or to parse OpenAPI files for correctness.
 
 ## Release 15
 

@@ -2,7 +2,7 @@
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-## Use [this frontend](https://forge.etsi.org/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger editor or to parse OpenAPI files for correctness.
+## Use [this frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger editor or to parse OpenAPI files for correctness.
 
 #
 #

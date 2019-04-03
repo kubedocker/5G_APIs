@@ -202,7 +202,8 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29522_TrafficInfluence.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29522_TrafficInfluence.yaml))
 ## SCEF (Service Capability Exposure Function)
-NOTE: These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G SCEF to the SCS/AS
+>**Note:**
+These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G SCEF to the SCS/AS
 * Event Monitoring
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29122_MonitoringEvent.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29122_MonitoringEvent.yaml))

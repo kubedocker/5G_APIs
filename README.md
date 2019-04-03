@@ -6,7 +6,7 @@ API version: March 2019 - CT#83
 
 Stored in the present "master" branch
 
-#### Use [this frontend](https://forge.etsi.org/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=master) to invoke the Swagger editor or to parse OpenAPI files for correctness.
+#### Use [this frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=master) to invoke the Swagger editor or to parse OpenAPI files for correctness.
 
 ## Release 15
 

@@ -2,11 +2,9 @@
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: March 2019
-
-Release status: **Frozen**
-
-Other releases: [Rel-16](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/master)
+API version: March 2019  
+Release status: **{- Frozen -}**  
+Other releases: [Rel-16 (Open)](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/master)
 
 #### Tools
 * [Frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger Editor, Swagger UI or parse OpenAPI files with APIDevTools Swagger Parser/Validator

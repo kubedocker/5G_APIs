@@ -4,6 +4,10 @@
 
 API version: March 2019
 
+Release status: **Frozen**
+
+Other releases: [Rel-16](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/master)
+
 #### Tools
 * [Frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger Editor, Swagger UI or parse OpenAPI files with APIDevTools Swagger Parser/Validator
 * [API Parser](https://forge.etsi.org/swagger/tools/ApiParser2.html) to parse OpenAPI files with APIDevTools Swagger Parser/Validator
@@ -46,6 +50,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * PDU Session
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29502_Nsmf_PDUSession.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29502_Nsmf_PDUSession.yaml))
+* Event Exposure
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29508_Nsmf_EventExposure.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29508_Nsmf_EventExposure.yaml))
 
 ## UDM (Unified Data Management)
 * Subscriber Data Management

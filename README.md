@@ -6,7 +6,7 @@ API version: March 2019
 
 Release status: **Open**
 
-Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/Rel-15)
+Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/REL-15)
 
 #### Tools
 * [Frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=master) to invoke the Swagger Editor, Swagger UI or parse OpenAPI files with APIDevTools Swagger Parser/Validator

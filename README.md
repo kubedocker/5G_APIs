@@ -2,15 +2,14 @@
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-## Use [this frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger editor or to parse OpenAPI files for correctness.
+API version: March 2019
 
-#
-#
-# Direct links to load API files in the Rel-15 branch into the Swagger Editor and User Interface inspector.
+#### Tools
+* [Frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger Editor, Swagger UI or parse OpenAPI files with APIDevTools Swagger Parser/Validator
+* [API Parser](https://forge.etsi.org/swagger/tools/ApiParser2.html) to parse OpenAPI files with APIDevTools Swagger Parser/Validator
 
-You can also use the links below to open yaml files with the Swagger editor or user interface inspector.
-Please note that the links will need to be manually updated in this Readme file if you create a new branch.
 
+The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:
 
 
 ## NRF (NF Repository Function)
@@ -101,3 +100,138 @@ Please note that the links will need to be manually updated in this Readme file 
 * Equipment Identity Check
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29511_N5g-eir_EquipmentIdentityCheck.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29511_N5g-eir_EquipmentIdentityCheck.yaml))
+
+## NEF (Network Exposure Function)
+* Packet Flow Description (PFD) Management
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29551_Nnef_PFDmanagement.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29551_Nnef_PFDmanagement.yaml))
+
+## PCF (Policy Control Function)
+* Policy Authorization
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29514_Npcf_PolicyAuthorization.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29514_Npcf_PolicyAuthorization.yaml))
+* Access and Mobility (AM) Policy Control
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29507_Npcf_AMPolicyControl.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29507_Npcf_AMPolicyControl.yaml))
+* Session Management (SM) Policy Control
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29512_Npcf_SMPolicyControl.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29512_Npcf_SMPolicyControl.yaml))
+* Background Data Transfer (BDT) Policy Control
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29554_Npcf_BDTPolicyControl.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29554_Npcf_BDTPolicyControl.yaml))
+* Policy Control Event Exposure
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29523_Npcf_EventExposure.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29523_Npcf_EventExposure.yaml))
+* UE Policy Control
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29525_Npcf_UEPolicyControl.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29525_Npcf_UEPolicyControl.yaml))
+## BSF (Binding Support Function)
+* Management
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29521_Nbsf_Management.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29521_Nbsf_Management.yaml))
+## NWDAF (Network Data Analytics Function)
+* Events Subscription
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29520_Nnwdaf_EventsSubscription.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29520_Nnwdaf_EventsSubscription.yaml))
+* Analytics Info
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29520_Nnwdaf_AnalyticsInfo.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29520_Nnwdaf_AnalyticsInfo.yaml))
+## CHF (Charging Function)
+* Spending Limit Control
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29594_Nchf_SpendingLimitControl.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29594_Nchf_SpendingLimitControl.yaml))
+* Converged Charging
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS32291_Nchf_ConvergedCharging.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS32291_Nchf_ConvergedCharging.yaml))
+## Common Data Types
+* Common Data
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29571_CommonData.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29571_CommonData.yaml))
+## SEPP N32 APIs
+* Handshake (N32-c)
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29573_N32_Handshake.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29573_N32_Handshake.yaml))
+* Forwarding (N32-f)
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29573_JOSEProtectedMessageForwarding.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29573_JOSEProtectedMessageForwarding.yaml))
+# Northbound APIs (CAPIF)
+* Discover Service
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Discover_Service_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Discover_Service_API.yaml))
+* Publish Service
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Publish_Service_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Publish_Service_API.yaml))
+* Events
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Events_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Events_API.yaml))
+* API Invoker Management
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_API_Invoker_Management_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_API_Invoker_Management_API.yaml))
+* Security
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Security_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Security_API.yaml))
+* Access Control Policy
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Access_Control_Policy_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Access_Control_Policy_API.yaml))
+* Logging API Invocation
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Logging_API_Invocation_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Logging_API_Invocation_API.yaml))
+* Auditing
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Auditing_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_CAPIF_Auditing_API.yaml))
+* AEF Authentication
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_AEF_Security_API.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29222_AEF_Security_API.yaml))
+# Northbound APIs (T8)
+## NEF (Network Exposure Function)
+* Traffic Influence
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29522_TrafficInfluence.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29522_TrafficInfluence.yaml))
+## SCEF (Service Capability Exposure Function)
+NOTE: These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G SCEF to the SCS/AS
+* Event Monitoring
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_MonitoringEvent.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_MonitoringEvent.yaml))
+* Resource Management of Background Data Transfer (BDT)
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ResourceManagementOfBdt.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ResourceManagementOfBdt.yaml))
+* Chargeable Party
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ChargeableParty.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ChargeableParty.yaml))
+* Non-IP Data Delivery (NIDD)
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_NIDD.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_NIDD.yaml))
+* Device Triggering
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_DeviceTriggering.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_DeviceTriggering.yaml))
+* Group Message Delivery via MBMS by MB2
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_GMDviaMBMSbyMB2.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_GMDviaMBMSbyMB2.yaml))
+* Group Message Delivery via MBMS by xMB
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_GMDviaMBMSbyxMB.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_GMDviaMBMSbyxMB.yaml))
+* Network Status Reporting
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ReportingNetworkStatus.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ReportingNetworkStatus.yaml))
+* Communication Patterns (CP) Parameters Provisioning
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_CpProvisioning.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_CpProvisioning.yaml))
+* Packet Flow Description (PFD) Management
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_PfdManagement.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_PfdManagement.yaml))
+* Enhanced Coverage Restriction Control
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ECRControl.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_ECRControl.yaml))
+* Network Parameter Configuration
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_NpConfiguration.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_NpConfiguration.yaml))
+* Application Server (AS) Session with QoS
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_AsSessionWithQoS.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_AsSessionWithQoS.yaml))
+* MSISDN-less Mobile-Originated SMS
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_MsisdnLessMoSms.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_MsisdnLessMoSms.yaml))
+* Common Data
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_CommonData.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29122_CommonData.yaml))
+

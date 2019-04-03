@@ -71,6 +71,15 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
   * Subscription Data
     ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29505_Subscription_Data.yaml))
     ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29505_Subscription_Data.yaml))
+  * Policy Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29519_Policy_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29519_Policy_Data.yaml))
+  * Exposure Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29519_Exposure_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29519_Exposure_Data.yaml))
+  * Application Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29519_Application_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-15/TS29519_Application_Data.yaml))
 
 ## AUSF (Authentication Server Function)
 * UE Authentication

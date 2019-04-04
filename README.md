@@ -250,3 +250,4 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29122_CommonData.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29122_CommonData.yaml))
 
+

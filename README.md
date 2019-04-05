@@ -7,8 +7,8 @@ Release status: **{- Frozen -}**
 Other releases: [Rel-16 (Open)](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/master)
 
 #### Tools
-* [Frontend](https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15) to invoke the Swagger Editor, Swagger UI or parse OpenAPI files with APIDevTools Swagger Parser/Validator
-* [API Parser](https://forge.etsi.org/swagger/tools/ApiParserExt.html?branch=REL-15) to parse OpenAPI files with APIDevTools Swagger Parser/Validator
+* <a href="https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15" target="_blank">Frontend</a> to invoke the Swagger Editor, Swagger UI, or to parse OpenAPI files with APIDevTools Swagger Parser/Validator, or to search for APIs referencing a data structure
+* <a href="https://forge.etsi.org/swagger/tools/ApiParserExt.html?branch=REL-15" target="_blank">API Parser</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator
 
 
 The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:

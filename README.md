@@ -6,6 +6,8 @@ API version: **March 2019**
 Release status: **{+ Open +}**  
 Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/REL-15)
 
+
+OpenAPI validation status:
 [![pipeline status](https://forge.etsi.org/gitlab/3GPP/openapi-tools/badges/master/pipeline.svg)](https://forge.etsi.org/gitlab/3GPP/openapi-tools/commits/master)
 
 #### Tools

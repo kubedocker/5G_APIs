@@ -18,8 +18,8 @@ security:
       - nudr-dr
 
 paths:
-  /subscription-data/{ueId}/authentication-data:
-    $ref: 'TS29505_Subscription_Data.yaml#/paths/~1subscription-data~1%7BueId%7D~1authentication-data'
+  /subscription-data/{ueId}/authentication-data/authentication-subscription:
+    $ref: 'TS29505_Subscription_Data.yaml#/paths/~1subscription-data~1%7BueId%7D~1authentication-data~1authentication-subscription'
   /subscription-data/{ueId}/{servingPlmnId}/provisioned-data/am-data:
     $ref: 'TS29505_Subscription_Data.yaml#/paths/~1subscription-data~1%7BueId%7D~1%7BservingPlmnId%7D~1provisioned-data~1am-data'
   /subscription-data/{ueId}/{servingPlmnId}/provisioned-data/smf-selection-subscription-data:

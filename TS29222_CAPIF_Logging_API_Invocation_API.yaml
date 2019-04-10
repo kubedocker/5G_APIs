@@ -118,7 +118,7 @@ components:
           type: string
           description: Name of the specific resource invoked
         uri:
-          $ref: 'TS29122_CommonData_API.yaml#/components/schemas/Uri'
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         protocol:
           $ref: 'TS29222_CAPIF_Publish_Service_API.yaml#/components/schemas/Protocol'
         operation:

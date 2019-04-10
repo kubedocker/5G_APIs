@@ -62,7 +62,7 @@ components:
             $ref: '#/components/schemas/UpuData'
           minItems: 1
         upuAckInd:
-          $ref: '#/components/schemas/upuAckInd'
+          $ref: '#/components/schemas/UpuAckInd'
       required: 
         - upuDataList
         - upuAckInd

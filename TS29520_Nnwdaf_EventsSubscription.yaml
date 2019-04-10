@@ -205,7 +205,7 @@ components:
         notificationURI:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uri'
         supportedFeatures:
-          $ref: 'TS29571_CommonData.yaml#/components/schema/SupportedFeature'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
         - eventSubscriptions
     EventSubscription:

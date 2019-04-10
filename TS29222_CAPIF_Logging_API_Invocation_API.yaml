@@ -135,7 +135,7 @@ components:
         outputParameters:
           description: List of output parameters. Can be any value - string, number, boolean, array or object.
         srcInterface:
-          $ref: 'TS29222_CAPIF_Publish_Service_API.yaml#/components/schemas//InterfaceDescription'
+          $ref: 'TS29222_CAPIF_Publish_Service_API.yaml#/components/schemas/InterfaceDescription'
         destInterface:
           $ref: 'TS29222_CAPIF_Publish_Service_API.yaml#/components/schemas/InterfaceDescription'
         fwdInterface:

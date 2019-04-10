@@ -34,7 +34,7 @@ paths:
                 $ref: '#/components/schemas/PcfBinding'
           headers:
             Location:
-              description: 'Contains the URI of the newly created resource, according to the structure: {apiRoot}/nbsf-management/v1//pcfBindings/{bindingId}
+              description: 'Contains the URI of the newly created resource, according to the structure: {apiRoot}/nbsf-management/v1//pcfBindings/{bindingId}'
               required: true
               schema:
                 type: string

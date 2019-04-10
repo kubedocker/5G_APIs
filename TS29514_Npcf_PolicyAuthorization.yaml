@@ -1,4 +1,3 @@
-
 openapi: 3.0.0
 info:
   title: "Npcf_PolicyAuthorization Service API"
@@ -229,7 +228,7 @@ paths:
                 $ref: '#/components/schemas/ExtendedProblemDetails'
           headers:
             Retry-After:
-              description: 'Indicates the time the AF has to wait before making a new request. It can be a non-negative integer (decimal number) indicating the number of seconds the AF has to wait before making a new request or an HTTP-date after which the AF can retry a new request.’
+              description: 'Indicates the time the AF has to wait before making a new request. It can be a non-negative integer (decimal number) indicating the number of seconds the AF has to wait before making a new request or an HTTP-date after which the AF can retry a new request.'
               schema:
                 anyOf:
                   - type: integer

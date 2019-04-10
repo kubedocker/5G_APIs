@@ -9,7 +9,7 @@ externalDocs:
   url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.514/'
 #
 servers:
-  - url: ’{apiRoot}/npcf-policyauthorization/v1’
+  - url: '{apiRoot}/npcf-policyauthorization/v1'
     variables:
       apiRoot:
         default: https://example.com
@@ -60,7 +60,7 @@ paths:
                 $ref: '#/components/schemas/ExtendedProblemDetails'
           headers:
             Retry-After:
-              description: 'Indicates the time the AF has to wait before making a new request. It can be a non-negative integer (decimal number) indicating the number of seconds the AF has to wait before making a new request or an HTTP-date after which the AF can retry a new request.’
+              description: 'Indicates the time the AF has to wait before making a new request. It can be a non-negative integer (decimal number) indicating the number of seconds the AF has to wait before making a new request or an HTTP-date after which the AF can retry a new request.'
               schema:
                 anyOf:
                   - type: integer

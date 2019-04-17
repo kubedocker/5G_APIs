@@ -8,7 +8,7 @@ Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/openapis-pl
 
 #### Tools
 * <a href="https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=master" target="_blank">Frontend</a> to invoke the Swagger Editor, Swagger UI, or to parse OpenAPI files with APIDevTools Swagger Parser/Validator, or to search for APIs referencing a data structure
-* <a href="https://forge.etsi.org/swagger/tools/ApiParserExt.html?branch=master" target="_blank">API Parser</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator
+* <a href="https://forge.etsi.org/swagger/tools/ApiParserExt2.html" target="_blank">API Parser</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator
 
 
 The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:
@@ -73,18 +73,18 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Data Repository
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29504_Nudr_DataRepository.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29504_Nudr_DataRepository.yaml))
-* Subscription Data
-([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29505_Subscription_Data.yaml))
-([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29505_Subscription_Data.yaml))
-* Policy Data
-([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Policy_Data.yaml))
-([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Policy_Data.yaml))
-* Exposure Data
-([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Exposure_Data.yaml))
-([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Exposure_Data.yaml))
-* Application Data
-([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Application_Data.yaml))
-([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Application_Data.yaml))
+  * Subscription Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29505_Subscription_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29505_Subscription_Data.yaml))
+  * Policy Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Policy_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Policy_Data.yaml))
+  * Exposure Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Exposure_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Exposure_Data.yaml))
+  * Application Data
+    ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Application_Data.yaml))
+    ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29519_Application_Data.yaml))
 
 ## AUSF (Authentication Server Function)
 * UE Authentication

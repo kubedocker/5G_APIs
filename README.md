@@ -8,7 +8,7 @@ Other releases: [Rel-16 (Open)](https://forge.etsi.org/gitlab/3GPP/openapis-play
 
 
 OpenAPI validation status:
-[![pipeline status](https://forge.etsi.org/gitlab/3GPP/openapis-playground/badges/REL-15/pipeline.svg)](https://forge.etsi.org/gitlab/3GPP/openapi-tools/commits/REL-15)
+[![pipeline status](https://forge.etsi.org/gitlab/3GPP/openapis-playground/badges/REL-15/pipeline.svg)](https://forge.etsi.org/gitlab/3GPP/openapi-playground/commits/REL-15)
 
 #### Tools
 * <a href="https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=REL-15" target="_blank">Frontend</a> to invoke the Swagger Editor, Swagger UI, or to parse OpenAPI files with APIDevTools Swagger Parser/Validator, or to search for APIs referencing a data structure

@@ -11,6 +11,13 @@ externalDocs:
 paths: {}
 components:
   schemas:
+  
+#  
+# Editor's Note: Placeholder for type definition of MtcProviderInformation, referenced from TS29503_Nudm_NIDDAU.yaml. To be deleted when a proper type is defined in meeting CT4#91
+#
+    MtcProviderInformation:
+      type: string
+
     Binary:
       format: binary
       type: string

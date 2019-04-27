@@ -1,21 +1,14 @@
 openapi: 3.0.0
 info:
-  version: 1.0.2
+  version: 1.0.1
   title: Common Data Types
   description: 'Common Data Types for Service Based Interfaces '
 externalDocs:
-  description: 3GPP TS 29.571 V16.0.0; Common Data Types for Service Based Interfaces
+  description: 3GPP TS 29.571 V15.3.0; Common Data Types for Service Based Interfaces
   url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.571/'
 paths: {}
 components:
   schemas:
-  
-#  
-# Editor's Note: Placeholder for type definition of MtcProviderInformation, referenced from TS29503_Nudm_NIDDAU.yaml. To be deleted when a proper type is defined in meeting CT4#91
-#
-    MtcProviderInformation:
-      type: string
-
     Binary:
       format: binary
       type: string

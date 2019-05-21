@@ -200,7 +200,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * AEF Authentication
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29222_AEF_Security_API.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29222_AEF_Security_API.yaml))
-# Northbound APIs (T8)
+# Northbound APIs
 ## NEF (Network Exposure Function)
 * Traffic Influence
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29522_TrafficInfluence.yaml))

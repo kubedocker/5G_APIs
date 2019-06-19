@@ -12,7 +12,7 @@ OpenAPI validation status:
 
 #### Tools
 * <a href="https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm?project=3GPP/openapis-playground?branch=master" target="_blank">Frontend</a> to invoke the Swagger Editor, Swagger UI, or to parse OpenAPI files with APIDevTools Swagger Parser/Validator, or to search for APIs referencing a data structure
-* <a href="https://forge.etsi.org/swagger/tools/ApiParserExt2.html" target="_blank">API Parser</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator
+* <a href="https://forge.etsi.org/swagger/tools/parser.html" target="_blank">API Parser</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator
 
 
 The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:
@@ -72,6 +72,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Parameter Provisioning
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29503_Nudm_PP.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29503_Nudm_PP.yaml))
+* NIDD Authorization
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29503_Nudm_NIDDAU.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29503_Nudm_NIDDAU.yaml))
 
 ## UDR (Unified Data Repository)
 * Data Repository
@@ -205,6 +208,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Traffic Influence
 ([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29522_TrafficInfluence.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29522_TrafficInfluence.yaml))
+* NIDD Configuration Trigger
+([Editor](https://forge.etsi.org/swagger/editor/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/master/TS29522_NIDDConfigurationTrigger.yaml))
+([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-16-draftCT84/TS29522_NIDDConfigurationTrigger.yaml))
 ## SCEF (Service Capability Exposure Function)
 >**Note:**
 These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G SCEF to the SCS/AS

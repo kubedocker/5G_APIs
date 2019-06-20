@@ -2,7 +2,7 @@
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: March 2019  
+API version: June 2019  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-16 (Open)](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/master)
 

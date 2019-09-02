@@ -146,10 +146,12 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * UE Policy Control
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29525_Npcf_UEPolicyControl.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29525_Npcf_UEPolicyControl.yaml))
+
 ## BSF (Binding Support Function)
 * Management
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29521_Nbsf_Management.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29521_Nbsf_Management.yaml))
+
 ## NWDAF (Network Data Analytics Function)
 * Events Subscription
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29520_Nnwdaf_EventsSubscription.yaml))
@@ -157,6 +159,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Analytics Info
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29520_Nnwdaf_AnalyticsInfo.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29520_Nnwdaf_AnalyticsInfo.yaml))
+
 ## CHF (Charging Function)
 * Spending Limit Control
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29594_Nchf_SpendingLimitControl.yaml))
@@ -164,10 +167,12 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Converged Charging
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS32291_Nchf_ConvergedCharging.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS32291_Nchf_ConvergedCharging.yaml))
+
 ## Common Data Types
 * Common Data
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29571_CommonData.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29571_CommonData.yaml))
+
 ## SEPP N32 APIs
 * Handshake (N32-c)
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29573_N32_Handshake.yaml))
@@ -175,6 +180,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Forwarding (N32-f)
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29573_JOSEProtectedMessageForwarding.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29573_JOSEProtectedMessageForwarding.yaml))
+
 # Northbound APIs (CAPIF)
 * Discover Service
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_Discover_Service_API.yaml))
@@ -203,6 +209,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * AEF Authentication
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29222_AEF_Security_API.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29222_AEF_Security_API.yaml))
+
 # Northbound APIs
 ## NEF (Network Exposure Function)
 * Traffic Influence
@@ -211,6 +218,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * NIDD Configuration Trigger
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_NIDDConfigurationTrigger.yaml))
 ([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-16-draftCT84/TS29522_NIDDConfigurationTrigger.yaml))
+
 ## SCEF (Service Capability Exposure Function)
 >**Note:**
 These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G SCEF to the SCS/AS

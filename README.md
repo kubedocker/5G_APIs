@@ -2,7 +2,7 @@
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **June 2019**  
+API version: **September 2019**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/openapis-playground/tree/REL-15)
 
@@ -160,6 +160,16 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29520_Nnwdaf_AnalyticsInfo.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29520_Nnwdaf_AnalyticsInfo.yaml))
 
+## HSS (Home Subscriber Server)
+* UE Authentication
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29563_Nhss_UEAU.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29563_Nhss_UEAU.yaml))
+
+## AF (Application Function)
+* Event Exposure
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29517_Naf_EventExposure.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29517_Naf_EventExposure.yaml))
+
 ## CHF (Charging Function)
 * Spending Limit Control
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29594_Nchf_SpendingLimitControl.yaml))
@@ -180,6 +190,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Forwarding (N32-f)
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29573_JOSEProtectedMessageForwarding.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29573_JOSEProtectedMessageForwarding.yaml))
+* Telescopic FQDN Mapping
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29573_SeppTelescopicFqdnMapping.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29573_SeppTelescopicFqdnMapping.yaml))
 
 # Northbound APIs (CAPIF)
 * Discover Service
@@ -217,7 +230,10 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_TrafficInfluence.yaml))
 * NIDD Configuration Trigger
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_NIDDConfigurationTrigger.yaml))
-([UI](https://forge.etsi.org/swagger/ui/?url=https://forge.etsi.org/gitlab/3GPP/openapis-playground/raw/REL-16-draftCT84/TS29522_NIDDConfigurationTrigger.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_NIDDConfigurationTrigger.yaml))
+* Applying BDT Policy
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_ApplyingBdtPolicy.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_ApplyingBdtPolicy.yaml))
 
 ## SCEF (Service Capability Exposure Function)
 >**Note:**
@@ -267,4 +283,3 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * Common Data
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29122_CommonData.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CommonData.yaml))
-

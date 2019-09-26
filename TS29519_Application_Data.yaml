@@ -1538,7 +1538,9 @@ components:
         multiAccCtrls:
           type: array
           items:
-            $ref: 'TS29522_IptvConfiguration.yaml#/components/schemas/MulticastAccessControl'
+            type: object
+            # TO-DO: temporary fix to pass the validator, until the API file in $ref is actually created
+            # $ref: 'TS29522_IptvConfiguration.yaml#/components/schemas/MulticastAccessControl'
       required:
         - dnn
         - snssai

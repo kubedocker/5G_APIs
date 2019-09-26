@@ -1511,14 +1511,18 @@ components:
         supi:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'
         bdtRefId:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/bdtReferenceId'
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/BdtReferenceId'
+          # TO-DO: Temporary fix to pass the validator
+          # $ref: 'TS29122_CommonData.yaml#/components/schemas/bdtReferenceId'
       required:
        - bdtRefId
     BdtPolicyDataPatch:
       type: object
       properties:
         bdtRefId:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/bdtReferenceId'
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/BdtReferenceId'
+          # TO-DO: Temporary fix to pass the validator
+          # $ref: 'TS29122_CommonData.yaml#/components/schemas/bdtReferenceId'
       required:
        - bdtRefId
     IptvConfigData:

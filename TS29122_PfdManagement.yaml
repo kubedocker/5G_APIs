@@ -539,7 +539,9 @@ components:
         cachingTime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DurationSec'
         locationArea:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/UserPlaneLocationArea'
+          $ref: '#/components/schemas/UserPlaneLocationArea'
+          # TO-DO: Temporary fix to pass the validator
+          # $ref: 'TS29122_CommonData.yaml#/components/schemas/UserPlaneLocationArea'
       required:
         - externalAppIds
         - failureCode

@@ -477,7 +477,9 @@ components:
         expectedUmts:
           type: array
           items:
-            $ref: 'TS29122_CommonData.yaml#/components/schemas/UmtLocationArea5G'
+            $ref: '#/components/schemas/UmtLocationArea5G'
+            # TO-DO: Temporary fix to pass the validator
+            # $ref: 'TS29122_CommonData.yaml#/components/schemas/UmtLocationArea5G'
           minItems: 1
           description: Identifies the UE's expected geographical movement. The attribute is only applicable in 5G.
         expectedUmtDays:

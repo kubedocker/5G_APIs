@@ -440,7 +440,7 @@ components:
       properties:
         chargingId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ChargingId'
-		homeProvidedChargingId:
+        homeProvidedChargingId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ChargingId'
         userInformation:
           $ref: '#/components/schemas/UserInformation'
@@ -653,9 +653,7 @@ components:
             $ref: '#/components/schemas/ServingNetworkFunctionID'
           minItems: 0
         3gppPSDataOffStatus:
-          $ref: '#/components/schemas/3GPPPSDataOffStatus
-      required:
-        - reportTime
+          $ref: '#/components/schemas/3GPPPSDataOffStatus'
         3gppChargingId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ChargingId'
         diagnostics:
@@ -664,6 +662,8 @@ components:
           type: array
           items:
             type: string
+      required:
+        - reportTime
     RoamingChargingProfile:
       type: object
       properties:
@@ -840,7 +840,7 @@ components:
           enum:
             - SMF
             - SMSF
-			- SGW
+            - SGW
         - type: string
     ChargingCharacteristicsSelectionMode:
       anyOf:

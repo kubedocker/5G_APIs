@@ -12,8 +12,9 @@ OpenAPI validation status:
 
 #### Tools
 * <a href="https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm" target="_blank">Frontend</a> to invoke the Swagger Editor, Swagger UI, or to parse OpenAPI files with APIDevTools Swagger Parser/Validator, or to search for APIs referencing a data structure
-* <a href="https://forge.etsi.org/swagger/tools/parser.html" target="_blank">API Parser</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator
+* <a href="https://forge.etsi.org/swagger/tools/parser.html" target="_blank">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality
 * <a href="https://forge.etsi.org/swagger/tools/types.html" target="_blank">Data Type Finder</a> to find the impacted APIs due to a change on a given data type
+* <a href="https://forge.etsi.org/swagger/tools/versions.html" target="_blank">API Versions Overview</a> to show a comprehensive report of the versions of all APIs in the repository
 
 
 The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:

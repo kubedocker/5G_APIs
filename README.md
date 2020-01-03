@@ -2,7 +2,7 @@
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **September 2019**  
+API version: **December 2019**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/REL-15)
 
@@ -29,11 +29,17 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Oauth2 Access Token Request
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29510_Nnrf_AccessToken.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29510_Nnrf_AccessToken.yaml))
+* Bootstrapping
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29510_Nnrf_Bootstrapping.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29510_Nnrf_Bootstrapping.yaml))
 
 ## LMF (Location Management Function)
 * Location
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29572_Nlmf_Location.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29572_Nlmf_Location.yaml))
+* Broadcast
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29572_Nlmf_Broadcast.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29572_Nlmf_Broadcast.yaml))
 
 ## AMF (Access and Mobility Management Function)
 * Communication
@@ -76,6 +82,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * NIDD Authorization
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29503_Nudm_NIDDAU.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29503_Nudm_NIDDAU.yaml))
+* MT
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29503_Nudm_MT.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29503_Nudm_MT.yaml))
 
 ## UDR (Unified Data Repository)
 * Data Repository
@@ -93,6 +102,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
   * Application Data
     ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29519_Application_Data.yaml))
     ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29519_Application_Data.yaml))
+* Group ID Map
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29504_Nudr_GroupIDmap.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29504_Nudr_GroupIDmap.yaml))
 
 ## AUSF (Authentication Server Function)
 * UE Authentication
@@ -127,6 +139,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Packet Flow Description (PFD) Management
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29551_Nnef_PFDmanagement.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29551_Nnef_PFDmanagement.yaml))
+* Session Management (SM) Context
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29541_Nnef_SMContext.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29541_Nnef_SMContext.yaml))
 
 ## PCF (Policy Control Function)
 * Policy Authorization
@@ -165,6 +180,26 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * UE Authentication
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29563_Nhss_UEAU.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29563_Nhss_UEAU.yaml))
+* Subscriber Data Management
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29563_Nhss_SDM.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29563_Nhss_SDM.yaml))
+* UE Context Management
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29563_Nhss_UECM.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29563_Nhss_UECM.yaml))
+* IMS UE Authentication
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsUEAU.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_UEAU.yaml))
+* IMS Subscriber Data Management
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsSDM.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_SDM.yaml))
+* IMS UE Context Management
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsUECM.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_UECM.yaml))
+
+## OTAF (Over-The-Air Function)
+* Secured Packet
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29544_Notaf_SecuredPacket.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29544_Notaf_SecuredPacket.yaml))
 
 ## AF (Application Function)
 * Event Exposure
@@ -178,6 +213,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Converged Charging
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS32291_Nchf_ConvergedCharging.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS32291_Nchf_ConvergedCharging.yaml))
+* Offline-Only Charging
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS32291_Nchf_OfflineOnlyCharging.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS32291_Nchf_OfflineOnlyCharging.yaml))
 
 ## Common Data Types
 * Common Data
@@ -194,6 +232,19 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Telescopic FQDN Mapping
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29573_SeppTelescopicFqdnMapping.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29573_SeppTelescopicFqdnMapping.yaml))
+
+## UCMF (UE Radio Capability Management Function)
+* UE Radio Capability Management
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29673_Nucmf_UERCM.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29673_Nucmf_UERCM.yaml))
+* Provisioning
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29675_Nucmf_Provisioning.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29675_Nucmf_Provisioning.yaml))
+
+## GMLC (Gateway Mobile Location Center)
+* Location
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29515_Ngmlc_Location.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29515_Ngmlc_Location.yaml))
 
 # Northbound APIs (CAPIF)
 * Discover Service
@@ -232,9 +283,29 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * NIDD Configuration Trigger
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_NIDDConfigurationTrigger.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_NIDDConfigurationTrigger.yaml))
+* 5G LAN Parameter Provision
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_5GLANParameterProvision.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_5GLANParameterProvision.yaml))
 * Applying BDT Policy
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_ApplyingBdtPolicy.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_ApplyingBdtPolicy.yaml))
+* IPTV Configuration
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_IPTVConfiguration.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_IPTVConfiguration.yaml))
+* Analytics Exposure
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_AnalyticsExposure.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_AnalyticsExposure.yaml))
+
+## VAE (V2X Application Enabler)
+* V2X Message Delivery
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_V2X_Message_Delivery.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_V2X_Message_Delivery.yaml))
+* File Distribution
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_File_Distribution.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_File_Distribution.yaml))
+* Application Requirement
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_V2X_Application_Requirement.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_V2X_Application_Requirement.yaml))
 
 ## SCEF (Service Capability Exposure Function)
 >**Note:**
@@ -281,6 +352,9 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * MSISDN-less Mobile-Originated SMS
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29122_MsisdnLessMoSms.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29122_MsisdnLessMoSms.yaml))
+* RACS (Radio Capability Signaling) Parameter Provisioning
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29122_RacsParameterProvisioning.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29122_RacsParameterProvisioning.yaml))
 * Common Data
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29122_CommonData.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CommonData.yaml))

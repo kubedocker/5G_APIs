@@ -2,7 +2,7 @@
 
 (c) 2019, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **December 2019**  
+API version: **March 2020**
 Release status: **{+ Open +}**  
 Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/REL-15)
 
@@ -51,7 +51,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Location
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29518_Namf_Location.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29518_Namf_Location.yaml))
-* MT
+* MT (Mobile-Terminated)
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29518_Namf_MT.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29518_Namf_MT.yaml))
 
@@ -62,6 +62,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Event Exposure
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29508_Nsmf_EventExposure.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29508_Nsmf_EventExposure.yaml))
+* NIDD (Non-IP Data Delivery)
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29542_Nsmf_NIDD.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29542_Nsmf_NIDD.yaml))
 
 ## UDM (Unified Data Management)
 * Subscriber Data Management
@@ -79,10 +82,10 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Parameter Provisioning
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29503_Nudm_PP.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29503_Nudm_PP.yaml))
-* NIDD Authorization
+* NIDD (Non-IP Data Delivery) Authorization
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29503_Nudm_NIDDAU.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29503_Nudm_NIDDAU.yaml))
-* MT
+* MT (Mobile-Terminated)
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29503_Nudm_MT.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29503_Nudm_MT.yaml))
 
@@ -105,6 +108,11 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Group ID Map
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29504_Nudr_GroupIDmap.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29504_Nudr_GroupIDmap.yaml))
+
+## UDSF (Unstructured Data Storage Function)
+* Data Repository
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29598_Nudsf_DataRepository.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29598_Nudsf_DataRepository.yaml))
 
 ## AUSF (Authentication Server Function)
 * UE Authentication
@@ -142,6 +150,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Session Management (SM) Context
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29541_Nnef_SMContext.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29541_Nnef_SMContext.yaml))
+* NEF Event Exposure
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29591_Nnef_EventExposure.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29591_Nnef_EventExposure.yaml))
 
 ## PCF (Policy Control Function)
 * Policy Authorization
@@ -196,10 +207,15 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsUECM.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_UECM.yaml))
 
-## OTAF (Over-The-Air Function)
+## SOR-AF (Steering of Roaming Application Function)
+* Steering of Roaming
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29550_Nsoraf_SOR.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29550_Nsoraf_SOR.yaml))
+
+## SP-AF (Secured Packed Application Function)
 * Secured Packet
-([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29544_Notaf_SecuredPacket.yaml))
-([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29544_Notaf_SecuredPacket.yaml))
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29544_Nspaf_SecuredPacket.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29544_Nspaf_SecuredPacket.yaml))
 
 ## AF (Application Function)
 * Event Exposure
@@ -274,13 +290,16 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * AEF Authentication
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29222_AEF_Security_API.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29222_AEF_Security_API.yaml))
+* API Provider Management
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_API_Provider_Management_API.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29222_CAPIF_API_Provider_Management_API.yaml))
 
 # Northbound APIs
 ## NEF (Network Exposure Function)
 * Traffic Influence
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_TrafficInfluence.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_TrafficInfluence.yaml))
-* NIDD Configuration Trigger
+* NIDD (Non-IP Data Delivery) Configuration Trigger
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_NIDDConfigurationTrigger.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_NIDDConfigurationTrigger.yaml))
 * 5G LAN Parameter Provision
@@ -295,17 +314,43 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Analytics Exposure
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_AnalyticsExposure.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_AnalyticsExposure.yaml))
+* LPI (Location Privacy Indicator) Parameter Provision
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_LpiParameterProvision.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_LpiParameterProvision.yaml))
+* Service Parameter
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_ServiceParameter.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_ServiceParameter.yaml))
 
 ## VAE (V2X Application Enabler)
 * V2X Message Delivery
-([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_V2X_Message_Delivery.yaml))
-([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_V2X_Message_Delivery.yaml))
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_MessageDelivery.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_MessageDelivery.yaml))
 * File Distribution
-([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_File_Distribution.yaml))
-([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_File_Distribution.yaml))
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_FileDistribution.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_FileDistribution.yaml))
 * Application Requirement
-([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_V2X_Application_Requirement.yaml))
-([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_V2X_Application_Requirement.yaml))
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_ApplicationRequirement.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_ApplicationRequirement.yaml))
+* Dynamic Group
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_DynamicGroup.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_DynamicGroup.yaml))
+* Service Continuity
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29486_VAE_ServiceContinuity.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_ServiceContinuity.yaml))
+
+## SEAL (Service Enabler Architecture Layer)
+* Network Resource Adaption
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_NetworkResourceAdaptation.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_NetworkResourceAdaptation.yaml))
+* User Profile Retrival
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_UserProfileRetrieval.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_UserProfileRetrieval.yaml))
+* Events
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_Events.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_Events.yaml))
+* Group Management
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_GroupManagement.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_GroupManagement.yaml))
 
 ## SCEF (Service Capability Exposure Function)
 >**Note:**

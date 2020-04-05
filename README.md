@@ -339,7 +339,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_ServiceContinuity.yaml))
 
 ## SEAL (Service Enabler Architecture Layer)
-* Network Resource Adaption
+* Network Resource Adaptation
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_NetworkResourceAdaptation.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_NetworkResourceAdaptation.yaml))
 * User Profile Retrival

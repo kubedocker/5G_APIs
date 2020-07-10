@@ -2,8 +2,8 @@
 
 (c) 2020, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **March 2020**
-Release status: **{+ Open +}**  
+API version: **June 2020**
+Release status: **{- Frozen -}**  
 Other releases: [Rel-15 (Frozen)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/REL-15)
 
 
@@ -11,7 +11,6 @@ OpenAPI validation status:
 [![pipeline status](https://forge.etsi.org/gitlab/3GPP/5G_APIs/badges/master/pipeline.svg)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/commits/master)
 
 #### Tools
-* <a href="https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm" target="_blank">Frontend</a> to invoke the Swagger Editor, Swagger UI, or to parse OpenAPI files with APIDevTools Swagger Parser/Validator, or to search for APIs referencing a data structure
 * <a href="https://forge.etsi.org/swagger/tools/parser.html" target="_blank">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality
 * <a href="https://forge.etsi.org/swagger/tools/types.html" target="_blank">Data Type Finder</a> to find the impacted APIs due to a change on a given data type
 * <a href="https://forge.etsi.org/swagger/tools/versions.html" target="_blank">API Versions Overview</a> to show a comprehensive report of the versions of all APIs in the repository
@@ -125,6 +124,11 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29509_Nausf_UPUProtection.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29509_Nausf_UPUProtection.yaml))
 
+## NSSAAF (Network Slice Specific Authentication and Authorization Function)
+* NSSAA
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29526_Nnssaaf_NSSAA.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29526_Nnssaaf_NSSAA.yaml))
+
 ## NSSF (Network Slice Selection Function)
 * NSSAI Availability
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29531_Nnssf_NSSAIAvailability.yaml))
@@ -197,6 +201,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * UE Context Management
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29563_Nhss_UECM.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29563_Nhss_UECM.yaml))
+* Event Exposure
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29563_Nhss_EE.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29563_Nhss_EE.yaml))
 * IMS UE Authentication
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsUEAU.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_UEAU.yaml))
@@ -262,7 +269,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29515_Ngmlc_Location.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29515_Ngmlc_Location.yaml))
 
-# Northbound APIs (CAPIF)
+# CAPIF (Common API Framework)
 * Discover Service
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_Discover_Service_API.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29222_CAPIF_Discover_Service_API.yaml))
@@ -293,6 +300,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * API Provider Management
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_API_Provider_Management_API.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29222_CAPIF_API_Provider_Management_API.yaml))
+* Routing Information
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_Routing_Info_API.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29222_CAPIF_Routing_Info_API.yaml))
 
 # Northbound APIs
 ## NEF (Network Exposure Function)
@@ -320,6 +330,12 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Service Parameter
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_ServiceParameter.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_ServiceParameter.yaml))
+* ACS Parameter Provision
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_ACSParameterProvision.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_ACSParameterProvision.yaml))
+* MO LCS Notify
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29522_MoLcsNotify.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29522_MoLcsNotify.yaml))
 
 ## VAE (V2X Application Enabler)
 * V2X Message Delivery
@@ -342,7 +358,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Network Resource Adaptation
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_NetworkResourceAdaptation.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_NetworkResourceAdaptation.yaml))
-* User Profile Retrival
+* User Profile Retrieval
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_UserProfileRetrieval.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_UserProfileRetrieval.yaml))
 * Events
@@ -351,6 +367,12 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Group Management
 ([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_GroupManagement.yaml))
 ([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_GroupManagement.yaml))
+* Location Reporting
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_LocationReporting.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_LocationReporting.yaml))
+* Key Information Retrieval
+([Editor](https://forge.etsi.org/swagger/tools/loader.html?yaml=TS29549_SS_KeyInfoRetrieval.yaml))
+([UI](https://forge.etsi.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_KeyInfoRetrieval.yaml))
 
 ## SCEF (Service Capability Exposure Function)
 >**Note:**

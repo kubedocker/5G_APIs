@@ -4,7 +4,7 @@
 
 API version: **June 2020**  
 Release status: **{- Frozen -}**  
-Other releases: [Rel-16 (Open)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/master)
+Other releases: [Rel-17 (Open)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/master), [Rel-16 (Frozen)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/REL-16)
 
 
 OpenAPI validation status:

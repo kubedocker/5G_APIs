@@ -8,7 +8,7 @@ Other releases: [Rel-17 (Open)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/
 
 
 OpenAPI validation status:
-[![pipeline status](https://forge.etsi.org/gitlab/3GPP/5G_APIs/badges/master/pipeline.svg)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/commits/master)
+[![pipeline status](https://forge.etsi.org/gitlab/3GPP/5G_APIs/badges/REL-16/pipeline.svg)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/commits/REL-16)
 
 #### Tools
 * <a href="https://forge.etsi.org/swagger/tools/parser.html" target="_blank">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality

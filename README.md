@@ -2,7 +2,7 @@
 
 (c) 2020, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **March 2020**  
+API version: **June 2020**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-16 (Open)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/tree/master)
 
@@ -11,7 +11,6 @@ OpenAPI validation status:
 [![pipeline status](https://forge.etsi.org/gitlab/3GPP/5G_APIs/badges/REL-15/pipeline.svg)](https://forge.etsi.org/gitlab/3GPP/5G_APIs/commits/REL-15)
 
 #### Tools
-* <a href="https://forge.etsi.org/swagger/tools/GitlabOpenAPIFrontend.htm" target="_blank">Frontend</a> to invoke the Swagger Editor, Swagger UI, or to parse OpenAPI files with APIDevTools Swagger Parser/Validator, or to search for APIs referencing a data structure
 * <a href="https://forge.etsi.org/swagger/tools/parser.html" target="_blank">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality
 * <a href="https://forge.etsi.org/swagger/tools/types.html" target="_blank">Data Type Finder</a> to find the impacted APIs due to a change on a given data type
 * <a href="https://forge.etsi.org/swagger/tools/versions.html" target="_blank">API Versions Overview</a> to show a comprehensive report of the versions of all APIs in the repository

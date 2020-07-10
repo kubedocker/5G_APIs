@@ -2546,7 +2546,8 @@ components:
         sqnScheme:
           $ref: '#/components/schemas/SqnScheme'
         sqn:
-          type: stri         pattern: '^[A-Fa-f0-9]{12}$'
+          type: string
+          pattern: '^[A-Fa-f0-9]{12}$'
         lastIndexes:
           type: object
           additionalProperties:

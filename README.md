@@ -1,4 +1,4 @@
-# OpenAPI Specification Files for 3GPP 5G Core Network (Release 16) 
+# OpenAPI Specification Files for 3GPP 5G Core Network (Release 16)
 
 (c) 2020, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 

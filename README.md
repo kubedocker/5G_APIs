@@ -6,7 +6,6 @@ API version: **June 2020**
 Release status: **{- Frozen -}**  
 Other releases: [Rel-17 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/master), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16)
 
-
 OpenAPI validation status:
 [![pipeline status](https://forge.3gpp.org/rep/all/5G_APIs/badges/REL-15/pipeline.svg)](https://forge.3gpp.org/rep/all/5G_APIs/commits/REL-15)
 

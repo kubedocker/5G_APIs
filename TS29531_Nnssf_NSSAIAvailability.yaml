@@ -554,7 +554,8 @@ paths:
             schema:
               $ref: '#/components/schemas/PatchDocument'
 
-     responses:
+      # Temporary fix to correct wrong indentation of "responses"
+      responses:
         '200':
           description: OK (Successful update of NSSAI availability notification subscription)
           content:

@@ -86,9 +86,10 @@ paths:
           application/json:
             schema:
               type: array
-                items:
-                  $ref: '#/components/schemas/ApplicationForPfdRequest'
-                minItems: 1
+              # Temporary fix to correct wrong indentation of "items"
+              items:
+                $ref: '#/components/schemas/ApplicationForPfdRequest'
+              minItems: 1
       responses:
         '200':
           description: OK. Changed PFD(s) is returned

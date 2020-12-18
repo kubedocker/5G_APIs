@@ -2,7 +2,7 @@
 
 (c) 2020, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **September 2020**  
+API version: **December 2020**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -219,7 +219,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29550_Nsoraf_SOR.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29550_Nsoraf_SOR.yaml))
 
-## SP-AF (Secured Packed Application Function)
+## SP-AF (Secured Packet Application Function)
 * Secured Packet
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29544_Nspaf_SecuredPacket.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29544_Nspaf_SecuredPacket.yaml))
@@ -336,6 +336,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * MO LCS Notify
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_MoLcsNotify.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_MoLcsNotify.yaml))
+* AKMA
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_AKMA.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_AKMA.yaml))
 
 ## VAE (V2X Application Enabler)
 * V2X Message Delivery

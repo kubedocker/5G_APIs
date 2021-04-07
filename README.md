@@ -1,8 +1,8 @@
 # OpenAPI Specification Files for 3GPP 5G Core Network (Release 17)
 
-(c) 2020, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
+(c) 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **December 2020**  
+API version: **March 2021**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -112,6 +112,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Data Repository
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29598_Nudsf_DataRepository.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29598_Nudsf_DataRepository.yaml))
+* Timer
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29598_Nudsf_Timer.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29598_Nudsf_Timer.yaml))
 
 ## AUSF (Authentication Server Function)
 * UE Authentication
@@ -268,6 +271,11 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Location
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29515_Ngmlc_Location.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29515_Ngmlc_Location.yaml))
+
+## AAnF (AKMA Anchor Function)
+* AKMA Anchor Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29535_Naanf_AKMA.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29535_Naanf_AKMA.yaml))
 
 # CAPIF (Common API Framework)
 * Discover Service

@@ -436,3 +436,53 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * Common Data
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_CommonData.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CommonData.yaml))
+
+# 5G Media Streaming (5GMS) TS 26.512
+>**Note:**
+The APIs at reference points M1 and M5 are exposed by the 5GMS AF.
+* Common Data Types
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_CommonData.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_CommonData.yaml))
+
+## Provisioning (M1)
+* Provisioning Sessions
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_ProvisioningSessions.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_ProvisioningSessions.yaml))
+* Server Certificates Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_ServerCertificatesProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_ServerCertificatesProvisioning.yaml))
+* Content Preparation Templates Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_ContentPreparationTemplatesProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_ContentPreparationTemplatesProvisioning.yaml))
+* Content Protocols Discovery
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_ContentProtocolsDiscovery.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_ContentProtocolsDiscovery.yaml))
+* Content Hosting Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_ContentHostingProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_ContentHostingProvisioning.yaml))
+* Consumption Reporting Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_ConsumptionReportingProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_ConsumptionReportingProvisioning.yaml))
+* Metrics Reporting Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_MetricsReportingProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_MetricsReportingProvisioning.yaml))
+* Policy Templates Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M1_PolicyTemplatesProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M1_PolicyTemplatesProvisioning.yaml))
+
+## Media Session Handling (M5)
+* Service Access Information
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M5_ServiceAccessInformation.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M5_ServiceAccessInformation.yaml))
+* Consumption Reporting
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M5_ConsumptionReporting.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M5_ConsumptionReporting.yaml))
+* Metrics Reporting
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M5_MetricsReporting.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M5_MetricsReporting.yaml))
+* Dynamic Policies
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M5_DynamicPolicies.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M5_DynamicPolicies.yaml))
+* Network Assistance
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M5_NetworkAssistance.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M5_NetworkAssistance.yaml))

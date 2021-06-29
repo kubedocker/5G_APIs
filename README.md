@@ -2,7 +2,7 @@
 
 (c) 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **March 2021**  
+API version: **June 2021**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-17 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/master), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16)
 
@@ -74,8 +74,8 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 
 ## UDR (Unified Data Repository)
 * Data Repository
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29504_Nudr_DataRepository.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29504_Nudr_DataRepository.yaml))
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29504_Nudr_DR.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29504_Nudr_DR.yaml))
   * Subscription Data
     ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29505_Subscription_Data.yaml))
     ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29505_Subscription_Data.yaml))

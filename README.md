@@ -2,7 +2,7 @@
 
 (c) 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **March 2021**  
+API version: **June 2021**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -90,8 +90,8 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 
 ## UDR (Unified Data Repository)
 * Data Repository
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29504_Nudr_DataRepository.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29504_Nudr_DataRepository.yaml))
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29504_Nudr_DR.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29504_Nudr_DR.yaml))
   * Subscription Data
     ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29505_Subscription_Data.yaml))
     ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29505_Subscription_Data.yaml))
@@ -165,6 +165,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Policy Authorization
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29514_Npcf_PolicyAuthorization.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29514_Npcf_PolicyAuthorization.yaml))
+* Access and Mobility (AM) Policy Authorization
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29534_Npcf_AMPolicyAuthorization.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29534_Npcf_AMPolicyAuthorization.yaml))
 * Access and Mobility (AM) Policy Control
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29507_Npcf_AMPolicyControl.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29507_Npcf_AMPolicyControl.yaml))
@@ -209,13 +212,13 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29563_Nhss_EE.yaml))
 * IMS UE Authentication
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsUEAU.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_UEAU.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_imsUEAU.yaml))
 * IMS Subscriber Data Management
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsSDM.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_SDM.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_imsSDM.yaml))
 * IMS UE Context Management
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsUECM.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_UECM.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_imsUECM.yaml))
 
 ## SOR-AF (Steering of Roaming Application Function)
 * Steering of Roaming
@@ -276,6 +279,11 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * AKMA Anchor Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29535_Naanf_AKMA.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29535_Naanf_AKMA.yaml))
+
+## 5G DDNMF (Inter-5G Direct Discovery Name Management Function)
+* Discovery
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29555_N5g-ddnmf_Discovery.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29555_N5g-ddnmf_Discovery.yaml))
 
 # CAPIF (Common API Framework)
 * Discover Service
@@ -347,6 +355,15 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * AKMA
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_AKMA.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_AKMA.yaml))
+* Time Sync Exposure
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_TimeSyncExposure.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_TimeSyncExposure.yaml))
+* ECS Address Provision
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_EcsAddressProvision.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_EcsAddressProvision.yaml))
+* AM Policy Authorization
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_AmPolicyAuthorization.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_AmPolicyAuthorization.yaml))
 
 ## VAE (V2X Application Enabler)
 * V2X Message Delivery
@@ -364,6 +381,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Service Continuity
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29486_VAE_ServiceContinuity.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_ServiceContinuity.yaml))
+* HD Map Dynamic Information
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29486_VAE_HDMapDynamicInfo.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_HDMapDynamicInfo.yaml))
 
 ## SEAL (Service Enabler Architecture Layer)
 * Network Resource Adaptation

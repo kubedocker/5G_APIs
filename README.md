@@ -2,7 +2,7 @@
 
 (c) 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **June 2021**  
+API version: **September 2021**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -18,6 +18,8 @@ OpenAPI validation status:
 The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:
 
 <!-- APIs -->
+<!-- SWAGGER_EDITOR_VERSION = 3.18.0 -->
+
 ## NRF (NF Repository Function)
 * NF Management
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29510_Nnrf_NFManagement.yaml))
@@ -220,6 +222,11 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29562_Nhss_imsUECM.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29562_Nhss_imsUECM.yaml))
 
+## GBA BSF (GBA Bootstrapping Server Function)
+* GBA Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29309_Nbsp_GBA.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29309_Nbsp_GBA.yaml))
+
 ## SOR-AF (Steering of Roaming Application Function)
 * Steering of Roaming
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29550_Nsoraf_SOR.yaml))
@@ -234,6 +241,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Event Exposure
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29517_Naf_EventExposure.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29517_Naf_EventExposure.yaml))
+* ProSe
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29557_Naf_ProSe.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29557_Naf_ProSe.yaml))
 
 ## CHF (Charging Function)
 * Spending Limit Control
@@ -284,6 +294,14 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Discovery
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29555_N5g-ddnmf_Discovery.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29555_N5g-ddnmf_Discovery.yaml))
+
+## EDGEAPP (Enabling Edge Applications)
+* ACR Management Event
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29558_Eees_ACRManagementEvent.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29558_Eees_ACRManagementEvent.yaml))
+* EEC Registration
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS24558_Eees_EECRegistration.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS24558_Eees_EECRegistration.yaml))
 
 # CAPIF (Common API Framework)
 * Discover Service
@@ -384,6 +402,11 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * HD Map Dynamic Information
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29486_VAE_HDMapDynamicInfo.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_HDMapDynamicInfo.yaml))
+
+## UAS Application Enabler (UAE) Server
+* C2 Operation Mode Management
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29257_UAE_C2OperationModeManagement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29257_UAE_C2OperationModeManagement.yaml))
 
 ## SEAL (Service Enabler Architecture Layer)
 * Network Resource Adaptation

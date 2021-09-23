@@ -2,7 +2,7 @@
 
 (c) 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **June 2021**  
+API version: **September 2021**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-17 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/master), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16)
 
@@ -17,6 +17,8 @@ OpenAPI validation status:
 The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:
 
 <!-- APIs -->
+<!-- SWAGGER_EDITOR_VERSION = 3.18.0 -->
+
 ## NRF (NF Repository Function)
 * NF Management
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29510_Nnrf_NFManagement.yaml))

@@ -1,8 +1,8 @@
 # OpenAPI Specification Files for 3GPP 5G Core Network (Release 15)
  
-(c) 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
+© 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **September 2021**  
+API version: **December 2021**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-17 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/master), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16)
 
@@ -179,7 +179,8 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29573_JOSEProtectedMessageForwarding.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29573_JOSEProtectedMessageForwarding.yaml))
 
-# Northbound APIs (CAPIF)
+# Northbound and Application Layer APIs
+## CAPIF (Common API Framework)
 * Discover Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_Discover_Service_API.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29222_CAPIF_Discover_Service_API.yaml))
@@ -207,12 +208,6 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * AEF Authentication
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29222_AEF_Security_API.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29222_AEF_Security_API.yaml))
-
-# Northbound APIs
-## NEF (Network Exposure Function)
-* Traffic Influence
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_TrafficInfluence.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_TrafficInfluence.yaml))
 
 ## SCEF (Service Capability Exposure Function)
 >**Note:**
@@ -263,3 +258,7 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_CommonData.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CommonData.yaml))
 
+## NEF (Network Exposure Function)
+* Traffic Influence
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_TrafficInfluence.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_TrafficInfluence.yaml))

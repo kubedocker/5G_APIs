@@ -1,8 +1,8 @@
 # OpenAPI Specification Files for 3GPP 5G Core Network (Release 16)
 
-(c) 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
+© 2021, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **September 2021**  
+API version: **December 2021**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-17 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/master), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -271,7 +271,8 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29515_Ngmlc_Location.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29515_Ngmlc_Location.yaml))
 
-# CAPIF (Common API Framework)
+# Northbound and Application Layer APIs
+## CAPIF (Common API Framework)
 * Discover Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_Discover_Service_API.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29222_CAPIF_Discover_Service_API.yaml))
@@ -306,7 +307,58 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29222_CAPIF_Routing_Info_API.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29222_CAPIF_Routing_Info_API.yaml))
 
-# Northbound APIs
+## SCEF (Service Capability Exposure Function)
+>**Note:**
+These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G SCEF to the SCS/AS
+* Event Monitoring
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_MonitoringEvent.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_MonitoringEvent.yaml))
+* Resource Management of Background Data Transfer (BDT)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ResourceManagementOfBdt.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ResourceManagementOfBdt.yaml))
+* Chargeable Party
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ChargeableParty.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ChargeableParty.yaml))
+* Non-IP Data Delivery (NIDD)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_NIDD.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_NIDD.yaml))
+* Device Triggering
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_DeviceTriggering.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_DeviceTriggering.yaml))
+* Group Message Delivery via MBMS by MB2
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_GMDviaMBMSbyMB2.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_GMDviaMBMSbyMB2.yaml))
+* Group Message Delivery via MBMS by xMB
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_GMDviaMBMSbyxMB.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_GMDviaMBMSbyxMB.yaml))
+* Network Status Reporting
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ReportingNetworkStatus.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ReportingNetworkStatus.yaml))
+* Communication Patterns (CP) Parameters Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_CpProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CpProvisioning.yaml))
+* Packet Flow Description (PFD) Management
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_PfdManagement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_PfdManagement.yaml))
+* Enhanced Coverage Restriction Control
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ECRControl.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ECRControl.yaml))
+* Network Parameter Configuration
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_NpConfiguration.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_NpConfiguration.yaml))
+* Application Server (AS) Session with QoS
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_AsSessionWithQoS.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_AsSessionWithQoS.yaml))
+* MSISDN-less Mobile-Originated SMS
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_MsisdnLessMoSms.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_MsisdnLessMoSms.yaml))
+* RACS (Radio Capability Signaling) Parameter Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_RacsParameterProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_RacsParameterProvisioning.yaml))
+* Common Data
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_CommonData.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CommonData.yaml))
+
 ## NEF (Network Exposure Function)
 * Traffic Influence
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_TrafficInfluence.yaml))
@@ -375,58 +427,6 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Key Information Retrieval
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_KeyInfoRetrieval.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_KeyInfoRetrieval.yaml))
-
-## SCEF (Service Capability Exposure Function)
->**Note:**
-These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G SCEF to the SCS/AS
-* Event Monitoring
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_MonitoringEvent.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_MonitoringEvent.yaml))
-* Resource Management of Background Data Transfer (BDT)
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ResourceManagementOfBdt.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ResourceManagementOfBdt.yaml))
-* Chargeable Party
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ChargeableParty.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ChargeableParty.yaml))
-* Non-IP Data Delivery (NIDD)
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_NIDD.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_NIDD.yaml))
-* Device Triggering
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_DeviceTriggering.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_DeviceTriggering.yaml))
-* Group Message Delivery via MBMS by MB2
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_GMDviaMBMSbyMB2.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_GMDviaMBMSbyMB2.yaml))
-* Group Message Delivery via MBMS by xMB
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_GMDviaMBMSbyxMB.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_GMDviaMBMSbyxMB.yaml))
-* Network Status Reporting
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ReportingNetworkStatus.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ReportingNetworkStatus.yaml))
-* Communication Patterns (CP) Parameters Provisioning
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_CpProvisioning.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CpProvisioning.yaml))
-* Packet Flow Description (PFD) Management
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_PfdManagement.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_PfdManagement.yaml))
-* Enhanced Coverage Restriction Control
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_ECRControl.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_ECRControl.yaml))
-* Network Parameter Configuration
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_NpConfiguration.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_NpConfiguration.yaml))
-* Application Server (AS) Session with QoS
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_AsSessionWithQoS.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_AsSessionWithQoS.yaml))
-* MSISDN-less Mobile-Originated SMS
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_MsisdnLessMoSms.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_MsisdnLessMoSms.yaml))
-* RACS (Radio Capability Signaling) Parameter Provisioning
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_RacsParameterProvisioning.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_RacsParameterProvisioning.yaml))
-* Common Data
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29122_CommonData.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29122_CommonData.yaml))
 
 # 5G Media Streaming (5GMS) TS 26.512
 >**Note:**

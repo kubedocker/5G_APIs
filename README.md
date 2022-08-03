@@ -2,9 +2,9 @@
 
 © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **March 2022**  
+API version: **June 2022**  
 Release status: **{- Frozen -}**  
-Other releases: [Rel-17 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/master), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
+Other releases: [Rel-18 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-18), [Rel-17 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-17), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
 
 OpenAPI validation status:
@@ -477,3 +477,48 @@ The APIs at reference points M1 and M5 are exposed by the 5GMS AF.
 * Network Assistance
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_M5_NetworkAssistance.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M5_NetworkAssistance.yaml))
+
+# 3GPP SA5 models and MnS OpenAPI definitions
+
+## Network Resource Models (NRM)
+* Generic NRM (TS 28.623)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28623_GenericNrm.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28623_GenericNrm.yaml))
+* Common NRM definitions (TS 28.623)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28623_ComDefs.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28623_ComDefs.yaml))
+* NR NRM (TS 28.541)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28541_NrNrm.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28541_NrNrm.yaml))
+* 5GC NRM (TS 28.541)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28541_5GcNrm.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28541_5GcNrm.yaml))
+* Slice NRM (TS 28.541)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28541_SliceNrm.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28541_SliceNrm.yaml))
+* Communication Service Assurance NRM (TS 28.536)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28536_CoslaNrm.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28536_CoslaNrm.yaml))
+
+## Management Services (MnS)
+* Provisioning MnS (TS 28.532)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28532_ProvMnS.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28532_ProvMnS.yaml))
+* Fault Supervision MnS (TS 28.532)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28532_FaultMnS.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28532_FaultMnS.yaml))
+* Performance Measurement Job Control MnS (28.550)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28550_PerfMeasJobCtrlMnS.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28550_PerfMeasJobCtrlMnS.yaml))
+* Performance Data File Reporting MnS (TS 28.532)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28532_FileDataReportingMnS.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28532_FileDataReportingMnS.yaml))
+* Performance Threshold Monitoring MnS (TS 28.532)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28532_PerfMnS.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28532_PerfMnS.yaml))
+* Heartbeat Notifications(TS 28.532)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28532_HeartbeatNtf.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28532_HeartbeatNtf.yaml))
+* Streaming Data Reporting MnS (TS 28.532)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28532_StreamingDataMnS.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28532_StreamingDataMnS.yaml))

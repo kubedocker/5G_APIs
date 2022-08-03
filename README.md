@@ -8,7 +8,7 @@ Other releases: [Rel-17 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/RE
 
 
 OpenAPI validation status:
-[![pipeline status](https://forge.3gpp.org/rep/all/5G_APIs/badges/master/pipeline.svg)](https://forge.3gpp.org/rep/all/5G_APIs/commits/master)
+[![pipeline status](https://forge.3gpp.org/rep/all/5G_APIs/badges/REL-18/pipeline.svg)](https://forge.3gpp.org/rep/all/5G_APIs/commits/REL-18)
 
 #### Tools
 * <a href="https://forge.3gpp.org/swagger/tools/parser.html" target="_blank">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality

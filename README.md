@@ -2,7 +2,7 @@
 
 © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **June 2022**  
+API version: **September 2022**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-17 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-17), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -85,6 +85,14 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * MBS Distribution Session
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29581_Nmbstf_DistSession.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29581_Nmbstf_DistSession.yaml))
+
+## MBSF (Multicast/Broadcast Service Function)
+* MBS User Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29580_Nmbsf_MBSUserService.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29580_Nmbsf_MBSUserService.yaml))
+* MBS User Data Ingest Session
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29580_Nmbsf_MBSUserDataIngestSession.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29580_Nmbsf_MBSUserDataIngestSession.yaml))
 
 ## UDM (Unified Data Management)
 * Subscriber Data Management
@@ -195,6 +203,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Session Management (SM) Context
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29541_Nnef_SMContext.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29541_Nnef_SMContext.yaml))
+* Short Message (SM) Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29541_Nnef_SMService.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29541_Nnef_SMService.yaml))
 * Event Exposure
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29591_Nnef_EventExposure.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29591_Nnef_EventExposure.yaml))
@@ -435,9 +446,14 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29579_Niwmsc_SMService.yaml))
 
 ## PKMF (ProSe Key Management Service)
-* KeyRequest Service
+* Key Request Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29559_Npkmf_PKMFKeyRequest.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29559_Npkmf_PKMFKeyRequest.yaml))
+
+## PANF (ProSe Anchor Function)
+* Prose Key Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29553_Npanf_ProseKey.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29553_Npanf_ProseKey.yaml))
 
 # Northbound and Application Layer APIs
 ## CAPIF (Common API Framework)
@@ -594,6 +610,15 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * UE Identifier
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_UEId.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_UEId.yaml))
+* MBS User Data Ingest Session
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_MBSUserDataIngestSession.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_MBSUserDataIngestSession.yaml))
+* MBS User Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_MBSUserService.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_MBSUserService.yaml))
+* Media Streaming Event Exposure
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_MSEventExposure.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_MSEventExposure.yaml))
 
 
 ## VAE (V2X Application Enabler)

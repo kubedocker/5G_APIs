@@ -2,7 +2,7 @@
  
 © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **June 2022**  
+API version: **September 2022**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-18 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-18), [Rel-17 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-17), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16)
 

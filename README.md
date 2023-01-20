@@ -2,7 +2,7 @@
  
 © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **September 2022**  
+API version: **December 2022**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-18 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-18), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -11,9 +11,9 @@ OpenAPI validation status:
 [![pipeline status](https://forge.3gpp.org/rep/all/5G_APIs/badges/REL-17/pipeline.svg)](https://forge.3gpp.org/rep/all/5G_APIs/commits/REL-17)
 
 #### Tools
-* <a href="https://forge.3gpp.org/swagger/tools/parser.html" target="_blank">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality
-* <a href="https://forge.3gpp.org/swagger/tools/types.html" target="_blank">Data Type Finder</a> to find the impacted APIs due to a change on a given data type
-* <a href="https://forge.3gpp.org/swagger/tools/versions.html" target="_blank">API Versions Overview</a> to show a comprehensive report of the versions of all APIs in the repository
+* <a href="https://forge.3gpp.org/swagger/tools/parser.html">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality
+* <a href="https://forge.3gpp.org/swagger/tools/types.html">Data Type Finder</a> to find the impacted APIs due to a change on a given data type
+* <a href="https://forge.3gpp.org/swagger/tools/versions.html">API Versions Overview</a> to show a comprehensive report of the versions of all APIs in the repository
 
 The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML file of each Network Function (NF) API:
 

@@ -81,11 +81,6 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29532_Nmbsmf_TMGI.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29532_Nsmf_TMG.yaml))
 
-## MB-STF (Multicast/Broadcast Service Transport Function)
-* MBS Distribution Session
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29581_Nmbstf_DistSession.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29581_Nmbstf_DistSession.yaml))
-
 ## MBSF (Multicast/Broadcast Service Function)
 * MBS User Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29580_Nmbsf_MBSUserService.yaml))
@@ -93,6 +88,16 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * MBS User Data Ingest Session
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29580_Nmbsf_MBSUserDataIngestSession.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29580_Nmbsf_MBSUserDataIngestSession.yaml))
+
+## MBSTF (Multicast/Broadcast Service Transport Function)
+* MBS Distribution Session
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29581_Nmbstf_DistSession.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29581_Nmbstf_DistSession.yaml))
+
+## MB (Multicast/Broadcast) User Services
+* MBS User Service Announcement
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26517_MBSUserServiceAnnouncement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26517_MBSUserServiceAnnouncement.yaml))
 
 ## UDM (Unified Data Management)
 * Subscriber Data Management

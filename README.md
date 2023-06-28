@@ -2,7 +2,7 @@
  
 © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **March 2023**  
+API version: **June 2023**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-18 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-18), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -98,6 +98,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * MBS User Service Announcement
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26517_MBSUserServiceAnnouncement.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26517_MBSUserServiceAnnouncement.yaml))
+* MBS Object Manifest
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26517_MBSObjectManifest.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26517_MBSObjectManifest.yaml))
 
 ## UDM (Unified Data Management)
 * Subscriber Data Management
@@ -457,11 +460,17 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Key Request Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29559_Npkmf_PKMFKeyRequest.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29559_Npkmf_PKMFKeyRequest.yaml))
+* Resolve Remote User Id
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29559_Npkmf_UserId.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29559_Npkmf_UserId.yaml))
 
 ## PANF (ProSe Anchor Function)
 * Prose Key Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29553_Npanf_ProseKey.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29553_Npanf_ProseKey.yaml))
+* Resolve Remote User Id
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29553_Npanf_ResolveRemoteUserId.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29553_Npanf_ResolveRemoteUserId.yaml))
 
 # Northbound and Application Layer APIs
 ## CAPIF (Common API Framework)

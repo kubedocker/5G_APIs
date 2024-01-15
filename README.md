@@ -463,6 +463,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Resolve Remote User Id
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29559_Npkmf_UserId.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29559_Npkmf_UserId.yaml))
+* Discovery
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29559_Npkmf_Discovery.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29559_Npkmf_Discovery.yaml))
 
 ## PANF (ProSe Anchor Function)
 * Prose Key Service

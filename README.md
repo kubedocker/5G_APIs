@@ -1,8 +1,8 @@
-# OpenAPI Specification Files for 3GPP 5G Core Network (Release 15)
+# **{-[DRAFT]-}** OpenAPI Specification Files for 3GPP 5G Core Network (Release 15)
 
 © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **February 2024**  
+API version: **January/February 2024**  
 Release status: **{- Frozen -}**  
 Other releases: [Rel-18 (Open)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-18), [Rel-17 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-17), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16)
 

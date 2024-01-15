@@ -1,14 +1,14 @@
-# OpenAPI Specification Files for 3GPP 5G Core Network (Release 18)
+# **{-[DRAFT]-}** OpenAPI Specification Files for 3GPP 5G Core Network (Release 18)
 
-© 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
+© 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **December 2023**  
+API version: **January/February 2024**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-17 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-17), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
 
 OpenAPI validation status:
-[![pipeline status](https://forge.3gpp.org/rep/all/5G_APIs/badges/REL-18/pipeline.svg)](https://forge.3gpp.org/rep/all/5G_APIs/commits/REL-18)
+[![pipeline status](https://forge.3gpp.org/rep/all/5G_APIs/badges/Rel18-draft-TSG103/pipeline.svg)](https://forge.3gpp.org/rep/all/5G_APIs/commits/Rel18-draft-TSG103)
 
 #### Tools
 * <a href="https://forge.3gpp.org/swagger/tools/parser.html">API Parser/Linter</a> to parse OpenAPI files with APIDevTools Swagger Parser/Validator and run a number of <a href="https://en.wikipedia.org/wiki/Lint_(software)" target="_blank">lint</a> rules to improve API quality

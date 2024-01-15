@@ -2,7 +2,7 @@
 
 © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC). All rights reserved.
 
-API version: **September 2023**  
+API version: **December 2023**  
 Release status: **{+ Open +}**  
 Other releases: [Rel-17 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-17), [Rel-16 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-16), [Rel-15 (Frozen)](https://forge.3gpp.org/rep/all/5G_APIs/tree/REL-15)
 
@@ -238,6 +238,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * DNAI Mapping
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29591_Nnef_DNAIMapping.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29591_Nnef_DNAIMapping.yaml))
+* UE ID
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29591_Nnef_UEId.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29591_Nnef_UEId.yaml))
 
 ## PCF (Policy Control Function)
 * Policy Authorization
@@ -292,6 +295,15 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * MLModel Training
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29520_Nnwdaf_MLModelTraining.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29520_Nnwdaf_MLModelTraining.yaml))
+* MLModel Monitor
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29520_Nnwdaf_MLModelMonitor.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29520_Nnwdaf_MLModelMonitor.yaml))
+* Roaming Data
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29520_Nnwdaf_RoamingData.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29520_Nnwdaf_RoamingData.yaml))
+* Roaming Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29520_Nnwdaf_RoamingAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29520_Nnwdaf_RoamingAnalytics.yaml))
 
 ## UPF (User Plane Function)
 * Event Exposure
@@ -487,6 +499,17 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Resolve Remote User Id
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29559_Npkmf_UserId.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29559_Npkmf_UserId.yaml))
+* Discovery
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29559_Npkmf_Discovery.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29559_Npkmf_Discovery.yaml))
+
+## SLPKMF (SideLink Positioning Key Management Service)
+* Key Request Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29586_Nslpkmf_SLPKMFKeyRequest.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29586_Nslpkmf_SLPKMFKeyRequest.yaml))
+* Discovery
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29586_Nslpkmf_Discovery.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29586_Nslpkmf_Discovery.yaml))
 
 ## PANF (ProSe Anchor Function)
 * Prose Key Service
@@ -495,6 +518,19 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Resolve Remote User Id
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29553_Npanf_ResolveRemoteUserId.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29553_Npanf_ResolveRemoteUserId.yaml))
+
+## IMS AS (IP Multimedia Subsystem Application Server)
+* Session Event Control
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29175_Nimsas_SessionEventControl.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29175_Nimsas_SessionEventControl.yaml))
+* Media Control
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29175_Nimsas_MediaControl.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29175_Nimsas_MediaControl.yaml))
+
+## MF (Media Function)
+* Media Resource Management Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29176_Nmf_MRM.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29176_Nmf_MRM.yaml))
 
 # Northbound and Application Layer APIs
 ## CAPIF (Common API Framework)
@@ -678,6 +714,12 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * Slice Parameters Provisioning
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_SliceParamProvision.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_SliceParamProvision.yaml))
+* UE Address
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_UEAddress.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_UEAddress.yaml))
+* ECS Address
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29522_ECSAddress.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29522_ECSAddress.yaml))
 
 ## VAE (V2X Application Enabler)
 * V2X Message Delivery
@@ -707,6 +749,15 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * PC5 Provisioning Requirement
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29486_VAE_PC5ProvisioningRequirement.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_PC5ProvisioningRequirement.yaml))
+* Service And QoS Control Info
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29486_VAE_ServiceAndQoSControlInfo.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_ServiceAndQoSControlInfo.yaml))
+* VRU Zone Management
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29486_VAE_VRUZoneManagement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_VRUZoneManagement.yaml))
+* V2P Application Requirement
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29486_VAE_V2PApplicationRequirement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29486_VAE_V2PApplicationRequirement.yaml))
 
 ## SEAL (Service Enabler Architecture Layer)
 * Network Resource Adaptation
@@ -742,15 +793,27 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * VAL Service Area Configuration
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_VALServiceAreaConfiguration.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_VALServiceAreaConfiguration.yaml))
+* VAL service Parameter Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_IdmParameterProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_IdmParameterProvisioning.yaml))
 * SEALDD Data Transmission
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29548_SDD_Transmission.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29548_SDD_Transmission.yaml))
+* SEALDD Data Storage
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29548_SDD_DataStorage.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29548_SDD_DataStorage.yaml))
 * SEALDD Context Relocation
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29548_SDD_DDContext.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29548_SDD_DDContext.yaml))
 * SEALDD Transmission Quality Measurement
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29548_SDD_TransmissionQualityMeasurement.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29548_SDD_TransmissionQualityMeasurement.yaml))
+* SEALDD Policy Configuration
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29548_SDD_PolicyConfiguration.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29548_SDD_PolicyConfiguration.yaml))
+* NSCE Server Policy Management
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_PolicyManagement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_PolicyManagement.yaml))
 
 ## EDGEAPP (Enabling Edge Applications)
 * EAS Registration
@@ -844,12 +907,19 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 
 ## PINAPP (Personal IoT Network Application)
 * PINServer PAS Registration
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29583_Ppinserver_ASRegistration.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29583_Ppinserver_ASRegistration.yaml))
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29583_PIN_ASRegistration.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29583_PIN_ASRegistration.yaml))
+* PINServer Service Switch Information
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29583_PIN_ASServiceSwitch.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29583_PIN_ASServiceSwitch.yaml))
+* PINServer Service Continuity Information
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29583_PIN_ASServiceContinuity.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29583_PIN_ASServiceContinuity.yaml))
 
 # 5G Media Streaming (5GMS) TS 26.512
 >**Note:**
 The APIs at reference points M1 and M5 are exposed by the 5GMS AF.
+
 * Common Data Types
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_CommonData.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_CommonData.yaml))
@@ -904,9 +974,18 @@ The APIs at reference points M1 and M5 are exposed by the 5GMS AF.
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_M5_NetworkAssistance.yaml))
 
 ## Data Reporting
+* 5GMS Client (R2)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_R2_DataReporting.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_R2_DataReporting.yaml))
 * 5GMS AS (R4)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_R4_DataReporting.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_R4_DataReporting.yaml))
+
+## Event Exposure
+* Data Collection AF (R5, R6)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS26512_EventExposure.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS26512_EventExposure.yaml))
+
 
 # 3GPP SA5 models and MnS OpenAPI definitions
 ## Network Resource Models (NRM)
@@ -916,6 +995,9 @@ The APIs at reference points M1 and M5 are exposed by the 5GMS AF.
 * Common NRM definitions (TS 28.623)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28623_ComDefs.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28623_ComDefs.yaml))
+* Trace Control (TS 28.623)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28623_TraceControlNrm.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28623_TraceControlNrm.yaml))
 * NR NRM (TS 28.541)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28541_NrNrm.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28541_NrNrm.yaml))
@@ -946,6 +1028,9 @@ The APIs at reference points M1 and M5 are exposed by the 5GMS AF.
 * Edge NRM (TS 28.538)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28538_EdgeNrm.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28538_EdgeNrm.yaml))
+* Self-configuration of RAN entities (TS 28.317)
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28317_RanScNrm.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28317_RanScNrm.yaml))
 
 ## Management Services (MnS)
 * Provisioning MnS (TS 28.532)

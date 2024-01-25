@@ -1,19 +1,23 @@
 openapi: 3.0.0
+
 info:
   title: EES EEC Context Relocation API
+  version: 1.1.0-alpha.4
   description: |
     API for EEC Context Relocation.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
-  version: 1.1.0-alpha.3
+
 externalDocs:
   description: >
-    3GPP TS 29.558 V18.2.0 Enabling Edge Applications;
+    3GPP TS 29.558 V18.5.0 Enabling Edge Applications;
     Application Programming Interface (API) specification; Stage 3
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.558/
+
 security:
   - {}
   - oAuth2ClientCredentials: []
+
 servers:
   - url: '{apiRoot}/eees-eeccontextreloc/v1'
     variables:
@@ -24,11 +28,10 @@ servers:
 paths:
   /eec-contexts:
     post:
-      summary: Push EEC Context information
+      summary: Push EEC Context information.
       operationId: PushEecContexts
       tags:
-        - Collection of EEC contexts (Collection)
-      description: S-EES transfers the EEC context information to T-EES.
+        - EEC contexts (Collection)
       requestBody:
         required: true
         content:
@@ -38,14 +41,14 @@ paths:
       responses:
         '200':
           description: >
-            OK. The EEC context has been successfully transferred to the T-EES and
-            the EEC is implicitly registered.
+            OK. The EEC context has been successfully pushed to the EES and related
+            information is returned in the response body.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/EECContextPushRes'
         '204':
-          description: No Content. The EEC context has been successfully transferred to the T-EES.
+          description: No Content. The EEC context has been successfully pushed to the EES.
         '400':
           $ref: 'TS29122_CommonData.yaml#/components/responses/400'
         '401':
@@ -68,16 +71,16 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/503'
         default:
           $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
     get:
-      summary: Pull EEC Context information
+      summary: Pull EEC Context information.
       operationId: PullEecContexts
       tags:
-        - Collection of EEC contexts (Collection)
-      description: T-EES pulls an EEC context information from S-EES.
+        - EEC contexts (Collection)
       parameters:
         - name: ees-id
           in: query
-          description: Unique identifier of the requesting EES.
+          description: Unique identifier of the requesting entity.
           required: true
           schema:
             type: string
@@ -96,8 +99,8 @@ paths:
       responses:
         '200':
           description: >
-            OK (The EEC context information matching the input parameters in the request
-            is returned by the S-EES).
+            OK. The EEC context information matching the query parameters in the request
+            shall be returned.
           content:
             application/json:
               schema:
@@ -151,7 +154,7 @@ components:
       properties:
         easId:
           type: string
-          description: Identifier of the EAS providing the application services.
+          description: Identifier of the Application Server providing the application services.
         endPt:
           $ref: 'TS29558_Eees_EASRegistration.yaml#/components/schemas/EndPoint'
         acId:
@@ -174,7 +177,7 @@ components:
       properties:
         eesId:
           type: string
-          description: Identifier of the S-EES pushing the EEC context information.
+          description: Identifier of the entity that is pushing the EEC context information.
         eecCntx:
           $ref: '#/components/schemas/EECContext'
         tgtEas:
@@ -182,8 +185,8 @@ components:
         acrScenariosSelReq:
           type: boolean
           description: >
-            Set to true if the EEC indicates the T-EES to select the ACR scenarisos.
-            Set to false if the T-EES is not required to select the ACR scenarios.
+            Set to true if the EEC indicates to select the ACR scenarisos.
+            Set to false if it is not required to select the ACR scenarios.
             The default value when omitted is false.
       required:
         - eesId
@@ -200,7 +203,6 @@ components:
           items:
             $ref: 'TS29558_Eecs_EESRegistration.yaml#/components/schemas/ACRScenario'
           minItems: 1
-          description: The list of ACR scenarios selected by T-EES.
 
     ImplicitRegDetails:
       type: object

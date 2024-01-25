@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: EES ACR Parameters Information Service
-  version: 1.0.0-alpha.2
+  version: 1.0.0-alpha.3
   description: |
     EES ACR Parameters Information Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.558 V18.3.0; Enabling Edge Applications;
+    3GPP TS 29.558 V18.5.0; Enabling Edge Applications;
     Application Programming Interface (API) specification; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.558/
 
@@ -39,18 +39,9 @@ paths:
             schema:
               $ref: '#/components/schemas/ACRParamsInfo'
       responses:
-        '200':
-          description: >
-            The ACR parameters information is successfully received and the content of these ACR
-            parameters information is returned in the response body
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ACRParamsInfo'
         '204':
           description: >
-            No Content. The ACR parameter information is successfully received and no content is
-            returned in the response body.
+            No Content. The ACR parameter information is successfully received and processed.
         '307':
           $ref: 'TS29122_CommonData.yaml#/components/responses/307'
         '308':
@@ -94,25 +85,22 @@ components:
         Represents the ACR parameters information.
       type: object
       properties:
-        eesId:
+        requestorId:
           type: string
-          description: Represents the EES ID.
         eecId:
           type: string
-          description: Represents the EEC ID.
         acId:
           type: string
-          description: Represents the AC ID.
-        sEasEndPoint:
+        sAsEndPoint:
           $ref: 'TS29558_Eees_EASRegistration.yaml#/components/schemas/EndPoint'
-        tEasEndPoint:
+        tAsEndPoint:
           $ref: 'TS29558_Eees_EASRegistration.yaml#/components/schemas/EndPoint'
         acrParams:
           $ref: 'TS29558_Eees_ACRManagementEvent.yaml#/components/schemas/ACRParameters'
       required:
-        - eesId
+        - requestorId
         - eecId
         - acId
-        - sEasEndPoint
-        - tEasEndPoint
+        - sAsEndPoint
+        - tAsEndPoint
         - acrParams

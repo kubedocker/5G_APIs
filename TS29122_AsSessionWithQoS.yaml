@@ -2,14 +2,14 @@ openapi: 3.0.0
 
 info:
   title: 3gpp-as-session-with-qos
-  version: 1.3.0-alpha.4
+  version: 1.3.0-alpha.5
   description: |
     API for setting us an AS session with required QoS.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.122 V18.4.0 T8 reference point for Northbound APIs
+  description: 3GPP TS 29.122 V18.5.0 T8 reference point for Northbound APIs
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.122/'
 
 security:
@@ -508,7 +508,7 @@ components:
         multiModalId:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/MultiModalId'
         protoDesc:
-          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/ProtoDesc'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
         qosReference:
           type: string
           description: Identifies a pre-defined QoS information
@@ -559,11 +559,12 @@ components:
         directNotifInd:
           type: boolean
           description: >
-            Indicates whether the direct event notification is requested (true) or not (false).
+            Indicates whether the direct event notification is requested (true) or not (false) for
+            the provided and/or previously provided QoS monitoring parameter(s).
             Default value is false.
         tscQosReq:
           $ref: '#/components/schemas/TscQosRequirement'
-        l4sInfo:
+        l4sInd:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/UplinkDownlinkSupport'
         requestTestNotification:
           type: boolean
@@ -587,7 +588,9 @@ components:
           description: >
             Contains media component data for a single-modal data flow(s).
             The key of the map is the medCompN attribute.
-        pduSetQos:
+        pduSetQosDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosPara'
+        pduSetQosUl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosPara'
         rTLatencyInd:
           type: boolean
@@ -685,12 +688,13 @@ components:
         directNotifInd:
           type: boolean
           description: >
-            Indicates whether the direct event notification is requested (true) or not (false).
+            Indicates whether the direct event notification is requested (true) or not (false) for
+            the provided QoS monitoring parameter(s).
         notificationDestination:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Link'
         tscQosReq:
           $ref: '#/components/schemas/TscQosRequirementRm'
-        l4sInfo:
+        l4sInd:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/UplinkDownlinkSupport'
         events:
           description: >
@@ -708,7 +712,9 @@ components:
           description: >
             Contains media component data for a single-modal data flow(s).
             The key of the map is the medCompN attribute.
-        pduSetQos:
+        pduSetQosDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
+        pduSetQosUl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
         rTLatencyInd:
           type: boolean
@@ -717,7 +723,7 @@ components:
             the service, when it is included and set to "true".
             The default value is "false" if omitted.
         protoDesc:
-          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/ProtoDesc'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
         periodInfo:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/PeriodicityInfo'
         qosDuration:
@@ -853,12 +859,6 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         dlConInfo:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
-        cimf:
-          type: boolean
-          description: >
-            Represents the congestion information measurement failure indicator. When set to "true",
-            it indicates that a congestion information failure has occurred. Default value is false
-            if omitted.
 
     UserPlaneNotificationData:
       description: Represents the parameters to be conveyed in a user plane event(s) notification.
@@ -1100,8 +1100,14 @@ components:
         rTLatencyReq:
           type: boolean
           description: Round-Trip latency requirement of the service data flow.
-        pduSetQos:
+        pduSetQosDl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosPara'
+        pduSetQosUl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosPara'
+        protoDesc:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        l4sInd:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/UplinkDownlinkSupport'
         evSubsc:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EventsSubscReqData'
 
@@ -1164,8 +1170,14 @@ components:
         rTLatencyReq:
           type: boolean
           description: Round-Trip latency requirement of the service data flow.
-        pduSetQos:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosPara'
+        pduSetQosDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
+        pduSetQosUl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
+        protoDesc:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        l4sInd:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/UplinkDownlinkSupport'
         evSubsc:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EventsSubscReqDataRm'
       nullable: true
@@ -1245,3 +1257,4 @@ components:
         - BAT_OFFSET_INFO: Indicates the network provided BAT offset and the optionally adjusted periodicity.
         - RT_DELAY_TWO_QOS_FLOWS: Indicates round-trip delay on UL and DL flows over two QoS flows.
         - PACK_DELAY_VAR: Indicates Packet Delay Variation is enabled for the SDF.
+

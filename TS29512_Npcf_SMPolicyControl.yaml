@@ -2,14 +2,14 @@ openapi: 3.0.0
 
 info:
   title: Npcf_SMPolicyControl API
-  version: 1.3.0-alpha.5
+  version: 1.3.0-alpha.6
   description: |
     Session Management Policy Control Service  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.512 V18.4.0; 5G System; Session Management Policy Control Service.
+  description: 3GPP TS 29.512 V18.5.0; 5G System; Session Management Policy Control Service.
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.512/'
 
 security:
@@ -709,7 +709,7 @@ components:
         contVer:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/ContentVersion'
         protoDesc:
-          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/ProtoDesc'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
         pccRuleId:
           type: string
           description: Univocally identifies the PCC rule within a PDU session.
@@ -835,7 +835,7 @@ components:
           description: >
             Identifies a list of Network Function Service Consumer supported per service. The key 
             used in this map for each entry is the ServiceName value as defined in
-            3GPP TS 29.510[29].
+            3GPP TS 29.510[29].
         callInfo:
           $ref: '#/components/schemas/CallInfo'
         traffParaData:
@@ -936,7 +936,9 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketDelBudget'
         packetErrorRate:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketErrRate'
-        pduSetQos:
+        pduSetQosDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
+        pduSetQosUl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
       required:
         - qosId
@@ -1407,7 +1409,13 @@ components:
           items:
             $ref: '#/components/schemas/QosMonitoringReport'
           minItems: 1
+          description: QoS Monitoring reporting information.
         qosMonDatRateReps:
+          type: array
+          items:
+            $ref: '#/components/schemas/QosMonitoringReport'
+          minItems: 1
+        qosMonCongReps:
           type: array
           items:
             $ref: '#/components/schemas/QosMonitoringReport'
@@ -2041,19 +2049,23 @@ components:
         qmId:
           type: string
           description: Univocally identifies the QoS monitoring policy data within a PDU session.
+        qosMonParamType:
+          $ref: '#/components/schemas/QosMonitoringParamType'
         reqQosMonParams:
           type: array
           items:
             $ref: '#/components/schemas/RequestedQosMonitoringParameter'
           minItems: 1
           description: >
-            indicates the QoS information to be monitored when the QoS Monitoring is enabled for
+            Indicates the QoS information to be monitored when the QoS Monitoring is enabled for
             the service data flow.
         repFreqs:
           type: array
           items:
              $ref: '#/components/schemas/ReportingFrequency'
           minItems: 1
+          description: >
+            Indicates the frequency for the reporting, such as event triggered and/or periodic.
         repThreshDl:
           type: integer
           description: Indicates the period of time in units of miliiseconds for DL packet delay.
@@ -2069,10 +2081,8 @@ components:
           nullable: true
         conThreshDl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
-          nullable: true
         conThreshUl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
-          nullable: true
         waitTime:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSecRm'
         repPeriod:
@@ -2139,11 +2149,6 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         dlCongInfo:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
-        cimf:
-          type: boolean
-          description: >
-            Congestion information measurement failure indicator. When set to true, it indicates
-            that a congestion information failure has occurred.Default value is false if omitted.
       required:
         - refPccRuleIds
 #
@@ -2307,8 +2312,6 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         repPeriod:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSecRm'
-      required:
-        - reqTrafficParas
 
     L4sSupportInfo:
       description: Contains the ECN marking for L4S support in 5GS information.
@@ -3168,3 +3171,24 @@ components:
         description: >
           This string provides forward-compatibility with future extensions to the enumeration
           and is not used to encode content defined in the present version of this API.
+
+    QosMonitoringParamType:
+      anyOf:
+      - type: string
+        enum:
+          - PACKET_DELAY
+          - CONGESTION
+          - DATA_RATE
+      - type: string
+        description: >
+          This string provides forward-compatibility with future
+          extensions to the enumeration and
+          is not used to encode
+          content defined in the present version of this API.
+      description: |
+        Indicates the QoS monitoring parameter type.  
+        Possible values are:
+        - PACKET_DELAY: Indicates that the QoS monitoring parameter to be measured is packet delay.
+        - CONGESTION: Indicates that the QoS monitoring parameter to be measured is congestion.
+        - DATA_RATE: Indicates that the QoS monitoring parameter to be measured is data rate.
+

@@ -216,7 +216,7 @@ components:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         analyticsType:
           $ref: 'TS29549_SS_ADAE_VALPerformanceAnalytics.yaml#/components/schemas/AnalyticsType'
-        valUeIds:
+        valUesIds:
           type: array
           items:
             $ref: 'TS29549_SS_UserProfileRetrieval.yaml#/components/schemas/ValTargetUe'

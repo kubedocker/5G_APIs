@@ -766,9 +766,6 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * Network Resource Monitoring
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_NetworkResourceMonitoring.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_NetworkResourceMonitoring.yaml))
-* Network Slice Adaptation
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_NetworkSliceAdaptation.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_NetworkSliceAdaptation.yaml))
 * User Profile Retrieval
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_UserProfileRetrieval.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_UserProfileRetrieval.yaml))
@@ -814,6 +811,30 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * NSCE Server Policy Management
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_PolicyManagement.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_PolicyManagement.yaml))
+* ADAE VAL Performance Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_VALPerformanceAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_VALPerformanceAnalytics.yaml))
+* ADAE Slice Performance Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_SlicePerformanceAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_SlicePerformanceAnalytics.yaml))
+* ADAE UE to UE Performance Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_Ue2UePerformanceAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_Ue2UePerformanceAnalytics.yaml))
+* ADAE Location Accuracy Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_LocationAccuracyAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_LocationAccuracyAnalytics.yaml))
+* ADAE Service API Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_ServiceApiAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_ServiceApiAnalytics.yaml))
+* ADAE Slice Usage Pattern Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_SliceUsagePatternAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_SliceUsagePatternAnalytics.yaml))
+* ADAE Edge Load Analytics
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_EdgeLoadAnalytics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_EdgeLoadAnalytics.yaml))
+* AADRF Data Management
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_AADRF_DataManagement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_AADRF_DataManagement.yaml))
 
 ## EDGEAPP (Enabling Edge Applications)
 * EAS Registration

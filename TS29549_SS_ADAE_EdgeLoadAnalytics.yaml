@@ -219,7 +219,7 @@ components:
         dnn:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
         dataProdProfile:
-          $ref: 'TS29549_SS_ADAE_VALPerformanceAnalytics.yaml#/components/schemas/DataProdProfileInfo'
+          $ref: 'TS29549_SS_ADAE_VALPerformanceAnalytics.yaml#/components/schemas/ProdProfileInfo'
         confLevel:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         area:

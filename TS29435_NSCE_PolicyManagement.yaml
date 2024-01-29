@@ -682,7 +682,7 @@ components:
         maxNumTimes:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         priority:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/PriorityLevel'
+          $ref: '#/components/schemas/PriorityLevel'
         schedule:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
         preemption:

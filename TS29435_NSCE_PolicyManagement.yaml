@@ -686,7 +686,7 @@ components:
         schedule:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
         preemption:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/PriorityLevel'
+          $ref: '#/components/schemas/PriorityLevel'
         monPercentage:
           type: integer
           minimum: 0
@@ -846,7 +846,7 @@ components:
         defPolicyId:
           type: string
         priority:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/PriorityLevel'
+          $ref: '#/components/schemas/PriorityLevel'
       required:
         - policyType
         - defPolicyId

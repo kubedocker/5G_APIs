@@ -666,9 +666,6 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         dlCongInfo:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
-        cimf:
-          type: boolean
-          description: Represents the congestion information measurement failure indicator.
         ulDataRate:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
         dlDataRate:

@@ -202,8 +202,6 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/429'
         '500':
           $ref: 'TS29122_CommonData.yaml#/components/responses/500'
-        '501':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/501'
         '502':
           $ref: 'TS29122_CommonData.yaml#/components/responses/502'
         '503':
@@ -280,8 +278,6 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/429'
         '500':
           $ref: 'TS29122_CommonData.yaml#/components/responses/500'
-        '501':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/501'
         '502':
           $ref: 'TS29122_CommonData.yaml#/components/responses/502'
         '503':

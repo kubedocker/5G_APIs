@@ -808,9 +808,33 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * SEALDD Policy Configuration
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29548_SDD_PolicyConfiguration.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29548_SDD_PolicyConfiguration.yaml))
-* NSCE Server Policy Management
+* NSCE Policy Management
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_PolicyManagement.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_PolicyManagement.yaml))
+* NSCE Network Slice Optimization Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSOptimization.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSOptimization.yaml))
+* NSCE Network Slice Performance and Analytics Monitoring Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_PerfMonitoring.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_PerfMonitoring.yaml))
+* NSCE Information Collection Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_InfoCollection.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_InfoCollection.yaml))
+* NSCE Network Slice Adaptation Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NetworkSliceAdaptation.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NetworkSliceAdaptation.yaml))
+* NSCE Network Slice Communication Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_SliceCommService.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_SliceCommService.yaml))
+* NSCE Network Slice Diagnostics Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSDiagnostics.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSDiagnostics.yaml))
+* NSCE Network Slice Information Delivery Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSInfoDelivery.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSInfoDelivery.yaml))
+* NSCE Network Slice Allocation Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_SAllocation.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_SAllocation.yaml))
 * ADAE VAL Performance Analytics
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_VALPerformanceAnalytics.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_VALPerformanceAnalytics.yaml))

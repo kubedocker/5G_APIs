@@ -320,7 +320,7 @@ components:
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         netSliceId:
-          $ref: '#/components/schemas/NetSliceId'
+          $ref: 'TS29435_NSCE_PolicyManagement.yaml#/components/schemas/NetSliceId'
         dnn:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
         policyId:
@@ -350,7 +350,7 @@ components:
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         netSliceId:
-          $ref: '#/components/schemas/NetSliceId'
+          $ref: 'TS29435_NSCE_PolicyManagement.yaml#/components/schemas/NetSliceId'
         dnn:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
         policyId:

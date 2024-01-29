@@ -5,12 +5,12 @@ info:
   version: 1.0.0-alpha.1
   description: |
     NSCE Server Policy Management Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.435 V0.1.0; Service Enabler Architecture Layer for Verticals (SEAL);
+    3GPP TS 29.435 V0.1.1; Service Enabler Architecture Layer for Verticals (SEAL);
     Network Slice Capability Exposure (NSCE) Server Service(s); Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.435/
 
@@ -26,31 +26,31 @@ security:
   - oAuth2ClientCredentials: []
 
 paths:
-  /provisionings:
+  /policies:
     post:
-      summary: Request the creation of a Policy Provisioning.
+      summary: Request the provisioning of a Policy.
       operationId: CreatePolProv
       tags:
-        - Policy Provisionings (Collection)
+        - Policies (Collection)
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PolicyProv'
+              $ref: '#/components/schemas/Policy'
       responses:
         '201':
           description: >
-            Created. The Policy Provisioning is successfully created and a representation of the
-            created Individual Policy Provisioning resource shall be returned.
+            Created. The Policy is successfully created and a representation of the
+            created Individual Policy resource shall be returned.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyProv'
+                $ref: '#/components/schemas/Policy'
           headers:
             Location:
               description: >
-                Contains the URI of the created Individual Policy Provisioning resource.
+                Contains the URI of the created Individual Policy resource.
               required: true
               schema:
                 type: string
@@ -76,30 +76,127 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/503'
         default:
           $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+      callbacks:
+        HarmonizationNotif:
+          '{$request.body#/notifUri}':
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/HarmonizationNotif'
+              responses:
+                '200':
+                  description: >
+                    OK. The Policy Harmonization Notification is successfully received and
+                    processed, and policy harmonization related information shall be returned in the
+                    response body.
+                  content:
+                    application/json:
+                      schema:
+                        $ref: '#/components/schemas/HarmonizationResp'
+                '204':
+                  description: >
+                    No Content. The Policy Harmonization Notification is successfully received and
+                    processed, and no content is returned in the response body.
+                '307':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+                '308':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+                '400':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+                '401':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+                '403':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+                '404':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+                '411':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+                '413':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+                '415':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+                '429':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+                '500':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+                '503':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+                default:
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/default'
 
-  /provisionings/{provId}:
+  /policies/delete:
+    post:
+      summary: Enables to request the deletion of one or several existing Policy(ies).
+      operationId: DeletePolProvs
+      tags:
+        - Policy(ies) deletion Request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PolDeleteReq'
+      responses:
+        '200':
+          description: >
+            OK. The targeted Policy(ies) are successfully deleted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolDeleteResp'
+        '307':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+  /policies/{policyId}:
     parameters:
-      - name: provId
+      - name: policyId
         in: path
         description: >
-          Represents the identifier of the Individual Policy Provisioning resource.
+          Represents the identifier of the Individual Policy resource.
         required: true
         schema:
           type: string
 
     get:
-      summary: Retrieve an existing Individual Policy Provisioning resource.
+      summary: Retrieve an existing Individual Policy resource.
       operationId: GetIndPolProv
       tags:
-        - Individual Policy Provisioning (Document)
+        - Individual Policy (Document)
       responses:
         '200':
           description: >
-            OK. The requested Individual Policy Provisioning resource shall be returned.
+            OK. The requested Individual Policy resource shall be returned.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyProv'
+                $ref: '#/components/schemas/Policy'
         '307':
           $ref: 'TS29122_CommonData.yaml#/components/responses/307'
         '308':
@@ -124,28 +221,28 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/default'
 
     put:
-      summary: Request the update of an existing Individual Policy Provisioning resource.
+      summary: Request the update of an existing Individual Policy resource.
       operationId: UpdateIndDPolProv
       tags:
-        - Individual Policy Provisioning (Document)
+        - Individual Policy (Document)
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PolicyProv'
+              $ref: '#/components/schemas/Policy'
       responses:
         '200':
           description: >
-            OK. The Individual Policy Provisioning resource is successfully updated and a
+            OK. The Individual Policy resource is successfully updated and a
             representation of the updated resource shall be returned in the response body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyProv'
+                $ref: '#/components/schemas/Policy'
         '204':
           description: >
-            No Content. The Individual Policy Provisioning resource is successfully updated and no
+            No Content. The Individual Policy resource is successfully updated and no
             content is returned in the response body.
         '307':
           $ref: 'TS29122_CommonData.yaml#/components/responses/307'
@@ -171,61 +268,29 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/default'
 
     patch:
-      summary: Request the modification of an existing Individual Policy Provisioning resource.
+      summary: Request the modification of an existing Individual Policy resource.
       operationId: ModifyIndPolProv
       tags:
-        - Individual Policy Provisioning (Document)
+        - Individual Policy (Document)
       requestBody:
         required: true
         content:
           application/merge-patch+json:
             schema:
-              $ref: '#/components/schemas/PolicyProvPatch'
+              $ref: '#/components/schemas/PolicyPatch'
       responses:
         '200':
           description: >
-            OK. The Individual Policy Provisioning resource is successfully modified and a
+            OK. The Individual Policy resource is successfully modified and a
             representation of the updated resource shall be returned in the response body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyProv'
+                $ref: '#/components/schemas/Policy'
         '204':
           description: >
-            No Content. The Individual Policy Provisioning resource is successfully modified and no
+            No Content. The Individual Policy resource is successfully modified and no
             content is returned in the response body.
-        '307':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
-        '308':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
-        '400':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
-        '401':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
-        '403':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
-        '404':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
-        '406':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/406'
-        '429':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
-        '500':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
-        '503':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
-        default:
-          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
-
-    delete:
-      summary: Request the deletion of an existing Individual Policy Provisioning resource.
-      operationId: DeleteIndPolProv
-      tags:
-        - Individual Policy Provisioning (Document)
-      responses:
-        '204':
-          description: >
-            No Content. The Individual Policy Provisioning resource is successfully deleted.
         '307':
           $ref: 'TS29122_CommonData.yaml#/components/responses/307'
         '308':
@@ -313,7 +378,7 @@ paths:
                 '204':
                   description: >
                     No Content. The Policy Usage Notification is successfully received and
-                    Acknowledged.
+                    acknowledged.
                 '307':
                   $ref: 'TS29122_CommonData.yaml#/components/responses/307'
                 '308':
@@ -347,7 +412,6 @@ paths:
         in: path
         description: >
           Represents the identifier of the Individual Policy Usage Subscription resource.
-          resource.
         required: true
         schema:
           type: string
@@ -530,15 +594,15 @@ components:
 # STRUCTURED DATA TYPES
 #
 
-    PolicyProv:
+    Policy:
       description: >
-        Represents a Policy Provisioning.
+        Represents a Policy.
       type: object
       properties:
         netSliceId:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+          $ref: '#/components/schemas/NetSliceId'
         reqDnn:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
         polHarmInd:
           type: boolean
           default: false
@@ -548,6 +612,8 @@ components:
             true means that policy harmonization is requested.
             false means that policy harmonization is not requested.
             The default value when omitted is "false".
+        policy:
+          $ref: '#/components/schemas/PolicyData'
         defaultPolInd:
           type: boolean
           default: false
@@ -560,21 +626,36 @@ components:
             false means that the provisioned policy shall not be used as a default policy for the
             network slices provisioned without any policy.
             The default value when omitted is "false".
+        notifUri:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+        harmonizationId:
+          type: string
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - policy
 
-    PolicyProvPatch:
+    PolicyPatch:
       description: >
-        Represents the requested modifications to a Policy Provisioning.
+        Represents the requested modifications to a Policy.
       type: object
       properties:
         netSliceId:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+          $ref: '#/components/schemas/NetSliceId'
         reqDnn:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
+        polHarmInd:
+          type: boolean
+          description: >
+            Contains the policy harmonization indication. It indicates whether policy harmonization
+            is requested or not.
+            true means that policy harmonization is requested.
+            false means that policy harmonization is not requested.
+            The default value when omitted and not previously provisioned is "false".
+        policy:
+          $ref: '#/components/schemas/PolicyData'
         defaultPolInd:
           type: boolean
-          default: false
           description: >
             Contains the default policy indication. It indicates whether or not the provisioned
             policy shall be used as a default policy for the network slices provisioned without any
@@ -583,7 +664,43 @@ components:
             slices provisioned without any policy.
             false means that the provisioned policy shall not be used as a default policy for the
             network slices provisioned without any policy.
-            The default value when omitted is "false".
+            The default value when omitted and not previously provisioned is "false".
+        notifUri:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+
+    PolicyData:
+      description: >
+        Represents the content of a policy.
+      type: object
+      properties:
+        policyType:
+          $ref: '#/components/schemas/PolicyType'
+        areaOfInterest:
+          $ref: 'TS29435_NSCE_NSInfoDelivery.yaml#/components/schemas/ServArea'
+        lifetime:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/DurationSec'
+        maxNumTimes:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        priority:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/PriorityLevel'
+        schedule:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
+        preemption:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/PriorityLevel'
+        monPercentage:
+          type: integer
+          minimum: 0
+          maximum: 100
+        monValue:
+          type: integer
+          minimum: 1
+          description: Contains an unsigned Integer with only the values 1 and above permitted.
+      required:
+        - policyType
+        - areaOfInterest
+      oneOf:
+        - required: [lifetime]
+        - required: [maxNumTimes]
 
     PolUsageSubsc:
       description: >
@@ -593,7 +710,7 @@ components:
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         netSliceId:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+          $ref: '#/components/schemas/NetSliceId'
         reqPolicyRep:
           $ref: '#/components/schemas/ReqPolRep'
         repPeriodicity:
@@ -663,16 +780,167 @@ components:
         preEmptCount:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         preEmptPolId:
-          type: string
+          type: array
+          items:
+            type: string
+          minItems: 1
       required:
         - policyId
         - count
         - timeSpent
 
+    PolDeleteReq:
+      description: >
+        Represents the parameters to request the deletion of one or several Policy(ies).
+      type: object
+      properties:
+        policyIds:
+          type: array
+          items:
+            type: string
+          minItems: 1
+        defPolicyIds:
+          type: object
+          additionalProperties:
+            type: string
+          minProperties: 1
+          description: >
+            Contains the identifier(s) of the policy(ies) that are to be the new default
+            Policy(ies). Each map entry corresponds to the new default policy for a particular
+            policy type. There shall not be two new default policies for the same policy type.
+            The key of the map shall be the policy type for which the provided new default policy
+            identified by the corresponding map value is related. The key of the map shall be
+            encoded using the PolicyType enumeration data type.
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - policyIds
+
+    PolDeleteResp:
+      description: >
+        Represents the response to the Policy(ies) deletion response.
+      type: object
+      properties:
+        defPoliciesInfo:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/DefaultPolInfo'
+          minProperties: 1
+          description: >
+            Contains the new default policy(ies) related information. Each map entry corresponds to
+            the information of the new default policy for a particular policy type.
+            The key of the map shall be the value of the policyType attribute of the corresponding
+            map encoded using the DefaultPolInfo data type.
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - defPoliciesInfo
+
+    DefaultPolInfo:
+      description: >
+        Represents the default policy related information.
+      type: object
+      properties:
+        policyType:
+          $ref: '#/components/schemas/PolicyType'
+        defPolicyId:
+          type: string
+        priority:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/PriorityLevel'
+      required:
+        - policyType
+        - defPolicyId
+
+    HarmonizationNotif:
+      description: >
+        Represents a Policy Harmonization Notification.
+      type: object
+      properties:
+        harmonizationId:
+          type: string
+        policy:
+          $ref: '#/components/schemas/PolicyData'
+      required:
+        - harmonizationId
+        - policy
+
+    HarmonizationResp:
+      description: >
+        Represents the response to a Policy Harmonization Notification.
+      type: object
+      properties:
+        feedback:
+          type: boolean
+          description: >
+            Contains the policy harmonization feedback. It indicates whether the policy
+            harmonization result is accepted or not.
+            true means that the policy harmonization result is accepted.
+            false means that the policy harmonization result is not accepted.
+      required:
+        - feedback
+
+    NetSliceId:
+      description: >
+        Represents the network slice identification information.
+      type: object
+      properties:
+        snssai:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+        nsiId:
+            $ref: 'TS29531_Nnssf_NSSelection.yaml#/components/schemas/NsiId'
+        ensi:
+            $ref: '#/components/schemas/Ensi'
+      oneOf:
+        - required: [snssai]
+        - required: [nsiId]
+        - required: [ensi]
+
 
 # SIMPLE DATA TYPES
 #
 
+    PriorityLevel:
+      description: >
+        Represents an unsigned integer, within the range 1 to 255, indicating the priority level of
+        a policy or the pre-emption capability of a policy.
+      type: integer
+      minimum: 1
+      maximum: 255
+
+    Ensi:
+      description: >
+        Represents the External Network Slice Information that is used to identify a network slice,
+        as specified in 3GPP TS 33.501.
+      type: string
+
+
 #
 # ENUMERATIONS
 #
+
+    PolicyType:
+      anyOf:
+      - type: string
+        enum:
+           - MAX_NUM_PDU_SESS
+           - MAX_NUM_UE
+           - SLICE_LOAD_PREDICTION
+           - TIME_PERIOD
+           - TIME_PERIOD_AND_AVG_QOS
+           - TIME_PERIOD_AND_MIN_QOS
+      - type: string
+        description: >
+          This string provides forward-compatibility with future extensions to the enumeration
+          and is not used to encode content defined in the present version of this API.
+      description: |
+        Represents policy type.  
+        Possible values are:
+        - MAX_NUM_PDU_SESS: Indicates that the policy type is the maximum number of PDU Sessions.
+        - MAX_NUM_UE: Indicates that the policy type is the maximum number of UEs Sessions.
+        - SLICE_LOAD_PREDICTION: Indicates that the policy type is the network slice load
+          prediction.
+        - TIME_PERIOD: Indicates that the policy type is the time period.
+        - TIME_PERIOD_AND_AVG_QOS: Indicates that the policy type is the time period and average QoS
+          per UE.
+        - TIME_PERIOD_AND_MIN_QOS: Indicates that the policy type is the time period and minimum QoS
+          per UE.

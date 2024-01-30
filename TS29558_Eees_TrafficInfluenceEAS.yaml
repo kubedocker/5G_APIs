@@ -298,5 +298,5 @@ components:
             Indicates whether the request applies to any UE.
             true indicates that the request applies to any UE.
             False indicates that the request does not apply to any UE.
-      oneOf:
-        - required: [anyUe, tgtUes]
+      not:
+        required: [anyUe, tgtUes]

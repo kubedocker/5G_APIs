@@ -833,8 +833,8 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSInfoDelivery.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSInfoDelivery.yaml))
 * NSCE Network Slice Allocation Service
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_SAllocation.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_SAllocation.yaml))
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSAllocation.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSAllocation.yaml))
 * ADAE VAL Performance Analytics
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_VALPerformanceAnalytics.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_VALPerformanceAnalytics.yaml))

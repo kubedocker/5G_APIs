@@ -157,7 +157,7 @@ components:
         sliceInfo:
           $ref: '#/components/schemas/NSInfoSet'
       required:
-        - sliceInfoSet
+        - sliceInfo
 
     NSInfoDelReq:
       description: >

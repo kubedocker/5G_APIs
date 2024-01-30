@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 info:
   title: Eees_ACREvents
-  version: "1.1.0-alpha.2"
+  version: "1.1.0-alpha.3"
   description: |
     API for ACR events subscription and notification.  
     © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
@@ -10,7 +10,7 @@ info:
 
 externalDocs:
   description: >
-    3GPP TS 24.558 V18.3.0 Enabling Edge Applications; Protocol specification.
+    3GPP TS 24.558 V18.3.1 Enabling Edge Applications; Protocol specification.
   url: 'https://www.3gpp.org/ftp/Specs/archive/24_series/24.558/'
 
 security:
@@ -342,6 +342,10 @@ components:
           $ref: '#/components/schemas/ACRCompleteEventInfo'
         eecCtxtReloc:
           $ref: '#/components/schemas/EecCtxtRelocStatus'
+        acrScenarioList:
+          type: array
+          items:
+            $ref: 'TS29558_Eecs_EESRegistration.yaml#/components/schemas/ACRScenario'
       required:
         - subId
         - easId
@@ -412,5 +416,4 @@ components:
       required:
         - acrRes
         - tEasEndpoint
-
 

@@ -386,4 +386,4 @@ components:
           description: Indicates the policy used for slice optimization.
       required:
         - subscriptionId
-        - netSliceInfo
+        - sliceInfo

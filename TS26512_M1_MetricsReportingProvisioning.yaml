@@ -1,16 +1,16 @@
 openapi: 3.0.0
 info:
   title: M1_MetricsReportingProvisioning
-  version: 2.1.0
+  version: 2.1.1
   description: |
     5GMS AF M1 Metrics Reporting Provisioning API
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 tags:
   - name: M1_MetricsReportingProvisioning
     description: '5G Media Streaming: Provisioning (M1) APIs: Metrics Reporting Provisioning'
 externalDocs:
-  description: 'TS 26.512 V17.6.0; 5G Media Streaming (5GMS); Protocols'
+  description: 'TS 26.512 V17.8.0; 5G Media Streaming (5GMS); Protocols'
   url: 'https://www.3gpp.org/ftp/Specs/archive/26_series/26.512/'
 servers:
   - url: '{apiRoot}/3gpp-m1/v2'
@@ -126,6 +126,11 @@ components:
       properties:
         metricsReportingConfigurationId:
           $ref: 'TS26512_CommonData.yaml#/components/schemas/ResourceId'
+        sliceScope:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+          minItems: 1
         scheme:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uri'
         dataNetworkName:

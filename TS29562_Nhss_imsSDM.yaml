@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: '1.2.0-alpha.1'
+  version: '1.2.0-alpha.2'
   title: 'Nhss_imsSDM'
   description: |
     Nhss Subscriber Data Management Service for IMS.  
-    © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.562 HSS Services for interworking with IMS, version 18.0.0
+  description: 3GPP TS 29.562 HSS Services for interworking with IMS, version 18.4.0
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.562/'
 
 servers:
@@ -3775,6 +3775,8 @@ components:
       properties:
         ipSmGwNumber:
           $ref: '#/components/schemas/Msisdn'
+        ipSmGwAddress:
+          $ref: '#/components/schemas/IpSmGwAddress'
         scAddress:
           $ref: '#/components/schemas/Msisdn'
 
@@ -3793,6 +3795,8 @@ components:
         ipSmGwSbiSupInd:
           type: boolean
           default: false
+        ipSmGwInstanceId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
 
     DsaiTagInformation:
       description: >

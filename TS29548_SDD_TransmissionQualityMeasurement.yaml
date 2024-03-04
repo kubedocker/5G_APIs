@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: SEALDD Server Data Transmission Quality Measurement Service
-  version: 1.0.0-alpha.5
+  version: 1.0.0-alpha.6
   description: |
     SEALDD Server Data Transmission Quality Measurement Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.548 V1.0.0; Service Enabler Architecture Layer for Verticals (SEAL);
+    3GPP TS 29.548 V1.1.0; Service Enabler Architecture Layer for Verticals (SEAL);
     SEAL Data Delivery (SEALDD) Server Services; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.548/
 
@@ -331,6 +331,13 @@ paths:
           schema:
             type: boolean
             default: false
+            description: >
+              Indicates that the request is related to all VAL UE(s) of the application traffic
+              identified by the application traffic identifier(s) provided within the
+              appTrafficIds attribute.
+              true indicates that the request is related to all VAL UE(s).
+              false" indicates that the request is not related to all VAL UE(s).
+              The default value when this query parameter is omitted is false.
         - name: supp-feat
           in: query
           required: false
@@ -400,6 +407,11 @@ components:
           items:
             type: string
           minItems: 1
+        valUserIdsList:
+          type: array
+          items:
+            type: string
+          minItems: 1
         allValUesInd:
           type: boolean
           default: false
@@ -431,6 +443,7 @@ components:
       oneOf:
         - required: [valGroupId]
         - required: [valUeIdsList]
+        - required: [valUserIdsList]
         - required: [allValUesInd]
 
     TransQualMeasReq:
@@ -453,8 +466,17 @@ components:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
         measExpTime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DateTime'
-        repCriteria:
-          $ref: '#/components/schemas/TransQualMeasCriteria'
+        repCriteriaSets:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TransQualMeasCriteriaSet'
+          minProperties: 1
+          description: >
+            Contains one or several set(s) of transmission quality measurement reporting
+            criteria.
+            The key of the map shall be any unique string encoded value.
+            Only the criteria related to the subscribed measurement(s) within the measId attribute
+            shall be present within this attribute.
       required:
         - measId
 
@@ -488,12 +510,15 @@ components:
         Represents a Transmission Quality Measurement Notification.
       type: object
       properties:
+        subscriptionId:
+          type: string
         reports:
           type: array
           items:
             $ref: '#/components/schemas/TransQualMeasReport'
           minItems: 1
       required:
+        - subscriptionId
         - reports
 
     TransQualMeasReport:
@@ -511,10 +536,17 @@ components:
           items:
             type: string
           minItems: 1
+        valUserIds:
+          type: array
+          items:
+            type: string
+          minItems: 1
         measData:
           $ref: '#/components/schemas/TransQualMeasData'
       required:
         - measId
+      not:
+        required: [valUeIds, valUserIds]
 
     TransQualMeasCriteria:
       description: >
@@ -522,29 +554,41 @@ components:
       type: object
       properties:
         minLatency:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/UintegerRm'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        avgLatency:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         maxLatency:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/UintegerRm'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         minBitRate:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRateRm'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        avgBitRate:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
         maxBitRate:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRateRm'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
         minPackLossRate:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRateRm'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRate'
+        avgPackLossRate:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRate'
         maxPackLossRate:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRateRm'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRate'
         minJitter:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32Rm'
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
+        avgJitter:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
         maxJitter:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32Rm'
-      anyOf:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
+      oneOf:
         - required: [minLatency]
+        - required: [avgLatency]
         - required: [maxLatency]
         - required: [minBitRate]
+        - required: [avgBitRate]
         - required: [maxBitRate]
         - required: [minPackLossRate]
+        - required: [avgPackLossRate]
         - required: [maxPackLossRate]
         - required: [minJitter]
+        - required: [avgJitter]
         - required: [maxJitter]
 
     TransQualMeasData:
@@ -562,6 +606,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         kPercLatency:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        kValLatency:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         minBitRate:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
         maxBitRate:
@@ -572,6 +618,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
         kPercBitRate:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        kValBitRate:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         minPackLossRate:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRate'
         maxPackLossRate:
@@ -582,6 +630,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRate'
         kPercPackLossRate:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PacketLossRate'
+        kValPackLossRate:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         minJitter:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
         maxJitter:
@@ -592,6 +642,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
         kPercJitter:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
+        kValJitter:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
         measPeriod:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DurationSec'
         timestamp:
@@ -624,6 +676,19 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
         - reports
+
+    TransQualMeasCriteriaSet:
+      description: >
+        Represents a set of transmission quality measurement reporting criteria.
+      type: object
+      properties:
+        criteria:
+          $ref: '#/components/schemas/TransQualMeasCriteria'
+        direction:
+          $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/MatchingDirection'
+      required:
+        - criteria
+        - direction
 
 
 # SIMPLE DATA TYPES
@@ -660,7 +725,7 @@ components:
           enum:
           - INDIVIDUAL_VAL_UE
           - VAL_GROUP
-          - ALL_UES
+          - ALL_VAL_UES
         - type: string
           description: >
             This string provides forward-compatibility with future extensions to the enumeration
@@ -668,9 +733,9 @@ components:
       description: |
         Represents the reporting granularity.  
         Possible values are:
-        - INDIVIDUAL_VAL_UE: Indicates that the granularity is individual VAL UE.
+        - INDIVIDUAL_VAL_UE: Indicates that the granularity is individual VAL UE/user.
         - VAL_GROUP: Indicates that the granularity is VAL Group.
-        - ALL_UES: Indicates that the granularity is all VAL UE(s).
+        - ALL_VAL_UES: Indicates that the granularity is all VAL UE/user(s).
 
 
 # Data types describing alternative data types or combinations of data types:

@@ -573,7 +573,7 @@ components:
         comLifetime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DurationSec'
       required:
-        - event
+        - ddServerConnInfo
 
 
 # SIMPLE DATA TYPES

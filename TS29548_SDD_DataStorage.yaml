@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: SEALDD Server Data Storage Service
-  version: 1.0.0-alpha.2
+  version: 1.0.0-alpha.3
   description: |
     SEALDD Server Data Storage Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.548 V1.0.0; Service Enabler Architecture Layer for Verticals (SEAL);
+    3GPP TS 29.548 V1.1.0; Service Enabler Architecture Layer for Verticals (SEAL);
     SEAL Data Delivery (SEALDD) Server Services; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.548/
 
@@ -628,7 +628,7 @@ paths:
       summary: Enables a service consumer to request SEALDD data storage delivery.
       operationId: DataDeliveryRequest
       tags:
-        - SEALDD Data Delivery Request
+        - SEALDD Data Storage Delivery Request
       requestBody:
         required: true
         content:
@@ -640,6 +640,59 @@ paths:
           description: >
             No Content. The SEALDD Data Storage delivery request is successfully received and
             processed.
+        '307':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+        '503':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+
+  /establish-del-conn:
+    post:
+      summary: Enables a service consumer to request SEALDD data storage delivery connection establishment.
+      operationId: EstablishDelConn
+      tags:
+        - SEALDD Data Storage Delivery Connection Establishment Request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DelConnEstabReq'
+      responses:
+        '200':
+          description: >
+            OK. The SEALDD Data Storage delivery connection establishment request is successfully
+            received and processed, and SEALDD Data Storage delivery connection establishment
+            related information shall be returned in the response body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DelConnEstabResp'
+        '204':
+          description: >
+            No Content. The SEALDD Data Storage delivery connection establishment request is
+            successfully received and processed.
         '307':
           $ref: 'TS29122_CommonData.yaml#/components/responses/307'
         '308':
@@ -789,6 +842,8 @@ components:
         Represents a SEALDD Data Management and/or Status Information Notification.
       type: object
       properties:
+        storageId:
+          type: string
         events:
           type: array
           items:
@@ -799,6 +854,7 @@ components:
         mngtStats:
           $ref: '#/components/schemas/DataMngtStats'
       required:
+        - storageId
         - events
       anyOf:
         - required: [accessStats]
@@ -856,8 +912,6 @@ components:
         Represents a SEALDD Data Storage Delivery Subscription.
       type: object
       properties:
-        requestorId:
-          type: string
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         expTime:
@@ -865,7 +919,6 @@ components:
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
-        - requestorId
         - notifUri
 
     DataDelSubscPatch:
@@ -909,6 +962,34 @@ components:
       oneOf:
         - required: [data]
         - required: [storageId]
+
+    DelConnEstabReq:
+      description: >
+        Represents a SEALDD Data Storage Delivery connection establishment request.
+      type: object
+      properties:
+        targetId:
+          type: string
+        ddServerConnInfo:
+          $ref: 'TS29548_SDD_Transmission.yaml#/components/schemas/ConnInfo'
+        transProtoc:
+          $ref: 'TS29558_Eees_EASRegistration.yaml#/components/schemas/TransportProtocol'
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+      required:
+        - targetId
+
+    DelConnEstabResp:
+      description: >
+        Represents the response to a SEALDD Data Storage Delivery connection establishment request.
+      type: object
+      properties:
+        ddServerConnInfo:
+          $ref: 'TS29548_SDD_Transmission.yaml#/components/schemas/ConnInfo'
+        transProtoc:
+          $ref: 'TS29558_Eees_EASRegistration.yaml#/components/schemas/TransportProtocol'
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
 
 
 # SIMPLE DATA TYPES

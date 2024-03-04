@@ -5,7 +5,7 @@ info:
   title: 'UPF GET Private UE IP address Service'
   description: |
     Nupf_GetUEPrivateIPaddrAndIdentifiers Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:

@@ -516,6 +516,8 @@ components:
         dscpMarking:
           type: string
           writeOnly: true
+        distSessionSubscription:
+          $ref: '#/components/schemas/DistSessionSubscription'
       required:
         - distSessionId
         - distSessionState

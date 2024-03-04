@@ -2,14 +2,14 @@ openapi: 3.0.0
 
 info:
   title: Nnsacf_NSAC
-  version: 1.1.0-alpha.4
+  version: 1.1.0-alpha.5
   description: |
     Nnsacf_NSAC Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.536 V18.4.0; 5G System; Network Slice Admission Control Services; Stage 3.
+  description: 3GPP TS 29.536 V18.5.0; 5G System; Network Slice Admission Control Services; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.536/
 
 servers:
@@ -365,6 +365,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
         plmnId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnId'
+        plmnIdNid:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnIdNid'
         ueRegInd:
           type: boolean
           enum:
@@ -386,6 +388,8 @@ components:
           $ref: '#/components/schemas/AcuFailureReason'
         plmnId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnId'
+        plmnIdNid:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnIdNid'
         pduSessionId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSessionId'
       required:

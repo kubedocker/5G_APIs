@@ -319,7 +319,7 @@ components:
         uavId:
           $ref: 'TS29257_UAE_C2OperationModeManagement.yaml#/components/schemas/UavId'
         proxRangInfo:
-          type: string
+          $ref: '#/components/schemas/ProxRangInfo'
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         suppFeat:
@@ -335,7 +335,7 @@ components:
       type: object
       properties:
         proxRangInfo:
-          type: string
+          $ref: '#/components/schemas/ProxRangInfo'
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
 
@@ -395,6 +395,8 @@ components:
 #
 
     UavDistance:
+      description: >
+        Represents the linear distance between two UAVs.
       type: number
       format: double
       minimum: 0

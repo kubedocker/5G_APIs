@@ -190,7 +190,7 @@ components:
         policies:
           type: array
           items:
-            $ref: '#/components/schemas/PolicyConfig'
+            $ref: 'TS29548_SDD_PolicyConfiguration.yaml#/components/schemas/PolicyConfig'
           minItems: 1
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
@@ -238,7 +238,6 @@ components:
           description: Contains the identifier of the VAL service.
         valTargetId:
           $ref: 'TS29549_SS_UserProfileRetrieval.yaml#/components/schemas/ValTargetUe'
-          description: Contains the identifier of the target VAL UE or VAL user.
         valServerConnInfo:
           $ref: 'TS29548_SDD_Transmission.yaml#/components/schemas/ConnInfo'
         ddServerConnInfo:

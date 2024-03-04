@@ -935,6 +935,9 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * DAA Support
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29257_UAE_DAASupport.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29257_UAE_DAASupport.yaml))
+* UAV Dynamic Information
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29257_UAE_UAVDynamicInfo.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29257_UAE_UAVDynamicInfo.yaml))
 
 ## 5GMARCH (Enabling MSGin5G Service)
 * AS Registration

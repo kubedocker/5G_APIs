@@ -5,11 +5,11 @@ info:
   description: |
     Unified Data Repository Service (subscription data).  
     The API version is defined in 3GPP TS 29.504.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.505 V17.10.0; 5G System; Usage of the Unified Data Repository Service for subscription data; Stage 3
+  description: 3GPP TS 29.505 V17.11.0; 5G System; Usage of the Unified Data Repository Service for subscription data; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.505/'
 
 paths:
@@ -4407,8 +4407,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/SubscriptionDataSubscriptions'
+                $ref: '#/components/schemas/SubscriptionDataSubscriptions'
         default:
           $ref: 'TS29571_CommonData.yaml#/components/responses/default'
 
@@ -7258,6 +7257,21 @@ components:
           minItems: 1
         applicationPortIds:
           description: A map (list of key-value pairs where AppPortId serves as key) of GPSIs.
+          type: object
+          additionalProperties:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+          minProperties: 1
+        afIdGpsis:
+          description: >
+            A map (list of key-value pairs where AF ID serves as key) of GPSIs.
+          type: object
+          additionalProperties:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+          minProperties: 1
+        mtcProviderGpsis:
+          description: >
+            A map (list of key-value pairs where MTC Provider Information serves as key)
+            of GPSIs.
           type: object
           additionalProperties:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'

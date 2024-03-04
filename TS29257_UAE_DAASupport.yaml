@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: UAE Server DAA Support Service
-  version: 1.0.0-alpha.2
+  version: 1.0.0-alpha.3
   description: |
     UAE Server DAA Support Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.257 V18.2.0; Application layer support for Uncrewed Aerial System (UAS);
+    3GPP TS 29.257 V18.3.0; Application layer support for Uncrewed Aerial System (UAS);
     UAS Application Enabler (UAE) Server Services; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.257/
 
@@ -168,16 +168,15 @@ paths:
               responses:
                 '200':
                   description: >
-                    OK. The DAA event notification is successfully received and acknowledged, and
-                    the UASS returns updated/additional DAA related event information in the
-                    response body.
+                    OK. The DAA Events Notification is successfully received and acknowledged, and
+                    updated/additional DAA related event information is returned in the response body.
                   content:
                     application/json:
                       schema:
                         $ref: '#/components/schemas/DAAEventsInfo'
                 '204':
                   description: >
-                    No Content. The DAA event notification is successfully received and
+                    No Content. The DAA Events Notification is successfully received and
                     acknowledged.
                 '307':
                   $ref: 'TS29122_CommonData.yaml#/components/responses/307'
@@ -436,14 +435,14 @@ components:
         Represents the parameters to request the creation of a DAA Policy.
       type: object
       properties:
-        uassId:
+        requestorId:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         daaPol:
           $ref: '#/components/schemas/DAAPolicy'
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
-        - uassId
+        - requestorId
         - daaPol
 
     DAAPolResp:
@@ -465,9 +464,12 @@ components:
           $ref: 'TS29257_UAE_C2OperationModeManagement.yaml#/components/schemas/UasId'
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+        daaAppPol:
+          $ref: '#/components/schemas/DAAAppPolicy'
       required:
         - uasId
         - notifUri
+        - daaAppPol
 
     DAAPolicyPatch:
       description: >
@@ -476,12 +478,23 @@ components:
       properties:
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
+        daaAppPol:
+          $ref: '#/components/schemas/DAAAppPolicy'
+
+    DAAAppPolicy:
+      description: Represents a DAA Application Policy.
+      type: object
+      properties:
+        polContainer:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Bytes'
+      anyOf:
+        - required: [polContainer]
 
     InformDAAEventsReq:
       description: Represents the parameters to report DAA related event(s).
       type: object
       properties:
-        uassId:
+        requestorId:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         uasId:
           $ref: 'TS29257_UAE_C2OperationModeManagement.yaml#/components/schemas/UasId'
@@ -493,12 +506,12 @@ components:
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
-        - uassId
+        - requestorId
         - uasId
         - daaEventsInfo
 
     DAAPolConfigNotif:
-      description: Represents the parameters to request for DAA.
+      description: Represents a DAA Policy Configuration Status Notification.
       type: object
       properties:
         status:
@@ -507,7 +520,7 @@ components:
         - status
 
     DAAEventsInfo:
-      description: Represents the parameters to request for DAA.
+      description: Represents a DAA Events Notification.
       type: object
       properties:
         uasId:
@@ -524,7 +537,7 @@ components:
         - daaEventsInfo
 
     DAAEvent:
-      description: Represents the parameters to request for DAA.
+      description: Represents a DAA event related information.
       type: object
       properties:
         uasId:
@@ -546,7 +559,7 @@ components:
             This string provides forward-compatibility with future extensions to the enumeration
             and is not used to encode content defined in the present version of this API.
       description: |
-        Represents DAA Policy configuration completion status.  
+        Represents the DAA Policy configuration completion status.  
         Possible values are:
         - SUCCESSFUL: Indicates that the DAA Policy configuration was successful.
         - NOT_SUCCESSFUL: Indicates that the DAA Policy configuration was not successful.

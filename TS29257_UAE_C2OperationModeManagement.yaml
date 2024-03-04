@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: UAE Server C2 Operation Mode Management Service
-  version: 1.1.0-alpha.1
+  version: 1.1.0-alpha.2
   description: |
     UAE Server C2 Operation Mode Management Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.257 V18.1.0; Application layer support for Uncrewed Aerial System (UAS);
+    3GPP TS 29.257 V18.3.0; Application layer support for Uncrewed Aerial System (UAS);
     UAS Application Enabler (UAE) Server Services; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.257/
 
@@ -90,7 +90,7 @@ paths:
                   description: >
                     No Content. The notification was succesfull and the C2 Operation Mode
                     Management Completion status for the concerned UAS (i.e. pair of UAV
-                    and UAV-C) was successfully received and acknowledged by the UASS.
+                    and UAV-C) was successfully received and acknowledged by the service consumer.
                 '307':
                   $ref: 'TS29122_CommonData.yaml#/components/responses/307'
                 '308':
@@ -131,7 +131,7 @@ paths:
                   description: >
                     No Content. The notification was succesfull and the C2 Communication Mode
                     selected by the concerned UAS (i.e. pair of UAV and UAV-C) was successfully
-                    received and acknowledged by the UASS.
+                    received and acknowledged by the service consumer.
                 '307':
                   $ref: 'TS29122_CommonData.yaml#/components/responses/307'
                 '308':
@@ -172,8 +172,8 @@ paths:
                   description: >
                     OK. The targeted C2 Communication Mode switching for the concerned UAS
                     (i.e. pair of UAV and UAV-C) is successfully received. The response body
-                    contains the feedback of the UASS on whether this C2 Communication Mode
-                    switching is confirmed (i.e. validated) or not.
+                    contains the feedback of the service consumer on whether this C2 Communication
+                    Mode switching is confirmed (i.e. validated) or not.
                   content:
                     application/json:
                       schema:
@@ -182,7 +182,7 @@ paths:
                   description: >
                     No Content. The targeted C2 Communication Mode switching for the concerned
                     UAS (i.e. pair of UAV and UAV-C) is successfully received and acknowledged,
-                    and the UASS does not need to confirm (i.e. validate) it.
+                    and the service consumer does not need to confirm (i.e. validate) it.
                 '307':
                   $ref: 'TS29122_CommonData.yaml#/components/responses/307'
                 '308':

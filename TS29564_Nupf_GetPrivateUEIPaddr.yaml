@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: '1.0.0-alpha.3'
+  version: '1.0.0-alpha.4'
   title: 'UPF GET Private UE IP address Service'
   description: |
-    Nupf_GetPrivateUEIPaddr Service.  
+    Nupf_GetUEPrivateIPaddrAndIdentifiers Service.  
     © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.564 V18.3.0; 5G System; 5G System; User Plane Function Services; Stage 3
+  description: 3GPP TS 29.564 V18.4.0; 5G System; 5G System; User Plane Function Services; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.564/'
 
 servers:
@@ -123,7 +123,7 @@ components:
         clientCredentials:
           tokenUrl: '{nrfApiRoot}/oauth2/token'
           scopes:
-            nupf-gueip: Access to the Nupf_GetPrivateUEIPaddr API
+            nupf-gueip: Access to the Nupf_GetUEPrivateIPaddrAndIdentifiers API
 
   schemas:
     UeIpInfo:
@@ -152,3 +152,5 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'
         gpsi:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+
+

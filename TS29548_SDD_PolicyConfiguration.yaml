@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: SEALDD Server Policy Configuration Service
-  version: 1.0.0-alpha.3
+  version: 1.0.0-alpha.4
   description: |
     SEALDD Server Policy Configuration Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.548 V1.0.0; Service Enabler Architecture Layer for Verticals (SEAL);
+    3GPP TS 29.548 V1.1.0; Service Enabler Architecture Layer for Verticals (SEAL);
     SEAL Data Delivery (SEALDD) Server Services; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.548/
 
@@ -275,8 +275,8 @@ components:
           items:
             type: string
           minItems: 1
-        valUeId:
-          type: string
+        valTargetId:
+          $ref: 'TS29549_SS_UserProfileRetrieval.yaml#/components/schemas/ValTargetUe'
         sealddPol:
           $ref: '#/components/schemas/SealddPolicy'
         expTime:
@@ -300,25 +300,42 @@ components:
         Represents a SEALDD Policy.
       type: object
       properties:
-        qualGuarSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/QualGuarPolicy'
-          minItems: 1
-        qualOptimSets:
-          type: array
-          items:
-            $ref: '#/components/schemas/QualOptimPolicy'
-          minItems: 1
+        qualGuarPol:
+          $ref: '#/components/schemas/QualGuarPolicy'
         bdwCtrlSets:
           type: array
           items:
             $ref: '#/components/schemas/BdwCtrlPolicy'
           minItems: 1
       anyOf:
-        - required: [qualGuarantee]
-        - required: [qualOptimSets]
-        - required: [bdwControl]
+        - required: [qualGuarPol]
+        - required: [bdwCtrlSets]
+
+    QualGuarPolicy:
+      description: >
+        Represents the quality guarantee policy.
+      type: object
+      properties:
+        thresholds:
+          $ref: '#/components/schemas/QualGuarThresh'
+      required:
+        - thresholds
+
+    QualGuarThresh:
+      description: >
+        Represents the quality guarantee related thresholds.
+      type: object
+      properties:
+        measId:
+          type: array
+          items:
+            $ref: 'TS29548_SDD_TransmissionQualityMeasurement.yaml#/components/schemas/MeasurementId'
+          minItems: 1
+        measThesh:
+          $ref: 'TS29548_SDD_TransmissionQualityMeasurement.yaml#/components/schemas/TransQualMeasCriteria'
+      required:
+        - measId
+        - measThesh
 
 
 # SIMPLE DATA TYPES
@@ -327,45 +344,6 @@ components:
 #
 # ENUMERATIONS
 #
-
-    QualGuarPolicy:
-      anyOf:
-        - type: string
-          enum:
-          - ESTABLISH_REDUNDANT_TRANS_PATH
-          - REESTABLISH_TRANS_PATH
-          - SWITCH_TO_BACKUP_TRANS_PATH
-          - CHANGE_SEALDD_SERVER
-        - type: string
-          description: >
-            This string provides forward-compatibility with future extensions to the enumeration
-            and is not used to encode content defined in the present version of this API.
-      description: |
-        Represents the quality guarantee policy.  
-        Possible values are:
-        - ESTABLISH_REDUNDANT_TRANS_PATH: Indicates that the quality guarantee action is to
-          establish a redundant transmission path.
-        - REESTABLISH_TRANS_PATH: Indicates that the quality guarantee action is to
-          reestablish the transmission path.
-        - SWITCH_TO_BACKUP_TRANS_PATH: Indicates that the quality guarantee action is to
-          switch to the backup transmission path.
-        - CHANGE_SEALDD_SERVER: Indicates that the quality guarantee action is to change the
-          connected SEALDD Server.
-
-    QualOptimPolicy:
-      anyOf:
-        - type: string
-          enum:
-          - BACK_TO_SINGLE_TRANS_PATH
-        - type: string
-          description: >
-            This string provides forward-compatibility with future extensions to the enumeration
-            and is not used to encode content defined in the present version of this API.
-      description: |
-        Represents the quality optimization policy.  
-        Possible values are:
-        - BACK_TO_SINGLE_TRANS_PATH: Indicates that the quality optimization action is to switch
-          back to a single transmission path.
 
     BdwCtrlPolicy:
       anyOf:

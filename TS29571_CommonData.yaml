@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: '1.4.3'
+  version: '1.4.4'
   title: 'Common Data Types'
   description: |
-    Common Data Types for Service Based Interfaces.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
-    All rights reserved.  
+    Common Data Types for Service Based Interfaces.  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    All rights reserved.  
 
 externalDocs:
-  description: 3GPP TS 29.571 Common Data Types for Service Based Interfaces, version 17.10.0
+  description: 3GPP TS 29.571 Common Data Types for Service Based Interfaces, version 17.11.0
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.571/'
 
 paths: {}
@@ -236,7 +236,7 @@ components:
         6.6 in 3GPP TS 29.500. The string shall contain a bitmask indicating supported features in 
         hexadecimal representation Each character in the string shall take a value of "0" to "9", 
         "a" to "f" or "A" to "F" and shall represent the support of 4 features as described in 
-        table 5.2.2-3. The most significant character representing the highest-numbered features
+        table 5.2.2-3. The most significant character representing the highest-numbered features
         shall  appear first in the string, and the character representing features 1 to 4
         shall appear last  in the string. The list of features and their numbering (starting with 1)
         are defined  separately for each API. If the string contains a lower number of characters
@@ -334,7 +334,7 @@ components:
       description: |
         String with format "time-numoffset" optionally appended by "daylightSavingTime", where 
         - "time-numoffset" shall represent the time zone adjusted for daylight saving time and be
-           encoded as time-numoffset as defined in clause 5.6 of IETF RFC 3339; 
+           encoded as time-numoffset as defined in clause 5.6 of IETF RFC 3339; 
         - "daylightSavingTime" shall represent the adjustment that has been made and shall be
            encoded as "+1" or "+2" for a +1 or +2 hours adjustment. 
 
@@ -1334,7 +1334,7 @@ components:
         <MNC> encoding the Mobile Network Code part of the PLMN, comprising 3 digits. 
           If there are only 2 significant digits in the MNC, one "0" digit shall be inserted 
           at the left side to fill the 3 digits coding of MNC.  Pattern: '^[0-9]{3}$'
-        <NID> encoded as defined in clause 5.4.2 ("Nid" data type definition) 
+        <NID> encoded as defined in clause 5.4.2 ("Nid" data type definition) 
         <NFInstanceId> encoded as defined in clause 5.3.2 
         <ServiceName> encoded as defined in 3GPP TS 29.510 
         <Set ID> encoded as a string of characters consisting of alphabetic 
@@ -2623,7 +2623,7 @@ components:
           default: false
           description: >
             Indicates the MPTCP capability to support procedures related to Access Traffic Steering,
-            Switching, Splitting (see clauses 4.2.10, 5.32 of 3GPP TS 23.501
+            Switching, Splitting (see clauses 4.2.10, 5.32 of 3GPP TS 23.501
             true: Supported
             false (default): Not Supported
         rttWithoutPmf:
@@ -2631,7 +2631,7 @@ components:
           default: false
           description: >
             This IE is only used by the UPF to indicate whether the UPF supports RTT measurement
-            without PMF (see clauses 5.32.2, 6.3.3.3 of 3GPP TS 23.501
+            without PMF (see clauses 5.32.2, 6.3.3.3 of 3GPP TS 23.501
             true: Supported
             false (default): Not Supported
     PlmnIdNid:
@@ -2836,7 +2836,7 @@ components:
         with the OpenAPI 'nullable: true' property.
 
     AcsInfo:
-      description: The ACS information for the 5G-RG is defined in BBF TR-069 [42] or in BBF TR-369
+      description: The ACS information for the 5G-RG is defined in BBF TR-069 [42] or in BBF TR-369
       type: object
       properties:
         acsUrl:
@@ -2916,7 +2916,7 @@ components:
         - required:
           - sai
         - required:
-          - rai
+          - lai
       description: Exactly one of cgi, sai or lai shall be present.
       properties:
         cgi:
@@ -2950,7 +2950,7 @@ components:
           type: string
           pattern: '^[0-9A-F]{20}$'
           description: >
-            Refers to Calling Geodetic Location. See ITU-T Recommendation Q.763 (1999) clause
+            Refers to Calling Geodetic Location. See ITU-T Recommendation Q.763 (1999) clause
             3.88.2. Only the description of an ellipsoid point with uncertainty circle is allowed
             to be used.
 
@@ -2963,8 +2963,6 @@ components:
           - sai
         - required:
           - lai
-        - required:
-          - rai
       description: Exactly one of cgi, sai or lai shall be present.
       properties:
         locationNumber:
@@ -2972,12 +2970,12 @@ components:
           description: Location number within the PLMN. See 3GPP TS 23.003, clause 4.5.
         cgi:
           $ref: '#/components/schemas/CellGlobalId'
-        rai:
-          $ref: '#/components/schemas/RoutingAreaId'
         sai:
           $ref: '#/components/schemas/ServiceAreaId'
         lai:
           $ref: '#/components/schemas/LocationAreaId'
+        rai:
+          $ref: '#/components/schemas/RoutingAreaId'
         vlrNumber:
           type: string
           description: VLR number. See 3GPP TS 23.003 clause 5.1.
@@ -3690,7 +3688,7 @@ components:
       type: integer
       minimum: 1
       description: >
-        Unsigned integer indicating Packet Delay Budget (see clauses 5.7.3.4 and 5.7.4 of 3GPP
+        Unsigned integer indicating Packet Delay Budget (see clauses 5.7.3.4 and 5.7.4 of 3GPP
         TS 23.501 [8])), expressed in 0.01 milliseconds.
 
     ExtPacketDelBudgetRm:
@@ -3816,7 +3814,7 @@ components:
         - $ref: '#/components/schemas/NullValue'
       description: >
         The enumeration AdditionalQosFlowInfo provides additional QoS flow information (see clause 
-        9.3.1.12 3GPP TS 38.413 [11]). It shall comply with the provisions defined in table
+        9.3.1.12 3GPP TS 38.413 [11]). It shall comply with the provisions defined in table
         5.5.3.12-1.
 
     PartitioningCriteria:
@@ -4088,7 +4086,7 @@ components:
       description: >
         The enumeration MeasurementNrForMdt defines Measurements used for MDT in NR in the trace.
         See 3GPP TS 32.422 for further description of the values. It shall comply with the provisions
-        defined in table 5.6.3.6-1.
+        defined in table 5.6.3.6-1.
 
     SensorMeasurement:
       anyOf:
@@ -4337,13 +4335,14 @@ components:
           type: string
           pattern: '^[0-9]{3}[0-9]{2,3}-[A-Fa-f0-9]{6}$'
           description: >
-            Trace Reference (see 3GPP TS 32.422).It shall be encoded as the concatenation of MCC,
-            MNC and Trace ID as follows: 'MCC'<MNC'-'Trace ID'The Trace ID shall be encoded as a 3 octet string in hexadecimal
-            representation. Each character in the Trace ID string shall take a value of "0" to "9",
-            "a" to "f" or "A" to "F" and shall represent 4 bits.
-            The most significant character representing the 4 most significant bits of the Trace ID
-            shall appear first  in the string, and the character representing the 4 least significant
-            bit of the Trace ID shall appear last in the string.
+            Trace Reference (see 3GPP TS 32.422).It shall be encoded as the concatenation
+            of MCC, MNC and Trace ID as follows: <MCC><MNC>-<Trace ID>
+            The Trace ID shall be encoded as a 3 octet string in hexadecimal
+            representation. Each character in the Trace ID string shall
+            take a value of "0" to "9", "a" to "f" or "A" to "F" and shall represent 4 bits.
+            The most significant character representing the 4 most significant bits of the
+            Trace ID shall appear first  in the string, and the character representing the
+            4 least significant bit of the Trace ID shall appear last in the string.
 
         traceDepth:
           $ref: '#/components/schemas/TraceDepth'
@@ -4351,13 +4350,12 @@ components:
           type: string
           pattern: '^[A-Fa-f0-9]+$'
           description: >
-            List of NE Types (see 3GPP TS 32.422).It shall be encoded as an octet string in
-            hexadecimal representation.
-            Each character in the string shall take a value of "0" to "9", "a" to "f" or "A" to "F"
-            and shall represent 4 bits.
-            The most significant character representing the 4 most significant bits shall appear
-            first in the string, and the character representing the
-            4 least significant bit shall appear last in the string.Octets shall be coded
+            List of NE Types (see 3GPP TS 32.422).It shall be encoded as an octet string
+            in hexadecimal representation. Each character in the string shall take a value
+            of "0" to "9", "a" to "f" or "A" to "F" and shall represent 4 bits.
+            The most significant character representing the 4 most significant bits shall
+            Appear first in the string, and the character representing the 4 least
+            significant bit shall appear last in the string.Octets shall be coded
             according to 3GPP TS 32.422.
         eventList:
           type: string
@@ -4366,13 +4364,16 @@ components:
             Triggering events (see 3GPP TS 32.422).It shall be encoded as an octet string in
             hexadecimal representation. Each character in the string shall take a value of "0"
             to "9", "a" to "f" or "A" to "F" and shall represent 4 bits.
-            The most significant character representing the 4 most significant bits shall appear
-            first in the string, and the character representing the 4 least significant bit shall
-            appear last in the string. Octets shall be coded according to 3GPP TS 32.422.
+            The most significant character representing the 4 most significant bits shall
+            appear first in the string, and the character representing the 4 least
+            significant bit shall appear last in the string. Octets shall be coded
+            according to 3GPP TS 32.422.
         collectionEntityIpv4Addr:
           $ref: '#/components/schemas/Ipv4Addr'
         collectionEntityIpv6Addr:
           $ref: '#/components/schemas/Ipv6Addr'
+        traceReportingConsumerUri:
+          $ref: '#/components/schemas/Uri'
         interfaceList:
           type: string
           pattern: '^[A-Fa-f0-9]+$'
@@ -5352,3 +5353,4 @@ components:
             $ref: '#/components/schemas/ProblemDetails'
     default:
       description: Generic Error
+

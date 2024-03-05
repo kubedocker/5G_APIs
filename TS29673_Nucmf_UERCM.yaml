@@ -574,13 +574,12 @@ components:
       type: object
       oneOf:
         - required: [plmnAssiUeRadioCapId]
-        - required: [typeAllocationCod]
+        - required: [typeAllocationCode]
       properties:
         plmnAssiUeRadioCapId:
           type: array
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnAssiUeRadioCapId'
-          minItems: 1
         typeAllocationCode:
           type: array
           items:

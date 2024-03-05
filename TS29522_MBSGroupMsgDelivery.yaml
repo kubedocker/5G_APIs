@@ -332,7 +332,7 @@ components:
         - extGroupId
         - mbsServArea
         - startTime
-        - stopTime
+        - endTime
         - notifUri
 
     MbsGroupMsgDelPatch:

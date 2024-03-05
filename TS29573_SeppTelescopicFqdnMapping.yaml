@@ -1,11 +1,11 @@
 openapi: 3.0.0
 
 info:
-  version: '1.2.0-alpha.1'
+  version: '1.2.0-alpha.2'
   title: 'SEPP Telescopic FQDN Mapping API'
   description: |
     SEPP Telescopic FQDN Mapping Service.  
-    © 2022, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 servers:
@@ -16,7 +16,7 @@ servers:
         description:  apiRoot as defined in clause 4.4 of 3GPP TS 29.501.
 
 externalDocs:
-  description: 3GPP TS 29.573 V18.1.0; 5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3
+  description: 3GPP TS 29.573 V18.6.0; 5G System; Public Land Mobile Network (PLMN) Interconnection; Stage 3
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.573/
 
 paths:
@@ -65,6 +65,11 @@ paths:
 
 components:
   schemas:
+
+#
+# STRUCTURED TYPES
+#
+
     TelescopicMapping:
       description: Contains the Telescopic mapping data
       type: object
@@ -75,3 +80,12 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Fqdn'
         foreignFqdn:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Fqdn'
+
+#
+# SIMPLE TYPES
+#
+
+#
+# ENUMS
+#
+

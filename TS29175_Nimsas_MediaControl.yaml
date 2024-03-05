@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: 'IMS AS MediaControl Service'
-  version: '1.0.0-alpha.1'
+  version: '1.0.0-alpha.2'
   description: |
     Nimsas_MediaControl Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.175 V1.0.0; IP Multimedia Subsystem; IP Multimedia Subsystem (IMS) Application
+    3GPP TS 29.175 V1.1.0; IP Multimedia Subsystem; IP Multimedia Subsystem (IMS) Application
     Server (AS) Services; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.175'
 
@@ -158,6 +158,8 @@ components:
           $ref: '#/components/schemas/MediaInstruction'
         dcMediaSpecification:
           $ref: '#/components/schemas/DcMediaSpecification'
+        arMediaSpecification:
+          $ref: '#/components/schemas/ArMediaSpecification'
         mediaProcessingUrl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uri'
 
@@ -186,7 +188,7 @@ components:
         mdc2EndpointMf:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Endpoint'
         mdc2Protocol:
-          type: string
+          $ref: 'TS29176_Nmf_MRM.yaml#/components/schemas/Mdc2Protocol'
         streams:
           description: >
             Contains a data channel mapping and configuration information. The streamId
@@ -195,6 +197,15 @@ components:
           additionalProperties:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/DcStream'
           minProperties: 1
+
+    ArMediaSpecification:
+      description: The AR media specification information.
+      type: object
+      required:
+        - mediaProcessingSpec
+      properties:
+        mediaProcessingSpec:
+          type: string
 
 # ENUMS
 

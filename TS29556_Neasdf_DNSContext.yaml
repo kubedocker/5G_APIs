@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: '1.1.0-alpha.4'
+  version: '1.1.0-alpha.5'
   title: 'Neasdf_DNSContext'
   description: |
     EASDF DNS Context Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.556 V18.4.0; 5G System; Edge Application Server Discovery Services; Stage3
+  description: 3GPP TS 29.556 V18.5.0; 5G System; Edge Application Server Discovery Services; Stage3
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.556/
 
 servers:
@@ -88,7 +88,9 @@ paths:
                 $ref: '#/components/schemas/DnsContextCreatedData'
           headers:
             Location:
-              description: 'Contains the URI of the newly created resource, according to the structure: {apiRoot}/neasdf-dnscontext/<apiVersion>/dns-contexts/{dnsContextId}'
+              description: >
+                'Contains the URI of the newly created resource, according to the structure: 
+                {apiRoot}/neasdf-dnscontext/<apiVersion>/dns-contexts/{dnsContextId}'
               required: true
               schema:
                 type: string
@@ -373,7 +375,8 @@ components:
         precedence:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
         dnsQueryMdtList:
-          description: map of DNS query message detection templates where a valid JSON string serves as key
+          description: >
+            map of DNS query message detection templates where a valid JSON string serves as key
           type: object
           additionalProperties:
             $ref: '#/components/schemas/DnsQueryMdt'
@@ -384,7 +387,8 @@ components:
             $ref: '#/components/schemas/BaselineDnsQueryMdtInfo'
           minItems: 1
         dnsRspMdtList:
-          description: map of DNS response message detection templates where a valid JSON string serves as key
+          description: >
+            map of DNS response message detection templates where a valid JSON string serves as key
           type: object
           additionalProperties:
             $ref: '#/components/schemas/DnsRspMdt'
@@ -456,6 +460,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Ipv6PrefixRange'
+          minItems: 1
+        dnsServerSrcAddrList:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/IpAddr'
           minItems: 1
       required:
         - mdtId
@@ -710,6 +719,7 @@ components:
           - FORWARD
           - DISCARD
           - RESPOND
+          - SEND_ANOTHER_DNS_QUERY
       - type: string
         description: >
           This string provides forward-compatibility with future
@@ -717,3 +727,4 @@ components:
           content defined in the present version of this API.
       description: >
         Action to apply to the DNS packet
+

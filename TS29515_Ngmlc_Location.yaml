@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
-  version: '1.2.0-alpha.5'
+  version: '1.2.0-alpha.6'
   title: 'Ngmlc_Location'
   description: |
     GMLC Location Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.515 V18.4.0; 5G System; Gateway Mobile Location Services; Stage 3
+  description: 3GPP TS 29.515 V18.5.0; 5G System; Gateway Mobile Location Services; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.515/'
 
 servers:
@@ -364,6 +364,119 @@ paths:
                   $ref: 'TS29571_CommonData.yaml#/components/responses/504'
                 default:
                   $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+  /perform-privacy-check-id-mapping:
+    post:
+      summary: Privacy Check Id Mapping for Ranging SL Positioing Service
+      operationId: PrivacyCheckIdMapping
+      tags:
+        - Privacy Check Id Mapping
+      security:
+        - {}
+        - oAuth2ClientCredentials:
+          - ngmlc-loc
+        - oAuth2ClientCredentials:
+          - ngmlc-loc
+          - ngmlc-loc:perform-privacy-check-id-mapping:invoke
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivacyCheckIdMappingReqData'
+        required: true
+      responses:
+        '200':
+          description: Successful result for Privacy Check Id Mapping
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivacyCheckIdMappingRespData'
+        '307':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/500'
+        '502':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/502'
+        '503':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/503'
+        '504':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/504'
+        default:
+          $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+
+  /provide-ranging:
+    post:
+      summary: Request Ranging information between UEs
+      operationId: RequestRanging
+      tags:
+        - Request Ranging
+      security:
+        - {}
+        - oAuth2ClientCredentials:
+          - ngmlc-loc
+        - oAuth2ClientCredentials:
+          - ngmlc-loc
+          - ngmlc-loc:provide-ranging:invoke
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InputRangingData'
+        required: true
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RangingDatas'
+        '307':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/500'
+        '502':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/502'
+        '503':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/503'
+        '504':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/504'
+        default:
+          $ref: 'TS29571_CommonData.yaml#/components/responses/default'
 
 components:
   securitySchemes:
@@ -378,6 +491,9 @@ components:
             ngmlc-loc:cancel-location:invoke: Access to invoke Cancel Location
             ngmlc-loc:location-update:invoke: Access to invoke Location update
             ngmlc-loc:loc-update-subs:invoke: Access to invoke Location update subscribe
+            ngmlc-loc:perform-privacy-check-id-mapping:invoke: Access to invoke Privacy Check Id Mapping
+            ngmlc-loc:provide-ranging:invoke: Access to invoke Provide Ranging
+
 
   schemas:
 #
@@ -393,6 +509,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
         supi:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'
+        appLayerId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
         extGroupId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ExternalGroupId'
         intGroupId:
@@ -474,10 +592,12 @@ components:
         relatedUEs:
           type: array
           items:
-            $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/RelatedUE'
+            $ref: '#/components/schemas/RelatedUE'
           minItems: 1
         mappedQoSEps:
           $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/MappedLocationQoSEps'
+        coordinateID:
+          type: integer
 
     LocationDataExt:
       description: Extended Location Data for UEs
@@ -543,8 +663,8 @@ components:
         indoorOutdoorInd:
           $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/IndoorOutdoorInd'
         relatedApplicationlayerId:
-          type: string
-        rangeDirection:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+        distanceDirection:
           $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/RangeDirection'
         2dRelativeLocation:
           $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/2DRelativeLocation'
@@ -679,8 +799,8 @@ components:
         indoorOutdoorInd:
           $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/IndoorOutdoorInd'
         relatedApplicationlayerId:
-          type: string
-        rangeDirection:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+        distanceDirection:
           $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/RangeDirection'
         2dRelativeLocation:
           $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/2DRelativeLocation'
@@ -829,6 +949,106 @@ components:
         evtRptCountCriteria:
           type: integer
 
+    RelatedUE:
+      description: Related UE Information
+      type: object
+      required:
+        - relatedUEType
+      properties:
+        appLayerId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+        gpsi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+        supi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'
+        relatedUEType:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/RelatedUEType'
+
+    PrivacyCheckIdMappingReqData:
+      description: Privacy Check Id Mapping Request Data
+      type: object
+      properties:
+        gpsi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+        appLayerId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+        clientUeId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+
+    PrivacyCheckIdMappingRespData:
+      description: Privacy Check Id Mapping Response Data
+      type: object
+      properties:
+        appLayerId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+        gpsi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+
+    InputRangingData:
+      description: Contains the input parameters in PorvideRanging service operation
+      type: object
+      required:
+        - externalClientType
+      properties:
+        gpsi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+        supi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'
+        locationQoS:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/LocationQoS'
+        externalClientType:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/ExternalClientType'
+        externalClientIdentification:
+          $ref: '#/components/schemas/ExternalClientIdentification'
+        requestedRangingSlResult:
+          type: array
+          items:
+            $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/RangingSlResult'
+          minItems: 1
+        scheduledLocTime:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+
+
+    RangingDatas:
+      description: Ranging Data List
+      type: object
+      required:
+        - rangingDatas
+      properties:
+        rangingDatas:
+          type: array
+          items:
+            $ref: '#/components/schemas/RangingData'
+          minItems: 1
+
+
+    RangingData:
+      description: Contains the response parameters in ProvideRanging service operation
+      type: object
+      properties:
+        gpsi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+        supi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'
+        timestampOfLocationEstimate:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        achievedQos:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/MinorLocationQoS'
+        rangingDataList:
+          type: array
+          items:
+            $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/PositioningMethodAndUsage'
+          minItems: 1
+        relatedApplicationlayerId:
+          type: string
+        rangeDirection:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/RangeDirection'
+        2dRelativeLocation:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/2DRelativeLocation'
+        3dRelativeLocation:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/3DRelativeLocation'
+        relativeVelocity:
+          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/VelocityEstimate'
 
 #
 # SIMPLE TYPES

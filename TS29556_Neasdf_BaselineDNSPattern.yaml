@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: '1.1.0-alpha.2'
+  version: '1.1.0-alpha.3'
   title: 'Neasdf_BaselineDNSPattern'
   description: |
     EASDF Baseline DNS Pattern Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.556 V18.1.0; 5G System; Edge Application Server Discovery Services; Stage 3
+  description: 3GPP TS 29.556 V18.5.0; 5G System; Edge Application Server Discovery Services; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.556/'
 
 servers:
@@ -145,7 +145,10 @@ paths:
                 $ref: '#/components/schemas/BaseDnsPatternCreatedData'
           headers:
             Location:
-              description: 'Contains the URI of the newly created resource, according to the structure: {apiRoot}/neasdf-baselinednspattern/<apiVersion>/base-dns-patterns/{smfId}/{smfImplementationSegmentPaths}'
+              description: >
+                'Contains the URI of the newly created resource, according to the structure:
+                {apiRoot}/neasdf-baselinednspattern/<apiVersion>/
+                base-dns-patterns/{smfId}/{smfImplementationSegmentPaths}'
               required: true
               schema:
                 type: string
@@ -260,13 +263,15 @@ components:
         label:
           type: string
         baseDnsMdtList:
-          description: map of baseline DNS message detection templates where a valid JSON string serves as key
+          description: >
+            map of baseline DNS message detection templates where a valid JSON string serves as key
           type: object
           additionalProperties:
             $ref: '#/components/schemas/BaselineDnsMdt'
           minProperties: 1
         baseDnsAitList:
-          description: map of Baseline DNS action information Template where a valid JSON string serves as key
+          description: >
+            map of Baseline DNS action information Template where a valid JSON string serves as key
           type: object
           additionalProperties:
             $ref: '#/components/schemas/BaselineDnsAit'
@@ -290,13 +295,15 @@ components:
         label:
           type: string
         dnsQueryMdtList:
-          description: map of DNS query message detection templates where a valid JSON string serves as key
+          description: >
+            map of DNS query message detection templates where a valid JSON string serves as key
           type: object
           additionalProperties:
             $ref: 'TS29556_Neasdf_DNSContext.yaml#/components/schemas/DnsQueryMdt'
           minProperties: 1
         dnsRspMdtList:
-          description: map of DNS response message detection templates where a valid JSON string serves as key
+          description: >
+            map of DNS response message detection templates where a valid JSON string serves as key
           type: object
           additionalProperties:
             $ref: 'TS29556_Neasdf_DNSContext.yaml#/components/schemas/DnsRspMdt'
@@ -346,3 +353,4 @@ components:
 #
 # ENUMERATIONS
 #
+

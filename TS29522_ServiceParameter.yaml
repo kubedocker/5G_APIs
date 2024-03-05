@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: 3gpp-service-parameter
-  version: 1.2.0-alpha.5
+  version: 1.2.0-alpha.6
   description: |
     API for AF service paramter  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.522 V18.4.0; 5G System; Network Exposure Function Northbound APIs.
+    3GPP TS 29.522 V18.5.0; 5G System; Network Exposure Function Northbound APIs.
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.522/'
 
 security:
@@ -456,6 +456,8 @@ components:
           $ref: '#/components/schemas/ParamForProSeEndUe'
         paramForRangingSlPos:
           $ref: '#/components/schemas/ParamForRangingSlPos'
+        mappingInfo:
+          $ref: '#/components/schemas/MappingInfo'
         urspGuidance:
           type: array
           items:
@@ -499,6 +501,8 @@ components:
           $ref: '#/components/schemas/ParamForProSeEndUeRm'
         paramForRangingSlPos:
           $ref: '#/components/schemas/ParamForRangingSlPosRm'
+        mappingInfo:
+          $ref: '#/components/schemas/MappingInfoRm'
         urspGuidance:
           type: array
           items:
@@ -855,6 +859,34 @@ components:
           $ref: '#/components/schemas/Failure'
         plmnId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnIdNid'
+
+    MappingInfo:
+      description: >
+        Contains the mapping information between the Application Layer ID and the GPSI.
+      type: object
+      properties:
+        appLayerId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+        gpsi:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+      required:
+        - appLayerId
+        - gpsi
+
+    MappingInfoRm:
+      description: >
+        This data type is defined in the same way as the MappingInfo data type but with the OpenAPI
+        nullable property set to true.
+      type: object
+      properties:
+        appLayerId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
+        gpsi:
+          $ref: ‘TS29571_CommonData.yaml#/components/schemas/Gpsi’
+      nullable: true
+      required:
+        - appLayerId
+        - gpsi
 
     Failure:
       oneOf:

@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: PINServer Service Switch Information_API
+  version: 1.0.0-alpha.4
   description: |
     API for PINServer Service Switch Information Reporting.  
     © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
-  version: 1.0.0-alpha.2
 
 externalDocs:
   description: >
-    3GPP TS 29.583; Application layer support for Personal IoT Network (PINAPP);
+    3GPP TS 29.583 V1.0.0; Application layer support for Personal IoT Network (PINAPP);
     Personal IoT Network (PIN) Server Services; Stage 3.
   url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.583/'
 
@@ -326,15 +326,17 @@ components:
           $ref: '#/components/schemas/EventType'
         notificationAddr:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
-        requestorId:
+        pinId:
           type: string
-          description: Identifies a AF requestor.
+          description: Identifies a PIN.
         expTime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DateTime'
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
         - subsEvent
         - notificationAddr
-        - requestorId
+        - pinId
 
     ServiceSwitchInfoPatch:
       type: object
@@ -344,9 +346,9 @@ components:
           $ref: '#/components/schemas/EventType'
         notificationAddr:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
-        requestorId:
+        pinId:
           type: string
-          description: Identifies a AF requestor.
+          description: Identifies a PIN.
         expTime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DateTime'
 
@@ -361,6 +363,9 @@ components:
             the service switch information notification is delivered.
         repInfo:
           $ref: '#/components/schemas/ServiceSwitchReportInfo'
+      required:
+        - subsId
+        - repInfo
 
     ServiceSwitchReportInfo:
       type: object
@@ -369,6 +374,9 @@ components:
         acId:
           type: string
           description: Identifies an application client identifier.
+        pinId:
+          type: string
+          description: Identifies a PIN.
         sessionId:
           type: string
           description: Identifies an application session.
@@ -377,6 +385,11 @@ components:
           description: Identifies the PINE that the service is switched to.
         sessionDes:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/FlowInfo'
+      required:
+        - acId
+        - pinId
+        - sessionId
+        - targetPineId
 
     EventType:
       anyOf:

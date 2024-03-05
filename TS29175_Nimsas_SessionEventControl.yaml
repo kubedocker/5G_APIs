@@ -6,7 +6,7 @@ info:
   version: '1.0.0-alpha.1'
   description: |
     Nimsas_SessionEventControl Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
@@ -266,3 +266,4 @@ components:
           description: >
             This string provides forward-compatibility with future extensions to the enumeration
             and is not used to encode content defined in the present version of this API.
+

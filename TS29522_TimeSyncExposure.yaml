@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: 3gpp-time-sync-exposure
-  version: 1.1.0-alpha.5
+  version: 1.1.0-alpha.6
   description: |
     API for time synchronization exposure.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.522 V18.4.0; 5G System; Network Exposure Function Northbound APIs.
+    3GPP TS 29.522 V18.5.0; 5G System; Network Exposure Function Northbound APIs.
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.522/'
 
 security:
@@ -964,6 +964,8 @@ components:
             to indicate the state of configuration for NW-TT port is active; when PTP port state is
             in any other case, it is included and set to false to indicate the state of
             configuration for NW-TT port is inactive. Default value is false.
+        clkQltIndOfNwtt:
+            $ref: '#/components/schemas/AcceptanceCriteriaResultIndication'
         stateOfDstts:
           description: >
             Contains the PTP port states of the DS-TT(s).
@@ -985,6 +987,8 @@ components:
             to indicate the state of configuration for DS-TT port is active; when PTP port state is
             in any other case, it is included and set to false to indicate the state of 
             configuration for DS port is inactive. Default value is false.
+        clkQltIndOfDstt:
+          $ref: '#/components/schemas/AcceptanceCriteriaResultIndication'
       required:
         - gpsi
         - state
@@ -1055,7 +1059,7 @@ components:
       description: |
         Identifies the supported event.  
         Possible values are:
-        - AVAILABILITY_FOR_TIME_SYNC_SERVICE: The UE is availability for time synchronization
+        - AVAILABILITY_FOR_TIME_SYNC_SERVICE: 5GS and/or UE availability and capability for time synchronization
           service.
 
     AsTimeResource:

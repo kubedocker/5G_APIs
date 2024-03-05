@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: 3gpp-analyticsexposure
-  version: 1.2.0-alpha.5
+  version: 1.2.0-alpha.6
   description: |
     API for Analytics Exposure.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.522 V18.4.0; 5G System; Network Exposure Function Northbound APIs.
+    3GPP TS 29.522 V18.5.0; 5G System; Network Exposure Function Northbound APIs.
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.522/'
 
 security:
@@ -561,6 +561,11 @@ components:
             resume the consumption of the analytics. Default value is "false" if omitted.
         accuInfo:
           $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/AccuracyInfo'
+        nsiLoadLevelData:
+          type: array
+          items:
+            $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/NsiLoadLevelInfo'
+          minItems: 1
       required:
         - analyEvent
         - timeStamp
@@ -975,6 +980,11 @@ components:
             are not standardized.
         accuReq:
           $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/AccuracyReq'
+        relProxReqs:
+          type: array
+          items:
+            $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/RelProxReq'
+          minItems: 1
 
     AnalyticsData:
       description: Represents analytics data.
@@ -1053,6 +1063,11 @@ components:
           minItems: 1
         accuInfo:
           $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/AccuracyInfo'
+        relProxInfos:
+          type: array
+          items:
+            $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/RelProxInfo'
+          minItems: 1
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
@@ -1232,7 +1247,7 @@ components:
           - MOVEMENT_BEHAVIOUR
           - RELATIVE_PROXIMITY
           - WLAN_PERFORMANCE
-          - NSI_LOAD_LEVEL
+          - NS_LOAD_LEVEL
       - type: string
         description: >
           This string provides forward-compatibility with future
@@ -1265,8 +1280,8 @@ components:
           Relative Proximity.
         - WLAN_PERFORMANCE: Indicates that the event subscribed is the Wlan Performance
           information.
-        - NSI_LOAD_LEVEL: Indicates that the event subscribed is load level information of Network
-          Slice and the optionally associated Network Slice Instance.
+        - NS_LOAD_LEVEL: Indicates that the event subscribed is load level information of Network
+          Slice.
 
     AnalyticsFailureCode:
       anyOf:

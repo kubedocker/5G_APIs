@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: '2.3.0-alpha.5'
+  version: '2.3.0-alpha.6'
   title: 'Nudm_SDM'
   description: |
     Nudm Subscriber Data Management Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.503 Unified Data Management Services, version 18.4.0
+  description: 3GPP TS 29.503 Unified Data Management Services, version 18.5.0
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.503/'
 
 servers:
@@ -3196,10 +3196,18 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSec'
         mdtUserConsent:
           $ref: '#/components/schemas/MdtUserConsent'
+        adjacentPlmnMdtUserConsents:
+          description: A map (list of key-value pairs where PlmnId serves as key) of MdtUserConsent
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MdtUserConsent'
+          minProperties: 1
         mdtConfiguration:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/MdtConfiguration'
         traceData:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/TraceData'
+        sharedTraceDataId:
+          $ref: '#/components/schemas/SharedDataId'
         cagData:
           $ref: '#/components/schemas/CagData'
         stnSr:
@@ -3289,6 +3297,9 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/QmcConfigInfo'
         mbsrOperationAllowed:
           $ref: '#/components/schemas/MbsrOperationAllowed'
+        ncrOperationAllowed:
+          type: boolean
+          default: false
         ladnServiceAreas:
           description: A map(list of key-value pairs where singleNssai serves as key) of DnnLadnServiceAreas
           type: object
@@ -3343,11 +3354,8 @@ components:
           minItems: 1
         clockQualityDetailLevel:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ClockQualityDetailLevel'
-        clockQualityAcceptanceCriteria:
-          type: array
-          items:
-            $ref: 'TS29571_CommonData.yaml#/components/schemas/ClockQualityAcceptanceCriterion'
-          minItems: 1
+        clockQualityAcceptanceCriterion:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ClockQualityAcceptanceCriterion'
 
 
     PcfSelectionAssistanceInfo:
@@ -3536,6 +3544,14 @@ components:
           minProperties: 1
         suppressNssrgInd:
           type: boolean
+        nssaiValidityTimeInfo:
+          description: >
+            A map(list of key-value pairs where single Nssai serves as key)
+            of the current validity time
+          type: object
+          additionalProperties:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+          minProperties: 1
       nullable: true
 
     UeContextInAmfData:
@@ -3586,6 +3602,8 @@ components:
           default: false
         plmnId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnId'
+        emergencyRegistrationTime:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
 
 
     PduSession:
@@ -3908,6 +3926,8 @@ components:
           minItems: 1
         traceData:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/TraceData'
+        sharedTraceDataId:
+          $ref: '#/components/schemas/SharedDataId'
 
     SdmSubscription:
       type: object
@@ -4723,10 +4743,7 @@ components:
         - serviceIds
       properties:
         afReqAuthorizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/AfRequestAuthorization'
-          minItems: 1
+          $ref: '#/components/schemas/AfRequestAuthorization'
         serviceIds:
           type: array
           items:
@@ -4737,12 +4754,15 @@ components:
       description: AF Request Authorization
       type: object
       properties:
-        gptpAllowedInfo:
-          $ref: '#/components/schemas/GptpAllowedInfo'
+        gptpAllowedInfoList:
+          type: array
+          items:
+            $ref: '#/components/schemas/GptpAllowedInfo'
+          minItems: 1
         astiAllowedInfo:
           $ref: '#/components/schemas/AstiAllowedInfo'
       oneOf:
-        - required: [ gptpAllowedInfo ]
+        - required: [ gptpAllowedInfoList ]
         - required: [ astiAllowedInfo ]
 
     GptpAllowedInfo:
@@ -4917,8 +4937,69 @@ components:
       properties:
         mbsrOperationAllowedInd:
           type: boolean
-        mbsrValidTimePeriod:
+          default: false
+        mbsrLocationInfo:
+          $ref: '#/components/schemas/MbsrLocationInfo'
+        mbsrTimeInfo:
+          $ref: '#/components/schemas/MbsrTimeInfo'
+
+    MbsrLocationInfo:
+      type: object
+      properties:
+        mbsrLocation:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Tai'
+          minItems: 1
+        mbsrLocationAreas:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/AreaCode'
+          minItems: 1
+
+    MbsrTimeInfo:
+      type: object
+      properties:
+        mbsrTimeWindow:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidTimePeriod'
+          minItems: 1
+        mbsrRecurTime:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurTime'
+          minItems: 1
+
+    RecurTime:
+      type: object
+      properties:
+        recurTimeWindow:
           $ref: '#/components/schemas/ValidTimePeriod'
+        recurType:
+          $ref: '#/components/schemas/RecurType'
+        recurMonth:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/MonthOfYear'
+          minItems: 1
+        recurWeek:
+          type: array
+          items:
+            type: integer
+            minimum: 1
+            maximum: 64
+          minItems: 1
+        recurDay:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/DayOfWeek'
+          minItems: 1
+        recurDate:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+          minItems: 1
 
 
 # SIMPLE TYPES:
@@ -5157,13 +5238,14 @@ components:
     LcsMoServiceClass:
       description: >
         Indicates the requirement of the UE to request
-        its own location.
+        its own location or location related to other UE.
       anyOf:
         - type: string
           enum:
           - BASIC_SELF_LOCATION
           - AUTONOMOUS_SELF_LOCATION
           - TRANSFER_TO_THIRD_PARTY
+          - RANGING_SL_POS_EXPOSURE
         - type: string
           description: >
             This string provides forward-compatibility with future
@@ -5365,6 +5447,9 @@ components:
           - MONITOR
           - DISCOVERER
           - DISCOVEREE
+          - LOCATED_UE
+          - SL_SERVER_UE
+          - SL_CLIENT_UE
         - type: string
           description: >
             This string provides forward-compatibility with future
@@ -5404,3 +5489,21 @@ components:
             This string provides forward-compatibility with future
             extensions to the enumeration but is not used to encode
             content defined in the present version of this API.
+    RecurType:
+      description: Indicates the recurrence applicable to a time window.
+      anyOf:
+        - type: string
+          enum:
+          - DAILY
+          - WEEKLY
+          - MONTHLY_BY_DATE
+          - MONTHLY_BY_DAY
+          - YEARLY
+          - WEEKDAYS_ONLY
+          - WEEKENDS_ONLY
+        - type: string
+          description: >
+            This string provides forward-compatibility with future
+            extensions to the enumeration but is not used to encode
+            content defined in the present version of this API.
+

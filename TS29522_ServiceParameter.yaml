@@ -882,7 +882,7 @@ components:
         appLayerId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ApplicationlayerId'
         gpsi:
-          $ref: ‘TS29571_CommonData.yaml#/components/schemas/Gpsi’
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
       nullable: true
       required:
         - appLayerId

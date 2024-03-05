@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: '1.1.0-alpha.2'
+  version: '1.1.0-alpha.3'
   title: 'Nrouter_SMService Service API'
   description: |
     SMS Router SMService.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.577 V18.1.0; 5G System; IP Short Message Gateway and SMS Router For Short Message Services; Stage 3
+  description: 3GPP TS 29.577 V18.3.0; 5G System; IP Short Message Gateway and SMS Router For Short Message Services; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.577/'
 
 security:
@@ -220,5 +220,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Ipv6Addr'
         routerFqdn:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Fqdn'
+        routerNfInstanceId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
         supportedFeatures:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
+

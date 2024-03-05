@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 info:
   title: PINServer PAS Registration_API
-  version: 1.0.0-alpha.3
+  version: 1.0.0-alpha.5
   description: |
     API for PAS registration to PIN server.  
     © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
@@ -10,7 +10,7 @@ info:
 
 externalDocs:
   description: >
-    3GPP TS 29.583; Application layer support for Personal IoT Network (PINAPP);
+    3GPP TS 29.583 V1.0.0; Application layer support for Personal IoT Network (PINAPP);
     Personal IoT Network (PIN) Server Services; Stage 3.
   url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.583/'
 
@@ -287,14 +287,12 @@ components:
           $ref: '#/components/schemas/ConnectivityInfo'
         expTime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DateTime'
-        requestorId:
-          type: string
-          description: Indentifies a PAS
         passId:
           type: string
           description: Indentifies a PIN service
+        suppFeat:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
-        - requestorId
         - conInfo
         - passId
 
@@ -310,7 +308,7 @@ components:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Ipv6Addr'
         uri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
-      oneOf:
+      anyOf:
         - required: [uri]
         - required: [fqdn]
         - required: [ipv4Addr]
@@ -327,3 +325,7 @@ components:
         passId:
           type: string
           description: Identifies a PIN service provided by PAS.
+      anyOf:
+        - required: [conInfo]
+        - required: [expTime]
+        - required: [passId]

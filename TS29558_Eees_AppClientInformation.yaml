@@ -481,6 +481,7 @@ components:
         - required: [easBdlReqs]
         - required: [parBundDet]
 
+
     TrigCondParams:
       anyOf:
       - type: string

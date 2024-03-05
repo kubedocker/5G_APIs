@@ -964,6 +964,9 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * Broadcast Message Delivery
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29538_MSGG_BGDelivery.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29538_MSGG_BGDelivery.yaml))
+* Topic List Event
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29538_MSGS_TopiclistEvent.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29538_MSGS_TopiclistEvent.yaml))
 
 ## PINAPP (Personal IoT Network Application)
 * PINServer PAS Registration

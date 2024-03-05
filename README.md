@@ -927,6 +927,9 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * EES Application Traffic Influence
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29558_Eees_TrafficInfluenceEAS.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29558_Eees_TrafficInfluenceEAS.yaml))
+* EAS Information Management
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29558_Eecs_EASInfoManagement.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29558_Eecs_EASInfoManagement.yaml))
 
 ## UAS Application Enabler (UAE) Server
 * C2 Operation Mode Management

@@ -1,15 +1,16 @@
+A.2	Nlmf_Location API
 openapi: 3.0.0
 
 info:
-  version: '1.2.4'
+  version: '1.2.5'
   title: 'LMF Location'
   description: |
     LMF Location Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.572 V17.9.0; 5G System; Location Management Services; Stage 3
+  description: 3GPP TS 29.572 V17.10.0; 5G System; Location Management Services; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.572/'
 
 servers:
@@ -510,6 +511,8 @@ components:
             uncertaintyAltitude:
               $ref: '#/components/schemas/Uncertainty'
             confidence:
+              $ref: '#/components/schemas/Confidence'
+            vConfidence:
               $ref: '#/components/schemas/Confidence'
 
     EllipsoidArc:

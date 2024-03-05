@@ -856,6 +856,9 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * ADAE Edge Load Analytics
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_ADAE_EdgeLoadAnalytics.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_ADAE_EdgeLoadAnalytics.yaml))
+* ADAE Service Configuration
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS24559_ADAE_ServiceConfiguration.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS24559_ADAE_ServiceConfiguration.yaml))
 * AADRF Data Management
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_AADRF_DataManagement.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_AADRF_DataManagement.yaml))

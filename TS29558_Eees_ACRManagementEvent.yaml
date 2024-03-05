@@ -569,6 +569,8 @@ components:
           $ref: '#/components/schemas/ACRParameters'
         acId:
           type: string
+        ueId:
+          $ref: '#/components/schemas/TargetUeIdentification'
         selACRScen:
           type: array
           items:
@@ -616,6 +618,8 @@ components:
       properties:
         gpsi:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+        edgeUeId:
+          type: string
         intGrpId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/GroupId'
         extGrpId:
@@ -624,6 +628,7 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/IpAddr'
       oneOf:
         - required: [gpsi]
+        - required: [edgeUeId]
         - required: [intGrpId]
         - required: [extGrpId]
         - required: [ueIpAddr]

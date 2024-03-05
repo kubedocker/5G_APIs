@@ -267,6 +267,8 @@ paths:
           in: path
           required: true
           description: Unique subscription Id
+          schema:
+            type: string
       responses:
         '204':
           description: Expected response to a successful subscription removal

@@ -313,7 +313,7 @@ paths:
                 '204':
                   description: >
                     No Content. The Monitoring Notification is successfully received and
-                    Acknowledged.
+                    acknowledged.
                 '307':
                   $ref: 'TS29122_CommonData.yaml#/components/responses/307'
                 '308':
@@ -606,7 +606,7 @@ components:
             $ref: '#/components/schemas/MonitoringMetric'
           minProperties: 1
           description: >
-            Contains the requested performance and analytics monitoring metric(s).
+            Contains the updated requested performance and analytics monitoring metric(s).
             The key of the map shall be any unique string encoded value and shall be set to the same
             value as the one provided during the creation of the corresponding Monitoring Job.
 
@@ -668,7 +668,7 @@ components:
             $ref: '#/components/schemas/ReportingInfo'
           minProperties: 1
           description: >
-            Contains the requested performance and analytics monitoring metric(s).
+            Contains the requested performance and analytics reporting information.
             The key of the map shall be any unique string encoded value.
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
@@ -689,7 +689,7 @@ components:
             $ref: '#/components/schemas/ReportingInfo'
           minProperties: 1
           description: >
-            Contains the requested performance and analytics monitoring metric(s).
+            Contains the updated requested performance and analytics reporting information.
             The key of the map shall be any unique string encoded value and shall be set to the same
             value as the one provided during the creation of the corresponding Monitoring
             Subscription.
@@ -773,7 +773,7 @@ components:
         metric.
       type: object
       properties:
-        netSliceIds:
+        monNetSliceIds:
           type: array
           items:
             $ref: 'TS29435_NSCE_PolicyManagement.yaml#/components/schemas/NetSliceId'
@@ -894,6 +894,15 @@ components:
       anyOf:
       - type: string
         enum:
+           - RTT
+           - E2E_LATENCY
+           - PACKET_LOSS
+           - RETRANSMISSIONS
+           - THROUGHPUT
+           - NUM_OF_REG_UES
+           - NUM_OF_EST_PDU_SESS
+           - RESOURCE_USAGE
+           - LOAD_LEVEL
            - OTHER
       - type: string
         description: >
@@ -902,5 +911,22 @@ components:
       description: |
         Represents a performance or analytics metric.  
         Possible values are:
-        - OTHER: Indicates that the performance or analytics metric to be monitored is a
-          customized metric.
+        - RTT: Indicates that the performance or analytics metric is the round-trip time within the
+          network slice.
+        - E2E_LATENCY: Indicates that the performance or analytics metric is the E2E Latency within
+          the network slice.
+        - PACKET_LOSS: Indicates that the performance or analytics metric is the packet loss within
+          the network slice.
+        - RETRANSMISSIONS: Indicates that the performance or analytics metric is the retransmissions
+          within the network slice.
+        - THROUGHPUT: Indicates that the performance or analytics metric is the throughput within
+          the network slice.
+        - NUM_OF_REG_UES: Indicates that the performance or analytics metric is the number of
+          registered UEs within the network slice.
+        - NUM_OF_EST_PDU_SESS: Indicates that the performance or analytics metric is the number of
+          established PDU Sessions within the network slice.
+        - RESOURCE_USAGE: Indicates that the performance or analytics metric is the resources usage
+          within the network slice.
+        - LOAD_LEVEL: Indicates that the performance or analytics metric is the load level within
+          the network slice.
+        - OTHER: Indicates that the performance or analytics metric is a custom metric.

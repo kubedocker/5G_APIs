@@ -821,15 +821,27 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * NSCE Information Collection Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_InfoCollection.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_InfoCollection.yaml))
+* NSCE Multiple Slices Optimization Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSCE_MultiSlicesOptimization.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSCE_MultiSlicesOptimization.yaml))
 * NSCE Network Slice Adaptation Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NetworkSliceAdaptation.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NetworkSliceAdaptation.yaml))
 * NSCE Network Slice Communication Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_SliceCommService.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_SliceCommService.yaml))
+* NSCE Inter-PLMN Service Continuity Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_InterPLMNContinuity.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_InterPLMNContinuity.yaml))
 * NSCE Network Slice Diagnostics Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSDiagnostics.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSDiagnostics.yaml))
+* NSCE Network Slice Fault Diagnosis Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_FaultDiagnosis.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_FaultDiagnosis.yaml))
+* NSCE Network Slice Requirements Verification And Alignment Service
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_SliceReqVerifyAndAlign.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_SliceReqVerifyAndAlign.yaml))
 * NSCE Network Slice Information Delivery Service
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29435_NSCE_NSInfoDelivery.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29435_NSCE_NSInfoDelivery.yaml))

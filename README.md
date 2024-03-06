@@ -785,6 +785,9 @@ These APIs are not part of the 5G Core Network; these APIs are exposed by the 4G
 * Key Information Retrieval
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_KeyInfoRetrieval.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_KeyInfoRetrieval.yaml))
+* Key Parameters Provisioning
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_KMParametersProvisioning.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_KMParametersProvisioning.yaml))
 * VAL Service Data Retrieval
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29549_SS_VALServiceData.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29549_SS_VALServiceData.yaml))

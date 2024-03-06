@@ -157,7 +157,7 @@ components:
             type: string
           minItems: 1
         areaOfInterest:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+          $ref: 'TS29435_NSCE_NSInfoDelivery.yaml#/components/schemas/ServArea'
         startTime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DateTime'
         endTime:

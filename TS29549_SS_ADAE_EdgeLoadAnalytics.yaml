@@ -256,7 +256,7 @@ components:
         confLevel:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
       required:
-        - analyticsOutputs
+        - analyticsOutput
 
     ReportingConfig:
       description: Represents notification information of an Edge Load Event.

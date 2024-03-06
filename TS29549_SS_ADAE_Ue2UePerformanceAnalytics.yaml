@@ -276,6 +276,13 @@ components:
           $ref: 'TS29508_Nsmf_EventExposure.yaml#/components/schemas/NotificationMethod'
         reportingPeriod:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DurationSec'
+        reportingInds:
+          type: array
+          description: >
+            Indicates the list of the requested analytics.
+          items:
+            $ref: '#/components/schemas/U2UAnalytics'
+          minItems: 1
         reportingThrs:
           type: array
           description: >
@@ -283,8 +290,12 @@ components:
           items:
             $ref: '#/components/schemas/U2UThreshold'
           minItems: 1
+        reportingGrn:
+          $ref: '#/components/schemas/U2UReportingGranularity'
       required:
         - repMode
+        - reportingInds
+        - reportingGrn
 
     U2UThreshold:
       description: >

@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 info:
   version: '1.0.0-alpha.4'
-  title: 'UPF GET Private UE IP address Service'
+  title: 'UPF GET UE Private IP address and Identifiers Service'
   description: |
     Nupf_GetUEPrivateIPaddrAndIdentifiers Service.  
     © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
@@ -152,5 +152,4 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Supi'
         gpsi:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
-
 

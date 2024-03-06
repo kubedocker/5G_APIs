@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: SS_IdmParameterProvisioning
+  version: 1.0.0-alpha.2
   description: |
     API for SEAL Identity management.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
-  version: "1.0.0-alpha.1"
 
 externalDocs:
   description: >
-    3GPP TS 29.549 V18.4.0 Service Enabler Architecture Layer for Verticals (SEAL);
+    3GPP TS 29.549 V18.5.0 Service Enabler Architecture Layer for Verticals (SEAL);
     Application Programming Interface (API) specification; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.549/
 
@@ -331,18 +331,15 @@ components:
 
   schemas:
     VALServicesConfig:
-      description: Represents details of the VAL services configuration information.
+      description: Represents a VAL services configuration.
       type: object
       properties:
-        valServerId:
-          type: string
-          description: The Identifier of the VAL server provisioning the VAL services configuration.
         valSvcConf:
           type: array
-          description: The list of VAL service parameters provisioned.
           items:
             $ref: '#/components/schemas/VALServiceParams'
           minItems: 1
+          description: The list of the provisioned VAL services configuration parameters.
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
@@ -350,7 +347,7 @@ components:
         - valSvcConf
 
     VALServiceParams:
-      description: Represents details of VAL service parameters information.
+      description: Represents VAL services configuration information.
       type: object
       properties:
         valServiceId:
@@ -358,21 +355,22 @@ components:
           description: The identifier of the VAL service.
         idList:
           type: array
-          description: The list of VAL User IDs or VAL UE IDs provisioned to the VAL service.
           items:
             $ref: 'TS29549_SS_UserProfileRetrieval.yaml#/components/schemas/ValTargetUe'
           minItems: 1
+          description: The list of VAL User IDs or VAL UE IDs.
       required:
         - valServiceId
         - idList
 
     VALServicesConfigPatch:
-      description: Represents details of the partial update of VAL service configuration information.
+      description: >
+        Represents of the requested modifications to a VAL services configuration.
       type: object
       properties:
         valSvcConf:
           type: array
-          description: The list of VAL service parameters provisioned.
+          description: The list of the provisioned VAL services configuration parameters.
           items:
             $ref: '#/components/schemas/VALServiceParams'
           minItems: 1

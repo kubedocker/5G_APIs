@@ -40,7 +40,8 @@ paths:
               $ref: '#/components/schemas/NwSliceAdptInfo'
       responses:
         '204':
-          description: No Content. The requested network slice adaptation is successfully processed.
+          description: >
+            No Content. The network slice adaptation request is successfully received and processed.
         '307':
           $ref: 'TS29122_CommonData.yaml#/components/responses/307'
         '308':
@@ -50,7 +51,13 @@ paths:
         '401':
           $ref: 'TS29122_CommonData.yaml#/components/responses/401'
         '403':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+          description: >
+            The request is rejected by the NSCE Server and additional details (along with
+            ProblemDetails data structure) may be returned.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailsSliceAdapt'
         '404':
           $ref: 'TS29122_CommonData.yaml#/components/responses/404'
         '411':
@@ -67,6 +74,47 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/503'
         default:
           $ref: 'TS29122_CommonData.yaml#/components/responses/default'
+      callbacks:
+        AdaptStatusNotif:
+          '{$request.body#/notifUri}':
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/AdaptStatusNotif'
+              responses:
+                '204':
+                  description: >
+                    No Content. The Network Slice Adaptation Status Notification is successfully
+                    received and processed.
+                '307':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/307'
+                '308':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/308'
+                '400':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/400'
+                '401':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/401'
+                '403':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/403'
+                '404':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/404'
+                '411':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/411'
+                '413':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/413'
+                '415':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+                '429':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/429'
+                '500':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/500'
+                '503':
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/503'
+                default:
+                  $ref: 'TS29122_CommonData.yaml#/components/responses/default'
 
 components:
   securitySchemes:
@@ -78,6 +126,11 @@ components:
           scopes: {}
 
   schemas:
+
+#
+# STRUCTURED DATA TYPES
+#
+
     NwSliceAdptInfo:
       description: >
         Represents the information associated with requested network slice adaptation
@@ -101,6 +154,13 @@ components:
           minItems: 1
         dnn:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
+        reqAdaptThres:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdaptThreshold'
+          minItems: 1
+        notifUri:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
@@ -108,3 +168,69 @@ components:
         - valTgtUeIds
       not:
         required: [snssai, netSliceId]
+
+    AdaptThreshold:
+      description: >
+        Represents the network slice adaptation threshold.
+      type: object
+      properties:
+        threshName:
+          $ref: '#/components/schemas/AdaptThresholdName'
+        threshValue:
+          $ref: '#/components/schemas/AdaptThresholdValue'
+      required:
+        - threshName
+        - threshValue
+
+    AdaptStatusNotif:
+      description: >
+        Represents a Network Slice Adaptation Status Notification.
+      type: object
+      properties:
+        status:
+          type: boolean
+          description: >
+            Contains the network slice adaptation status. It indicates whether the network slice
+            adaptation was successful or not.
+            true means that the network slice adaptation was successful.
+            false means that the network slice adaptation failed.
+        failureCause:
+          $ref: '#/components/schemas/AdaptFailCause'
+      required:
+        - status
+
+
+# SIMPLE DATA TYPES
+#
+
+    AdaptFailCause:
+      description: >
+        Represents the network slice adaptation failure cause.
+      type: string
+
+    AdaptThresholdName:
+      description: >
+        Represents the name of the adaptation threshold.
+      type: string
+
+    AdaptThresholdValue:
+      description: >
+        Represents the value of the adaptation threshold.
+      type: string
+
+
+#
+# ENUMERATIONS
+#
+
+#
+# Data types describing alternative data types or combinations of data types
+#
+
+    ProblemDetailsSliceAdapt:
+      description: >
+        Represents an extension to the ProblemDetails data structure with potentially additional
+        error information related to network slice adaptation failure.
+      allOf:
+        - $ref: 'TS29122_CommonData.yaml#/components/schemas/ProblemDetails'
+        - $ref: '#/components/schemas/AdaptFailCause'

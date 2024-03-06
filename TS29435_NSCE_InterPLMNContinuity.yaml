@@ -131,6 +131,7 @@ components:
       description: >
         Represents the parameters to request inter-PLMN application service continuity.
       type: object
+      properties:
         valServId:
           type: string
         ueIds:
@@ -186,6 +187,7 @@ components:
       description: >
         Represents an Inter-PLMN Service Continuity Notification.
       type: object
+      properties:
         valServId:
           type: string
         ueIds:

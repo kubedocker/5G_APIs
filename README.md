@@ -309,9 +309,9 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Event Exposure
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29564_Nupf_EventExposure.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29564_Nupf_EventExposure.yaml))
-* Get Private UE IP Address
-([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29564_Nupf_GetPrivateUEIPaddr.yaml))
-([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29564_Nupf_GetPrivateUEIPaddr.yaml))
+* Get UE Private IP Address and Identifiers
+([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29564_Nupf_GetUEPrivateIPaddrAndIdentifiers.yaml))
+([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29564_Nupf_GetUEPrivateIPaddrAndIdentifiers.yaml))
 
 ## HSS (Home Subscriber Server)
 * UE Authentication

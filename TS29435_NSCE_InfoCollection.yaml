@@ -353,7 +353,7 @@ components:
 # ENUMERATIONS DATA TYPES
 #
 
-    QoSType：
+    QoSType:
       anyOf:
       - type: string
         enum:

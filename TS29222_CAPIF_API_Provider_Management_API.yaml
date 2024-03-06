@@ -4,12 +4,12 @@ info:
   title: CAPIF_API_Provider_Management_API
   description: |
     API for API provider domain functions management.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
-  version: "1.2.0-alpha.2"
+  version: "1.2.0-alpha.3"
 
 externalDocs:
-  description: 3GPP TS 29.222 V18.1.0 Common API Framework for 3GPP Northbound APIs
+  description: 3GPP TS 29.222 V18.5.0 Common API Framework for 3GPP Northbound APIs
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.222/
 
 servers:
@@ -255,6 +255,9 @@ components:
             domain function registrations.Shall be present in the HTTP response
             body if atleast one of the API provider domain function registration or update
             registration fails.
+        apiProvName:
+          type: string
+          description: Represents the API provider name.
       required:
         - regSec
 

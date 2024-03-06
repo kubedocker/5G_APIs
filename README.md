@@ -388,6 +388,7 @@ The links below will open the Swagger Editor/UI and auto-load the OpenAPI YAML f
 * Handshake (N32-c)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29573_N32_Handshake.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29573_N32_Handshake.yaml))
+([ABNF](https://forge.3gpp.org/swagger/tools/headers.html?abnf=TS29573_CustomHeaders.abnf))
 * Forwarding (N32-f)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS29573_JOSEProtectedMessageForwarding.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS29573_JOSEProtectedMessageForwarding.yaml))

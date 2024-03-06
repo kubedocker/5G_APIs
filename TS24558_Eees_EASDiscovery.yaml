@@ -10,7 +10,7 @@ info:
 
 externalDocs:
   description: >
-    3GPP TS 24.558 V18.3.1 Enabling Edge Applications; Protocol specification.
+    3GPP TS 24.558 V18.4.0 Enabling Edge Applications; Protocol specification.
   url: https://www.3gpp.org/ftp/Specs/archive/24_series/24.558/
 
 security:
@@ -736,3 +736,4 @@ components:
       properties:
         numRecPerf:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+

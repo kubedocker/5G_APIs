@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: 1.1.0-alpha.5
+  version: 1.1.0-alpha.6
   title: Ndccf_DataManagement
   description: |
     DCCF Data Management Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.574 V18.4.0; 5G System; Data Collection Coordination Services; Stage 3.
+  description: 3GPP TS 29.574 V18.5.0; 5G System; Data Collection Coordination Services; Stage 3.
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.574/'
 #
 servers:
@@ -529,6 +529,157 @@ paths:
           $ref: 'TS29571_CommonData.yaml#/components/responses/503'
         default:
           $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+
+
+  /transfers:
+    post:
+      summary: Creates a new Individual DCCF Data Management Transfer resource.
+      operationId: CreateDCCFDataManagementTransfer
+      tags:
+        - DCCF Data Management Transfers (Collection)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NdccfDataManagementTransfer'
+        required: true
+      responses:
+        '201':
+          description: Creates a new Individual DCCF Data Management Transfer resource.
+          headers:
+            Location:
+              description: >
+                Contains the URI of the newly created resource, according to the structure
+                {apiRoot}/ndccf-datamanagement/<apiVersion>/tranfers/{tranferId}
+              required: true
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NdccfDataManagementTransfer'
+        '400':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/500'
+        '502':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/502'
+        '503':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+
+  /transfers/{transferId}:
+    put:
+      summary: Updates an existing Individual DCCF Data Management Transfer resource.
+      operationId: UpdateDCCFDataManagementTransfer
+      tags:
+        - Individual DCCF Data Management Transfer (Document)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NdccfDataManagementTransfer'
+      parameters:
+        - name: transferId
+          in: path
+          description: >
+            String identifying a data management transfer to the Ndccf_DataManagement Service.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: >
+            The Individual DCCF Data Management Transfer resource was modified successfully and a
+            representation of that resource is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NdccfDataManagementTransfer'
+        '307':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/404'
+        '411':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/411'
+        '413':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/413'
+        '415':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/415'
+        '429':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/500'
+        '502':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/502'
+        '503':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+    delete:
+      summary: Deletes an existing Individual DCCF Data Management Transfer resource.
+      operationId: DeleteDCCFDataManagementTransfer
+      tags:
+        - Individual DCCF Data DataManagementTransfer (Document)
+      parameters:
+        - name: transferId
+          in: path
+          description: >
+            String identifying a data management transfer to the Ndccf_DataManagement Service.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: >
+            No Content. The Individual DCCF Data Subscription resource matching the transferId was 
+            deleted.
+        '307':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/307'
+        '308':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/308'
+        '400':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/400'
+        '401':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/401'
+        '403':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/403'
+        '404':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/404'
+        '429':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/429'
+        '500':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/500'
+        '502':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/502'
+        '503':
+          $ref: 'TS29571_CommonData.yaml#/components/responses/503'
+        default:
+          $ref: 'TS29571_CommonData.yaml#/components/responses/default'
 #
 components:
   securitySchemes:
@@ -738,6 +889,8 @@ components:
         dataNotifCorrId:
           type: string
           description: Notification correlation identifier.
+        newSubscriptionUri:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uri'
         dataNotif:
           $ref: 'TS29575_Nadrf_DataManagement.yaml#/components/schemas/DataNotification'
         dataReports:
@@ -1002,6 +1155,19 @@ components:
       required:
        - retrievalInd
 #
+    NdccfDataManagementTransfer:
+      description: Represents an Individual DCCF Data Management Transfer.
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+          description: The identifier of a subscription that needs to be transferred.
+        subInfo:
+          $ref: '#/components/schemas/NdccfDataSubscription'
+      required:
+        - subscriptionId
+        - subInfo
+#
     SummarizationAttribute:
       anyOf:
       - type: string
@@ -1068,6 +1234,7 @@ components:
           - USER_CONSENT_REVOKED
           - DCCF_OVERLOAD
           - OTHER
+          - OUT_OF_SERVING_AREA
       - type: string
         description: >
           This string provides forward-compatibility with future
@@ -1079,3 +1246,4 @@ components:
         - USER_CONSENT_REVOKED: The user consent has been revoked.
         - DCCF_OVERLOAD: The DCCF is overloaded.
         - OTHER: Indicates that the termination is due to other reason.
+        - OUT_OF_SERVING_AREA: Indicates that that the UE(s) moved outside of the DCCF serving area.

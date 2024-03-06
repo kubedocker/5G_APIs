@@ -214,4 +214,3 @@ components:
         - ACR_SCENARIO_SELECTION_ANNOUNCEMENT: Indicates EAS information provisioning request type is ACR scenario selection announcement.
         - ACR_SCENARIO_SELECTION_REQUEST: Indicates EAS information provisioning request type is ACR scenario selection request.
         - EAS_SELECTION: Indicates EAS information provisioning request type is EAS selection.
-

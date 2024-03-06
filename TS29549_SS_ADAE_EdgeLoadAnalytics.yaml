@@ -240,13 +240,15 @@ components:
       anyOf:
         - required: [destinationEasInfo]
         - required: [destinationEesId]
-        - required: [dnn]
+        - oneOf:
+           - required: [dnai]
+           - required: [dnn]
 
     EdgeNotif:
       description: Represents notification information of an Edge Load Event.
       type: object
       properties:
-        analyticsOutputs:
+        analyticsOutput:
           type: string
           description: String representing the edge load analytics.
         analyticsType:
@@ -264,5 +266,9 @@ components:
           $ref: 'TS29508_Nsmf_EventExposure.yaml#/components/schemas/NotificationMethod'
         immRep:
           type: boolean
+          description: >
+            It indicates immediate reporting. When included and set to true,
+            it indicates that immediate reporting of the subscribed event(s)
+            is requested. The default value is false.
       required:
         - reportingMode

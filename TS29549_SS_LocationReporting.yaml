@@ -4,13 +4,13 @@ info:
   title: SS_LocationReporting
   description: |
     API for SEAL Location Reporting Configuration.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
-  version: "1.2.0-alpha.2"
+  version: "1.2.0-alpha.3"
 
 externalDocs:
   description: >
-    3GPP TS 29.549 V18.4.0 Service Enabler Architecture Layer for Verticals (SEAL);
+    3GPP TS 29.549 V18.5.0 Service Enabler Architecture Layer for Verticals (SEAL);
     Application Programming Interface (API) specification; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.549/
 
@@ -336,7 +336,7 @@ components:
           type: array
           minItems: 1
           items:
-            type: string
+            $ref: 'TS29549_SS_VALServiceAreaConfiguration.yaml#/components/schemas/ValSvcAreaId'
           description: >
             Represents the VAL service area ID(s).
         triggCriteria:
@@ -367,7 +367,7 @@ components:
           type: array
           minItems: 1
           items:
-            type: string
+            $ref: 'TS29549_SS_VALServiceAreaConfiguration.yaml#/components/schemas/ValSvcAreaId'
           description: >
             Represents the VAL service area ID(s).
         triggCriteria:
@@ -402,7 +402,9 @@ components:
       properties:
         subscriptionId:
           type: string
-          description: Represents the subscription ID.
+          description: >
+            Represents the identifier of the subscription to which the location
+            reporting notification is related.
         valTgtUe:
           $ref: 'TS29549_SS_UserProfileRetrieval.yaml#/components/schemas/ValTargetUe'
         locInfo:

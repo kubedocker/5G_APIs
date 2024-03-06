@@ -4,13 +4,13 @@ info:
   title: SS_VALServiceAreaConfiguration
   description: |
     API for SEAL VAL Service Area Configuration Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
-  version: "1.0.0-alpha.2"
+  version: "1.0.0-alpha.3"
 
 externalDocs:
   description: >
-    3GPP TS 29.549 V18.4.0 Service Enabler Architecture Layer for Verticals (SEAL);
+    3GPP TS 29.549 V18.5.0 Service Enabler Architecture Layer for Verticals (SEAL);
     Application Programming Interface (API) specification; Stage 3.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.549/
 
@@ -40,7 +40,7 @@ paths:
           schema:
             type: array
             items:
-              type: string
+              $ref: '#/components/schemas/ValSvcAreaId'
             minItems: 1
         - name: supp-feats
           in: query
@@ -63,12 +63,8 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/403'
         '404':
           $ref: 'TS29122_CommonData.yaml#/components/responses/404'
-        '411':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
-        '413':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
-        '415':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '406':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/406'
         '429':
           $ref: 'TS29122_CommonData.yaml#/components/responses/429'
         '500':
@@ -333,12 +329,8 @@ paths:
           $ref: 'TS29122_CommonData.yaml#/components/responses/403'
         '404':
           $ref: 'TS29122_CommonData.yaml#/components/responses/404'
-        '411':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/411'
-        '413':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/413'
-        '415':
-          $ref: 'TS29122_CommonData.yaml#/components/responses/415'
+        '406':
+          $ref: 'TS29122_CommonData.yaml#/components/responses/406'
         '429':
           $ref: 'TS29122_CommonData.yaml#/components/responses/429'
         '500':
@@ -496,6 +488,7 @@ components:
         valSvcAreaId:
           $ref: '#/components/schemas/ValSvcAreaId'
         locations:
+          type: array
           description: Represents the locations associated with the VAL service area.
           minItems: 1
           items:
@@ -509,6 +502,7 @@ components:
       type: object
       properties:
         valSvcAreas:
+          type: array
           description: Represents the VAL service area(s).
           minItems: 1
           items:
@@ -523,6 +517,7 @@ components:
       type: object
       properties:
         valSvcAreas:
+          type: array
           description: Represents the requested VAL service area(s).
           minItems: 1
           items:
@@ -535,10 +530,11 @@ components:
       type: object
       properties:
         valSvcAreaIds:
+          type: array
           description: Represents the identifier(s) of the successfully handled VAL service area(s).
           minItems: 1
           items:
-            type: string
+            $ref: '#/components/schemas/ValSvcAreaId'
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
@@ -571,6 +567,7 @@ components:
       type: object
       properties:
         events:
+          type: array
           description: Represents the subscribed VAL service area change event(s).
           minItems: 1
           items:
@@ -592,10 +589,11 @@ components:
         event:
           $ref: '#/components/schemas/ValServiceAreaEvent'
         valSvcAreaIds:
+          type: array
           description: Represents the VAL service area ID(s) associated with the event.
           minItems: 1
           items:
-            type: string
+            $ref: '#/components/schemas/ValSvcAreaId'
       required:
         - event
         - valSvcAreaIds
@@ -619,15 +617,17 @@ components:
         event:
           $ref: '#/components/schemas/ValServiceAreaEvent'
         valSvcAreas:
+          type: array
           description: Represents the VAL service area(s) associated with the event.
           minItems: 1
           items:
             $ref: '#/components/schemas/ValServiceArea'
         valSvcAreaIds:
+          type: array
           description: Represents the VAL service area(s) associated with the event.
           minItems: 1
           items:
-            type: string
+            $ref: '#/components/schemas/ValSvcAreaId'
       required:
         - event
 

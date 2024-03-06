@@ -320,6 +320,24 @@ components:
         expTime:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/DateTime'
 
+    InfoCollectNotif:
+      description: Represents an Information Collection Notification.
+      type: object
+      properties:
+        subscriptionId:
+          type: string
+          description: >
+            Contains the identifier of the subscription to which the notification is related.
+        netSlicePerf:
+          type: array
+          description: Contains the network slice related performance and analytics report(s).
+          items:
+            $ref: 'TS29435_NSCE_PerfMonitoring.yaml#/components/schemas/ReportingData'
+          minItems: 1
+      required:
+        - subscriptionId
+        - netSlicePerf
+
     CollectInfo:
       type: object
       properties:

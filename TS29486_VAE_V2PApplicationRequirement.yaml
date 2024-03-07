@@ -1,15 +1,15 @@
 openapi: 3.0.0
 
 info:
-  version: 1.1.0-alpha.1
+  version: 1.1.0-alpha.2
   title: VAE Server V2P Application Requirement Service
   description: |
     API for VAE Server V2P Application Requirement Service  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.486 V18.1.0 V2X Application Enabler (VAE) Services
+  description: 3GPP TS 29.486 V18.2.0 V2X Application Enabler (VAE) Services
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.486/'
 
 security:
@@ -21,14 +21,14 @@ servers:
     variables:
       apiRoot:
         default: https://example.com
-        description: apiRoot as defined in clause 4.4 of 3GPP TS 29.501
+        description: apiRoot as defined in clause 5.2.4 of 3GPP TS 29.122
 
 paths:
   /provisionings:
     post:
       summary: Request the creation of a V2P Application Requirements Provisioning.
       tags:
-        - V2P Application Requirements Provisionings collection (Collection)
+        - V2P Application Requirements Provisionings (Collection)
       operationId: CreateV2PAppReqsProv
       requestBody:
         content:
@@ -96,7 +96,7 @@ paths:
         '200':
           description: >
             OK. The requested Individual V2P Application Requirements Provisioning resource
-            representation shall be returned.
+            shall be returned.
           content:
             application/json:
               schema:
@@ -182,7 +182,6 @@ paths:
       tags:
         - Individual V2P Application Requirements Provisioning (Document)
       requestBody:
-        description: Parameters to modify the existing configuration.
         required: true
         content:
           application/merge-patch+json:
@@ -278,9 +277,9 @@ components:
         groupId:
           $ref: 'TS29486_VAE_MessageDelivery.yaml#/components/schemas/V2xGroupId'
         v2pQosReqs:
-          $ref: 'TS29486_VAE_VRUZoneManagement.yaml#/components/schemas/AppReqs'
-        appTrafficPattern:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
+          $ref: 'TS29486_VAE_SessionOrientedService.yaml#/components/schemas/AppplicationQosRequirement'
+        TrafficPattern:
+          $ref: '#/components/schemas/AppTrafficPattern'
         paramOverPc5:
           $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/ParameterOverPc5'
         suppFeat:
@@ -299,8 +298,23 @@ components:
       type: object
       properties:
         v2pQosReqs:
-          $ref: 'TS29486_VAE_VRUZoneManagement.yaml#/components/schemas/AppReqs'
-        appTrafficPattern:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
+          $ref: 'TS29486_VAE_SessionOrientedService.yaml#/components/schemas/AppplicationQosRequirement'
+        TrafficPattern:
+          $ref: '#/components/schemas/AppTrafficPattern'
         paramOverPc5:
           $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/ParameterOverPc5Rm'
+
+    AppTrafficPattern:
+      description: >
+        Represents an application traffic pattern for V2P services.
+      type: object
+      properties:
+        timeWindows:
+          type: array
+          items:
+            $ref: 'TS29122_CommonData.yaml#/components/schemas/TimeWindow'
+          minItems: 1
+        periodicity:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/DurationSec'
+      required:
+        - timeWindows

@@ -2,14 +2,14 @@ openapi: 3.0.0
 
 info:
   title: Nnwdaf_MLModelProvision
-  version: 1.1.0-alpha.5
+  version: 1.1.0-alpha.6
   description: |
     Nnwdaf_MLModelProvision API Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.520 V18.4.0; 5G System; Network Data Analytics Services.
+  description: 3GPP TS 29.520 V18.5.0; 5G System; Network Data Analytics Services.
   url: https://www.3gpp.org/ftp/Specs/archive/29_series/29.520/
 
 servers:
@@ -358,6 +358,8 @@ components:
             are not standardized.
         inferDataForModel:
           $ref: '#/components/schemas/InferenceDataForModelTrain'
+        modelId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
       required:
         - mLEvent
         - mLEventFilter
@@ -408,6 +410,8 @@ components:
             $ref: '#/components/schemas/AdditionalMLModelInformation'
           minItems: 1
           description: Contains the additional ML Model Information besides the ML Model Address
+        modelUniqueId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
       allOf:
         - required: [event]
         - oneOf:
@@ -490,6 +494,11 @@ components:
           $ref: '#/components/schemas/MLModelMetric'
         accMLModel:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+      oneOf:
+        - required: [mLFileAddr]
+        - required: [mLModelAdrf]
+      required:
+        - modelUniqueId
 
 
     MLModelAdrf:
@@ -566,3 +575,4 @@ components:
         Represents the metric of the ML model.  
         Possible values are:
         - ACCURACY: ML Model Accuracy metric.
+

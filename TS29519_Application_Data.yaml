@@ -1,4 +1,4 @@
-openapi: 3.0.0
+=openapi: 3.0.0
 
 info:
   version: '-'
@@ -4289,10 +4289,10 @@ components:
           minItems: 1
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
-      oneOf:
-      - required: [supi]
-      - required: [interGroupId]
       allof:
+      - oneOf:
+        - required: [supi]
+        - required: [interGroupId]
         - oneOf:
           - required: [flowInfo]
           - required: [ethFlowInfo]

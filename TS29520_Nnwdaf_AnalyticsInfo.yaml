@@ -833,7 +833,7 @@ components:
         dataSourceSetIds:
           type: array
           items:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/NfSetId'
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/NfSetId'
           minItems: 1
           description: The NF Set ID(s) of the data source for ground truth data.
         dataSub:

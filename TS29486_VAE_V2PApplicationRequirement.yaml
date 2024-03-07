@@ -278,7 +278,7 @@ components:
           $ref: 'TS29486_VAE_MessageDelivery.yaml#/components/schemas/V2xGroupId'
         v2pQosReqs:
           $ref: 'TS29486_VAE_SessionOrientedService.yaml#/components/schemas/AppplicationQosRequirement'
-        TrafficPattern:
+        trafficPattern:
           $ref: '#/components/schemas/AppTrafficPattern'
         paramOverPc5:
           $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/ParameterOverPc5'
@@ -290,7 +290,7 @@ components:
       required:
         - requestorId
         - v2pQosReqs
-        - appTrafficPattern
+        - trafficPattern
 
     V2pAppReqDataPatch:
       description: >
@@ -299,7 +299,7 @@ components:
       properties:
         v2pQosReqs:
           $ref: 'TS29486_VAE_SessionOrientedService.yaml#/components/schemas/AppplicationQosRequirement'
-        TrafficPattern:
+        trafficPattern:
           $ref: '#/components/schemas/AppTrafficPattern'
         paramOverPc5:
           $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/ParameterOverPc5Rm'

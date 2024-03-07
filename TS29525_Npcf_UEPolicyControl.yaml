@@ -418,6 +418,7 @@ components:
           type: array
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/RatType'
+          minItems: 1
         groupIds:
           type: array
           items:

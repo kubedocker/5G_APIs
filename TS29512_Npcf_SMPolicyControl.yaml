@@ -448,6 +448,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/TraceData'
         sliceInfo:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+        altSliceInfo:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
         qosFlowUsage:
           $ref: '#/components/schemas/QosFlowUsage'
         servNfId:
@@ -679,8 +681,12 @@ components:
           $ref: '#/components/schemas/UePolicyContainer'
         sliceUsgCtrlInfo:
           $ref: '#/components/schemas/SliceUsgCtrlInfo'
-        vplmnOffload:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/VplmnOffloadingInfo'
+        vplmnOffloadInfos:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/VplmnOffloadingInfo'
+          minItems: 1
+          description: List of VPLMN Specific offloading information.
 
     SmPolicyNotification:
       description: Represents a notification on the update of the SM policies.
@@ -708,7 +714,9 @@ components:
           $ref: '#/components/schemas/ApplicationDescriptor'
         contVer:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/ContentVersion'
-        protoDesc:
+        protoDescDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        protoDescUl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
         pccRuleId:
           type: string
@@ -1029,6 +1037,8 @@ components:
           $ref: '#/components/schemas/UpPathChgEvent'
         steerFun:
           $ref: '#/components/schemas/SteeringFunctionality'
+        transMode:
+          $ref: '#/components/schemas/TransportMode'
         steerModeDl:
           $ref: '#/components/schemas/SteeringMode'
         steerModeUl:
@@ -1536,7 +1546,7 @@ components:
             $ref: '#/components/schemas/L4sSupportInfo'
           minItems: 1
           description: ECN marking for L4S support availability in 5GS.
-        sliceInfo:
+        altSliceInfo:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
         batOffsetInfo:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/BatOffsetInfo'
@@ -2294,8 +2304,10 @@ components:
       description: Contains Traffic Parameter(s) related control information.
       type: object
       properties:
-        periodInfo:
-          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/PeriodicityInfo'
+        periodUl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSecRm'
+        periodDl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSecRm'
         reqTrafficParas:
           type: array
           items:
@@ -2338,6 +2350,8 @@ components:
       properties:
         pduSessInactivTimer:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSecRm'
+      anyOf:
+        - required: [pduSessInactivTimer]
 
     5GSmCause:
       $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
@@ -3191,4 +3205,18 @@ components:
         - PACKET_DELAY: Indicates that the QoS monitoring parameter to be measured is packet delay.
         - CONGESTION: Indicates that the QoS monitoring parameter to be measured is congestion.
         - DATA_RATE: Indicates that the QoS monitoring parameter to be measured is data rate.
+#
+    TransportMode:
+      description: >
+        Indicates the Transport Mode when the steering functionality is MPQUIC functionality.
+      anyOf:
+      - type: string
+        enum:
+          - DATAGRAM_MODE_1
+          - DATAGRAM_MODE_2
+          - STREAM_MODE
+      - type: string
+        description: >
+          This string provides forward-compatibility with future extensions to the enumeration
+          and is not used to encode content defined in the present version of this API.
 

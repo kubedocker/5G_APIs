@@ -314,8 +314,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/AverWindow'
         maxDataBurstVol:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ExtMaxDataBurstVol'
-        - not:
-            required: [pqi, resourceType, packetDelayBudget, packetErrorRate]
+        not:
+          required: [pqi, resourceType, packetDelayBudget, packetErrorRate]
 
 # Simple data types and Enumerations
     Action:

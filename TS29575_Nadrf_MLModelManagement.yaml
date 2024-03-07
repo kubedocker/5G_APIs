@@ -1,13 +1,13 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0-alpha.2
+  version: 1.0.0-alpha.3
   title: Nadrf_MLModelManagement
   description: |
     ADRF ML Model Management Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 externalDocs:
-  description: 3GPP TS 29.575 V18.4.0; 5G System; Analytics Data Repository Services; Stage 3.
+  description: 3GPP TS 29.575 V18.5.0; 5G System; Analytics Data Repository Services; Stage 3.
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.575/'
 #
 servers:
@@ -87,7 +87,7 @@ paths:
           required: false
           schema:
             type: string
-        - name: modelUniqueId
+        - name: modelUniqueIds
           description: Unique Model identifier of a ML model.
           in: query
           required: false
@@ -95,7 +95,6 @@ paths:
             type: array
             items:
               $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
-            minItems: 1
       responses:
         '200':
           description: ML model store records are returned.
@@ -188,7 +187,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/NadrfMLModelStoreRecord'
+                $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
               minItems: 1
         required: true
       responses:
@@ -199,7 +198,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MLModelDelResult'
+                type: array
+                items:
+                  $ref: '#/components/schemas/MLModelDelResult'
+                minItems: 1
+        '204':
+          description: >
+            No Content. The ML models matching all identifiers provided in the request body
+            were deleted.
         '400':
           $ref: 'TS29571_CommonData.yaml#/components/responses/400'
         '401':
@@ -245,7 +251,7 @@ components:
           - required: [nfInstanceId]
           - required: [nfSetId]
         - anyOf:
-          - required: [mlModelIdnfo]
+          - required: [mlModelInfo]
           - required: [mlModels]
       properties:
         nfInstanceId:

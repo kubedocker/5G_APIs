@@ -4256,7 +4256,7 @@ components:
         qosReference:
           type: string
         qosReqs:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/QosRequirements'
+          $ref: '#/components/schemas/QosRequirements'
         altSerReqs:
           type: array
           items:
@@ -4289,10 +4289,10 @@ components:
           minItems: 1
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
-      allOf:
-        - oneOf:
-          - required: [supi]
-          - required: [interGroupId]
+      oneOf:
+      - required: [supi]
+      - required: [interGroupId]
+      allof:
         - oneOf:
           - required: [flowInfo]
           - required: [ethFlowInfo]
@@ -4301,9 +4301,9 @@ components:
           - required: [qosReference]
           - required: [qosReqs]
         - not:
-            required: [qosReference, altQosReqs]
+          required: [qosReference, altQosReqs]
         - not:
-            required: [altQosReqs, altQoSReferences]
+          required: [altQosReqs, altQoSReferences]
 
     AfRequestedQosDataPatch:
       description: Represents modification of Individual AF Requested QoS data.
@@ -4335,7 +4335,7 @@ components:
           type: string
           nullable: true
         qosReqs:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/QosRequirementsRm'
+          $ref: '#/components/schemas/QosRequirementsRm'
         altSerReqs:
           type: array
           items:
@@ -4527,3 +4527,4 @@ components:
         description: >
           This string provides forward-compatibility with future extensions to the enumeration
           and is not used to encode content defined in the present version of this API.
+

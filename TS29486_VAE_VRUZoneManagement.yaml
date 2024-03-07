@@ -2,14 +2,14 @@ openapi: 3.0.0
 
 info:
   title: VAE Server VRU Zone Management Service
-  version: 1.0.0-alpha.1
+  version: 1.0.0-alpha.2
   description: |
     VAE Server VRU Zone Management Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.486 V18.1.0 V2X Application Enabler (VAE) Services
+  description: 3GPP TS 29.486 V18.2.0 V2X Application Enabler (VAE) Services
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.486/'
 
 servers:
@@ -90,7 +90,7 @@ paths:
                 '204':
                   description: >
                     No Content. The VRU Zone Management Enter/Leave notification is successfully
-                    received and acknowledged and no content is returned in the response body.
+                    received and acknowledged, and no content is returned in the response body.
                 '307':
                   $ref: 'TS29122_CommonData.yaml#/components/responses/307'
                 '308':
@@ -319,7 +319,7 @@ components:
         vruZoneInfo:
           $ref: '#/components/schemas/VRUZoneInfo'
         vruAppReqs:
-          $ref: '#/components/schemas/AppReqs'
+          $ref: '#/components/schemas/VRUAppReqs'
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         vruZoneId:
@@ -341,20 +341,26 @@ components:
         Represents the requested modifications to a VRU Zone Management Subscription.
       type: object
       properties:
+        ueIdsList:
+          type: array
+          items:
+            $ref: 'TS29486_VAE_MessageDelivery.yaml#/components/schemas/V2xUeId'
+          minItems: 1
+          nullable: true
         vruZoneInfo:
           $ref: '#/components/schemas/VRUZoneInfo'
         vruAppReqs:
-          $ref: '#/components/schemas/AppReqs'
+          $ref: '#/components/schemas/VRUAppReqs'
         notifUri:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/Uri'
         areaOfInterest:
-          $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/GeographicArea'
+          $ref: '#/components/schemas/GeographicAreaRm'
         timeValidity:
           $ref: '#/components/schemas/TimeValidity'
 
     EnterLeaveNotif:
       description: >
-        Represents a VRU Zone Management Enter/LeaveNotification.
+        Represents a VRU Zone Management Enter/Leave Notification.
       type: object
       properties:
         groupId:
@@ -387,13 +393,13 @@ components:
           items:
             $ref: '#/components/schemas/UEType'
           minItems: 1
-        vruZoneType:
+        zoneType:
           $ref: '#/components/schemas/VRUZoneType'
       required:
-        - typeOfUes
-        - vruZoneType
+        - ueTypes
+        - zoneType
 
-    AppReqs:
+    VRUAppReqs:
       description: >
         Represents VRU application requirements.
       type: object
@@ -403,20 +409,11 @@ components:
           items:
             $ref: '#/components/schemas/MsgType'
           minItems: 1
-        reliability:
-          format: float
-          type: number
-          minimum: 0
-          maximum: 100
-        delay:
-          type: integer
-          minimum: 1
-        jitter:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
+        appQosReq:
+          $ref: 'TS29486_VAE_SessionOrientedService.yaml#/components/schemas/AppplicationQosRequirement'
       anyOf:
-        - required: [reliability]
-        - required: [delay]
-        - required: [jitter]
+        - required: [supportedMsgs]
+        - required: [appQosReq]
 
     TimeValidity:
       description: >
@@ -433,7 +430,8 @@ components:
 
     EnterLeaveInfo:
       description: >
-        Represents the information related to V2X UE(s) entering/leaving a VRU zone.
+        Represents the information related to a V2X UE or a V2X group entering/leaving a VRU
+        zone.
       type: object
       properties:
         time:
@@ -455,6 +453,18 @@ components:
       anyOf:
         - required: [speed]
         - required: [direction]
+
+    GeographicAreaRm:
+      description: Geographic area specified by different shape.
+      nullable: true
+      anyOf:
+        - $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/Point'
+        - $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/PointUncertaintyCircle'
+        - $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/PointUncertaintyEllipse'
+        - $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/Polygon'
+        - $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/PointAltitude'
+        - $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/PointAltitudeUncertainty'
+        - $ref: 'TS29572_Nlmf_Location.yaml#/components/schemas/EllipsoidArc'
 
     UEType:
       anyOf:
@@ -504,8 +514,8 @@ components:
       description: |
         Represents the message type.  
         Possible values are:
-        - VAM: Indicates that the type of message is VAM.
-        - CAM: Indicates that the type of message is CAM.
-        - DENM: Indicates that the type of message is DENM.
-        - BSM: Indicates that the type of message is BSM.
-        - CPM: Indicates that the type of message is CPM.
+        - VAM: Indicates that the message type is VAM.
+        - CAM: Indicates that the message type is CAM.
+        - DENM: Indicates that the message type is DENM.
+        - BSM: Indicates that the message type is BSM.
+        - CPM: Indicates that the message type is CPM.

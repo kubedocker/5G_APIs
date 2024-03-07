@@ -5,12 +5,12 @@ info:
   title: Unified Data Repository Service API file for Application Data
   description: |
     The API version is defined in 3GPP TS 29.504  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.519 V18.4.0; 5G System; Usage of the Unified Data Repository Service for Policy Data,
+    3GPP TS 29.519 V18.5.0; 5G System; Usage of the Unified Data Repository Service for Policy Data,
     Application Data and Structured Data for Exposure.
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.519/'
 
@@ -2350,10 +2350,10 @@ paths:
 
   /application-data/af-qos-data-sets:
     get:
-      summary: Retrieve AF Requested QoS Data
-      operationId: ReadAFReqQoSData
+      summary: Retrieve one or several existing Individual AF Requested QoS Data Set resource(s).
+      operationId: ReadAFReqQoSDataSets
       tags:
-        - AF Requested QoS Data (Store)
+        - AF Requested QoS Data Sets (Collection)
       security:
         - {}
         - oAuth2ClientCredentials:
@@ -2368,7 +2368,7 @@ paths:
       parameters:
         - name: dnns
           in: query
-          description: Each element identifies a DNN
+          description: Each element identifies a DNN.
           required: false
           schema:
             type: array
@@ -2377,7 +2377,7 @@ paths:
             minItems: 1
         - name: snssais
           in: query
-          description: Each element identifies a slice.
+          description: Each element identifies a network slice.
           required: false
           content:
             application/json:
@@ -2386,9 +2386,9 @@ paths:
                 items:
                   $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
                 minItems: 1
-        - name: internal-group-ids
+        - name: int-group-ids
           in: query
-          description: Each element identifies a group of users.
+          description: Each element identifies a group of subscriber(s).
           required: false
           schema:
             type: array
@@ -2397,7 +2397,7 @@ paths:
             minItems: 1
         - name: supis
           in: query
-          description: Each element identifies the user.
+          description: Each element identifies a subscriber.
           required: false
           schema:
             type: array
@@ -2406,7 +2406,7 @@ paths:
             minItems: 1
         - name: data-set-ids
           in: query
-          description: Each element identifies an Individual AF requested QoS resource.
+          description: Each element identifies an Individual AF requested QoS Set resource.
           required: false
           schema:
             type: array
@@ -2421,13 +2421,16 @@ paths:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       responses:
         '200':
-          description: The AF requested QoS Data stored in the UDR are returned.
+          description: >
+            The requested "Individual AF requested QoS Data Set resource(s) stored in the UDR are
+            returned.
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/AfRequestedQosData'
+                minItems: 0
         '400':
           $ref: 'TS29571_CommonData.yaml#/components/responses/400'
         '401':
@@ -2452,11 +2455,20 @@ paths:
           $ref: 'TS29571_CommonData.yaml#/components/responses/default'
 
   /application-data/af-qos-data-sets/{afReqQosId}:
+    parameters:
+      - name: afReqQosId
+        in: path
+        description: >
+          Represents the identifier of an Individual AF Requested QoS Data Set.
+        required: true
+        schema:
+          type: string
+
     put:
-      summary: Create or update an Individual AF Requested QoS Data resource.
-      operationId: CreateIndividualAFReqQoSData
+      summary: Create or update an Individual AF Requested QoS Data Set resource.
+      operationId: CreateOrUpdateIndAFReqQoSDataSet
       tags:
-        - Individual AF Requested QoS Data (Document)
+        - Individual AF Requested QoS Data Set (Document)
       security:
         - {}
         - oAuth2ClientCredentials:
@@ -2474,19 +2486,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/AfRequestedQosData'
-      parameters:
-        - name: afReqQosId
-          in: path
-          description: >
-            The Identifier of an Individual AF Requested QoS Data to be created or updated.
-          required: true
-          schema:
-            type: string
       responses:
         '201':
           description: >
-            The creation of an Individual AF Requested QoS Data resource is confirmed and a
-            representation of that resource is returned.
+            Created. The Individual AF Requested QoS Data Set resource is successfully created and a
+            representation of the created resource shall be returned in the response body.
           content:
             application/json:
               schema:
@@ -2494,11 +2498,22 @@ paths:
           headers:
             Location:
               description: >
-                Contains the URI of the newly created resource, according to the structure:
-                {apiRoot}/nudr-dr/<apiVersion>/application-data/af-qos-data-sets/{afReqQosId}
+                Contains the URI of the newly created resource.
               required: true
               schema:
                 type: string
+        '200':
+          description: >
+            OK. The Individual AF Requested QoS Data Set resource is successfully updated and a
+            representation of the updated resource shall be returned in the response body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AfRequestedQosData'
+        '204':
+          description: >
+            No Content. The Individual AF Requested QoS Data Set resource is successfully updated
+            and no content is returned in the response body.
         '400':
           $ref: 'TS29571_CommonData.yaml#/components/responses/400'
         '401':
@@ -2525,11 +2540,12 @@ paths:
           $ref: 'TS29571_CommonData.yaml#/components/responses/503'
         default:
           $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+
     patch:
-      summary: Modify part of the properties of an individual AF requested QoS Data resource
-      operationId: UpdateIndividualAFRequestedQoSData
+      summary: Modify of an existing Individual AF Requested QoS Data Set" resource
+      operationId: ModifyIndAFReqQoSDataSet
       tags:
-        - Individual AF requested QoS Data (Document)
+        - Individual AF requested QoS Data Set (Document)
       security:
         - {}
         - oAuth2ClientCredentials:
@@ -2547,25 +2563,19 @@ paths:
           application/merge-patch+json:
             schema:
               $ref: '#/components/schemas/AfRequestedQosDataPatch'
-      parameters:
-        - name: afReqQosId
-          in: path
-          description: >
-            The Identifier of an Individual AF Requested QoS Data to be updated.
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: >
-            The update of an Individual AF Requested QoS Data resource is confirmed and
-            a response body containing AF Requested QoS Data shall be returned.
+            OK. The Individual AF Requested QoS Data Set resource is successfully modified and a
+            representation of the updated resource shall be returned in the response body.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AfRequestedQosData'
         '204':
-          description: No content
+          description: >
+            No Content. The Individual AF Requested QoS Data Set resource is successfully modified
+            and no content is returned in the response body.
         '400':
           $ref: 'TS29571_CommonData.yaml#/components/responses/400'
         '401':
@@ -2590,11 +2600,12 @@ paths:
           $ref: 'TS29571_CommonData.yaml#/components/responses/503'
         default:
           $ref: 'TS29571_CommonData.yaml#/components/responses/default'
+
     delete:
-      summary: Delete an individual AF requested QoS Data resource
-      operationId: DeleteIndividualAFRequestedQosData
+      summary: Delete an existing Individual AF requested QoS Data Set resource
+      operationId: DeleteIndAFReqQosDataSet
       tags:
-        - Individual AF requested QoS Data (Document)
+        - Individual AF requested QoS Data Set (Document)
       security:
         - {}
         - oAuth2ClientCredentials:
@@ -2606,17 +2617,10 @@ paths:
           - nudr-dr
           - nudr-dr:application-data
           - nudr-dr:application-data:af-qos-data-sets:modify
-      parameters:
-        - name: afReqQosId
-          in: path
-          description: >
-            The Identifier of an Individual AF Requested QoS Data to be deleted.
-          required: true
-          schema:
-            type: string
       responses:
         '204':
-          description: The Individual AF requested QoS Data was deleted successfully.
+          description: >
+            No Content. The Individual AF requested QoS Data Set is successfully deleted.
         '400':
           $ref: 'TS29571_CommonData.yaml#/components/responses/400'
         '401':
@@ -3487,7 +3491,7 @@ components:
           description: >
             Identifies a list of Network Function Service Consumer supported per service. The key 
             used in this map for each entry is the ServiceName value as defined in
-            3GPP TS 29.510[24].
+            3GPP TS 29.510[24].
       allOf:
         - oneOf:
           - required: [afAppId]
@@ -3680,6 +3684,8 @@ components:
           minItems: 1
         cachingTime:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        cachingTimer:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSec'
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
         resetIds:
@@ -3692,6 +3698,8 @@ components:
       required:
         - applicationId
         - pfds
+      not: 
+        required: [cachingTime,cachingTimer]
 
     BdtPolicyData:
       description: Represents applied BDT policy data.
@@ -3857,6 +3865,8 @@ components:
           minItems: 1
         paramForRangingSlPos:
           $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/ParamForRangingSlPos'
+        mappingInfo:
+          $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/MappingInfo'
 
     ServiceParameterDataPatch:
       description: Represents the service parameter data that can be updated.
@@ -3920,6 +3930,8 @@ components:
           minItems: 1
         paramForRangingSlPos:
           $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/ParamForRangingSlPosRm'
+        mappingInfo:
+          $ref: 'TS29522_ServiceParameter.yaml#/components/schemas/MappingInfoRm'
 
     AmInfluData:
       description: Represents the AM Influence Data.
@@ -4226,13 +4238,25 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
         evSubsc:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EventsSubscReqData'
-        flowInfos:
+        flowInfo:
           type: array
           items:
             $ref: 'TS29122_CommonData.yaml#/components/schemas/FlowInfo'
           minItems: 1
+        ethFlowInfo:
+          type: array
+          items:
+            $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EthFlowDescription'
+          minItems: 1
+        enEthFlowInfo:
+          type: array
+          items:
+            $ref: 'TS29122_CommonData.yaml#/components/schemas/EthFlowInfo'
+          minItems: 1
         qosReference:
           type: string
+        qosReqs:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/QosRequirements'
         altSerReqs:
           type: array
           items:
@@ -4257,13 +4281,28 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
         tempInValidity:
           $ref: 'TS29565_Ntsctsf_QoSandTSCAssistance.yaml#/components/schemas/TemporalInValidity'
+        headers:
+          description: Contains the headers provisioned by the NEF.
+          type: array
+          items:
+            type: string
+          minItems: 1
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
-      required:
-        - suppFeat
       oneOf:
       - required: [supi]
       - required: [interGroupId]
+      oneOf:
+      - required: [flowInfo]
+      - required: [ethFlowInfo]
+      - required: [enEthFlowInfo]
+      oneOf:
+      - required: [qosReference]
+      - required: [qosReqs]
+      not:
+        required: [qosReference, altQosReqs]
+      not:
+        required: [altQosReqs, altQoSReferences]
 
     AfRequestedQosDataPatch:
       description: Represents modification of Individual AF Requested QoS data.
@@ -4275,15 +4314,27 @@ components:
           nullable: true
         evSubsc:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EventsSubscReqDataRm'
-        flowInfos:
+        flowInfo:
           type: array
           items:
             $ref: 'TS29122_CommonData.yaml#/components/schemas/FlowInfo'
           minItems: 1
           nullable: true
+        ethFlowInfo:
+          type: array
+          items:
+            $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EthFlowDescription'
+          minItems: 1
+        enEthFlowInfo:
+          type: array
+          items:
+            $ref: 'TS29122_CommonData.yaml#/components/schemas/EthFlowInfo'
+          minItems: 1
         qosReference:
           type: string
           nullable: true
+        qosReqs:
+          $ref: 'TS29122_CommonData.yaml#/components/schemas/QosRequirementsRm'
         altSerReqs:
           type: array
           items:
@@ -4302,16 +4353,14 @@ components:
         disUeNotif:
           type: boolean
           nullable: true
-        marBwDl:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRateRm'
-        marBwUl:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRateRm'
-        mirBwDl:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRateRm'
-        mirBwUl:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRateRm'
         tempInValidity:
           $ref: 'TS29565_Ntsctsf_QoSandTSCAssistance.yaml#/components/schemas/TemporalInValidity'
+        headers:
+          description: Contains the headers provisioned by the NEF.
+          type: array
+          items:
+            type: string
+          minItems: 1
 
     DnaiEasMapping:
       description: Contains DNAI to EAS mapping information.
@@ -4334,24 +4383,34 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
         snssai:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+        dnais:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnai'
+          minItems: 1
+          description: DNAI(s) for the EAS Deployment Information.
         easIpAddrs:
           type: array
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/IpAddr'
           minItems: 1
-          description: Each element contains EAS addresses, address ranges, and/or prefixes.
+          description: >
+            Each element contains EAS IP address(es), IP address ranges, and/or IPv6 prefixes.
         fqdns:
           type: array
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/FqdnPatternMatchingRule'
           minItems: 1
-          description: Each element conrtains FQDN matching rules for the EAS(s) of a DNAI.
+          description: Each element contains FQDN for the EAS(s) of a DNAI.
+      required:
+        - dnais
       anyOf:
         - required: [dnn]
         - required: [snssai]
       oneOf:
         - required: [easIpAddrs]
         - required: [fqdns]
+
     EcsAddrData:
       description: Represents ECS Address Data.
       type: object
@@ -4373,6 +4432,59 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:
         - ecsServerAddr
+
+    QosRequirements:
+      description: Represents QoS requirements.
+      type: object
+      properties:
+        marBwUl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        marBwDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        mirBwUl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        mirBwDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        tsnQos:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/TsnQosContainer'
+        tscaiTimeDom:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        tscaiInputDl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/TscaiInputContainer'
+        tscaiInputUl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/TscaiInputContainer'
+        capBatAdaptation:
+          type: boolean
+          description: >
+            Indicates the capability for AF to adjust the burst sending time, when it is supported
+            and set to "true". The default value is "false" if omitted.
+
+    QosRequirementsRm:
+      description: Represents QoS requirements.
+      nullable: true
+      type: object
+      properties:
+        marBwUl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        marBwDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        mirBwUl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        mirBwDl:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
+        tsnQos:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/TsnQosContainer'
+        tscaiTimeDom:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        tscaiInputDl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/TscaiInputContainer'
+        tscaiInputUl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/TscaiInputContainer'
+        capBatAdaptation:
+          type: boolean
+          description: >
+            Indicates the capability for AF to adjust the burst sending time, when it is supported
+            and set to "true". The default value is "false" if omitted.
 
     DataInd:
       anyOf:
@@ -4414,3 +4526,4 @@ components:
         description: >
           This string provides forward-compatibility with future extensions to the enumeration
           and is not used to encode content defined in the present version of this API.
+

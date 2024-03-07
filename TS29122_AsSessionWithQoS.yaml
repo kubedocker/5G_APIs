@@ -507,8 +507,10 @@ components:
           description: Identifies the list of UE address.
         multiModalId:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/MultiModalId'
-        protoDesc:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        protoDescUl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        protoDescDl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
         qosReference:
           type: string
           description: Identifies a pre-defined QoS information
@@ -561,7 +563,6 @@ components:
           description: >
             Indicates whether the direct event notification is requested (true) or not (false) for
             the provided and/or previously provided QoS monitoring parameter(s).
-            Default value is false.
         tscQosReq:
           $ref: '#/components/schemas/TscQosRequirement'
         l4sInd:
@@ -571,6 +572,8 @@ components:
           description: >
             Set to true by the SCS/AS to request the SCEF to send a test notification as defined
             in clause 5.2.5.3. Set to false or omitted otherwise.
+        tempInValidity:
+          $ref: 'TS29565_Ntsctsf_QoSandTSCAssistance.yaml#/components/schemas/TemporalInValidity'
         websockNotifConfig:
           $ref: 'TS29122_CommonData.yaml#/components/schemas/WebsockNotifConfig'
         events:
@@ -597,8 +600,12 @@ components:
           description: >
             Indicates the service data flow needs to meet the Round-Trip (RT) latency requirement of
             the service, when it is included and set to "true".
-            The default value is "false" if omitted.        periodInfo:
-          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/PeriodicityInfo'
+            The default value is "false" if omitted.
+
+        periodUl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSec'
+        periodDl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSec'
         rttMon:
           $ref: '#/components/schemas/QosMonitoringInformation'
         qosMonDatRate:
@@ -696,6 +703,8 @@ components:
           $ref: '#/components/schemas/TscQosRequirementRm'
         l4sInd:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/UplinkDownlinkSupport'
+        tempInValidity:
+          $ref: 'TS29565_Ntsctsf_QoSandTSCAssistance.yaml#/components/schemas/TemporalInValidity'
         events:
           description: >
             Represents the updated list of user plane event(s) to which the SCS/AS requests to
@@ -722,10 +731,14 @@ components:
             Indicates the service data flow needs to meet the Round-Trip (RT) latency requirement of
             the service, when it is included and set to "true".
             The default value is "false" if omitted.
-        protoDesc:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
-        periodInfo:
-          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/PeriodicityInfo'
+        protoDescUl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        protoDescDl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        periodUl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSecRm'
+        periodDl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSecRm'
         qosDuration:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSecRm'
         qosInactInt:
@@ -1104,10 +1117,16 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosPara'
         pduSetQosUl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosPara'
-        protoDesc:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
         l4sInd:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/UplinkDownlinkSupport'
+        protoDescDl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        protoDescUl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        periodUl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSec'
+        periodDl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSec'
         evSubsc:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EventsSubscReqData'
 
@@ -1174,10 +1193,16 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
         pduSetQosUl:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PduSetQosParaRm'
-        protoDesc:
-          $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
         l4sInd:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/UplinkDownlinkSupport'
+        protoDescDl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        protoDescUl:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/ProtocolDescription'
+        periodUl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSecRm'
+        periodDl:
+          $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/DurationMilliSecRm'
         evSubsc:
           $ref: 'TS29514_Npcf_PolicyAuthorization.yaml#/components/schemas/EventsSubscReqDataRm'
       nullable: true

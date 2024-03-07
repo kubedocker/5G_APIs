@@ -1,13 +1,13 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
+  version: 1.0.1
   title: VAE_FileDistribution
   description: |
     API for VAE File Distribution Service
-    © 2020, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
-  description: 3GPP TS 29.486 V16.1.0 V2X Application Enabler (VAE) Services
+  description: 3GPP TS 29.486 V16.5.0 V2X Application Enabler (VAE) Services
   url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.486/'
 security:
   - {}
@@ -162,6 +162,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/BitRate'
         maxDelay:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        duration:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
         suppFeat:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/SupportedFeatures'
       required:

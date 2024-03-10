@@ -108,7 +108,7 @@ components:
           minItems: 1
           description: Represents the list of VAL UEs ID.
         locArea:
-          $ref: 'TS29122_CommonData.yaml#/components/schemas/LocationArea5G'
+          $ref: 'TS29435_NSCE_NSInfoDelivery.yaml#/components/schemas/ServArea'
         sliceId:
           $ref: 'TS29435_NSCE_PolicyManagement.yaml#/components/schemas/NetSliceId'
         nwSliceServProf:

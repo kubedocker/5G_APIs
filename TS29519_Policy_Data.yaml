@@ -3119,7 +3119,7 @@ components:
         warnNotifEnabled:
           type: boolean
           description: >
-            Indicates whether the PDTQ warning notification is enabled (true) or not (false).        
+            Indicates whether the PDTQ warning notification is enabled (true) or not (false).
         notifUri:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Uri'
 

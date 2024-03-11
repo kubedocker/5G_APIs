@@ -4,11 +4,11 @@ info:
   title: Nausf_UPUProtection Service
   description: |
     AUSF UPU Protection Service.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
-  description: 3GPP TS 29.509 V17.7.0; 5G System; Authentication Server Services
+  description: 3GPP TS 29.509 V17.10.0; 5G System; Authentication Server Services
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.509'
 
 servers:

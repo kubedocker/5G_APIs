@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 info:
   title: NSCE Server Network Slice Diagnostics Service
-  version: 1.1.0-alpha.3
+  version: 1.1.0-alpha.2
   description: |
     NSCE Server Network Slice Diagnostics Service.  
     © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  

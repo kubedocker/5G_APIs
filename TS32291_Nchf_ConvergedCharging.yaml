@@ -1,13 +1,13 @@
 openapi: 3.0.0
 info:
   title: Nchf_ConvergedCharging
-  version: 3.2.0-alpha.4
+  version: 3.2.0-alpha.5
   description: |
     ConvergedCharging Service    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: >
-    3GPP TS 32.291 V18.4.0: Telecommunication management; Charging management; 
+    3GPP TS 32.291 V18.5.0: Telecommunication management; Charging management; 
     5G system, charging service; Stage 3.
   url: 'http://www.3gpp.org/ftp/Specs/archive/32_series/32.291/'
 servers:
@@ -318,6 +318,16 @@ components:
           $ref: '#/components/schemas/ProseChargingInformation'
         mMSChargingInformation:
           $ref: '#/components/schemas/MMSChargingInformation'
+        mBSSessionChargingInformation:
+          $ref: '#/components/schemas/MBSSessionChargingInformation'
+        tSNChargingInformation:
+          $ref: '#/components/schemas/TSNChargingInformation'
+        interCHFInformation:
+          $ref: '#/components/schemas/InterCHFInformation'
+        nSACFChargingInformation:
+          $ref: '#/components/schemas/NSACFChargingInformation'
+        nSSAAChargingInformation:
+          $ref: '#/components/schemas/NSSAAChargingInformation'
       required:
         - nfConsumerIdentification 
         - invocationTimeStamp
@@ -351,6 +361,10 @@ components:
           $ref: '#/components/schemas/RoamingQBCInformation'
         locationReportingChargingInformation:
           $ref: '#/components/schemas/LocationReportingChargingInformation'
+        mBSSessionChargingInformation:
+          $ref: '#/components/schemas/MBSSessionChargingInformation'
+        interCHFInformation:
+          $ref: '#/components/schemas/InterCHFInformation'
       required:
         - invocationTimeStamp
         - invocationSequenceNumber
@@ -395,15 +409,21 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/RatingGroup'
         requestedUnit:
           $ref: '#/components/schemas/RequestedUnit'
+        allocateUnit:
+          $ref: '#/components/schemas/AllocateUnit'
         usedUnitContainer:
           type: array
           items:
             $ref: '#/components/schemas/UsedUnitContainer'
           minItems: 0
+        allocatedUnit:
+          $ref: '#/components/schemas/AllocatedUnit'
         uPFID:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
         multihomedPDUAddress:
           $ref: '#/components/schemas/PDUAddress'
+        mBUPFID:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
       required:
         - ratingGroup
     InvocationResult:
@@ -443,6 +463,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/RatingGroup'
         grantedUnit:
           $ref: '#/components/schemas/GrantedUnit'
+        allocatedUnit:
+          $ref: '#/components/schemas/AllocatedUnit'
         triggers:
           type: array
           items:
@@ -464,6 +486,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
         announcementInformation:
           $ref: '#/components/schemas/AnnouncementInformation'
+        mBUPFID:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
       required:
         - ratingGroup
     RequestedUnit:
@@ -517,6 +541,33 @@ components:
           $ref: '#/components/schemas/NSPAContainerInformation'
         pC5ContainerInformation:
           $ref: '#/components/schemas/PC5ContainerInformation'
+        mBSContainerInformation:
+          $ref: '#/components/schemas/MBSContainerInformation'
+      required:
+        - localSequenceNumber
+    AllocateUnit:
+      type: object
+      properties:
+        allocateUnitIndicator:
+          $ref: '#/components/schemas/AllocateUnitIndicator'
+        nSACContainerInformation:
+          $ref: '#/components/schemas/NSACContainerInformation'
+    AllocatedUnit:
+      type: object
+      properties:
+        quotaManagementIndicator:
+          $ref: '#/components/schemas/QuotaManagementIndicator'
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trigger'
+          minItems: 0
+        triggerTimestamp:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        localSequenceNumber:
+          type: integer
+        nSACContainerInformation:
+          $ref: '#/components/schemas/NSACContainerInformation'
       required:
         - localSequenceNumber
     GrantedUnit:
@@ -582,11 +633,11 @@ components:
         chargingId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ChargingId'
         sMFchargingId:
-          type: string
+         $ref: 'TS29571_CommonData.yaml#/components/schemas/SmfChargingId'
         homeProvidedChargingId:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/ChargingId'
         sMFHomeProvidedChargingId:
-          type: string
+         $ref: 'TS29571_CommonData.yaml#/components/schemas/SmfChargingId'
         userInformation:
           $ref: '#/components/schemas/UserInformation'
         userLocationinfo:
@@ -693,6 +744,12 @@ components:
             $ref: '#/components/schemas/SNPNInformation'
         5GMulticastService:
             $ref: '#/components/schemas/5GMulticastService'
+        5GSBridgeInformation:
+          $ref: '#/components/schemas/5GSBridgeInformation'
+        satelliteAccessIndicator:
+          type: boolean
+        satelliteBackhaulInformation:
+            $ref: '#/components/schemas/SatelliteBackhaulInformation'
       required:
         - pduSessionID
         - dnnId
@@ -786,6 +843,8 @@ components:
         sNSSAI:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
         hPlmnSNSSAI:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+        alternativeSNSSAI:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
       required:
         - sNSSAI
@@ -1068,6 +1127,17 @@ components:
       properties:
         internalGroupIdentifier:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/GroupId'
+    5GSBridgeInformation:
+      type: object
+      properties:
+        bridgeId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint64'
+        nWTTPortNumber:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint16'
+        dSTTPortNumber:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint16'
+      required:
+        - bridgeId
     NEFChargingInformation:
       type: object
       properties:
@@ -1112,6 +1182,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/PlmnIdNid'
         accessType:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/AccessType'
+        n3IwfFqdn:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Fqdn'
       required:
         - sNPNID
     RegistrationChargingInformation:
@@ -1165,6 +1237,12 @@ components:
           items:
             $ref: '#/components/schemas/NSSAIMap'
           minItems: 0
+        alternativeNSSAIMap:
+          type: array
+          items:
+            $ref: '#/components/schemas/AlternativeNSSAIMap'
+          minItems: 0
+
         amfUeNgapId:
           type: integer
         ranUeNgapId:
@@ -1178,6 +1256,8 @@ components:
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/CagId'
           minItems: 0
+        satelliteAccessIndicator:
+          type: boolean
       required:
         - registrationMessagetype
     PSCellInformation:
@@ -1197,6 +1277,16 @@ components:
       required:
         - servingSnssai
         - homeSnssai
+    AlternativeNSSAIMap:
+      type: object
+      properties:
+        snssai:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+        alternativeSnssai:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+      required:
+        - snssai
+        - alternativeSnssai
     N2ConnectionChargingInformation:
       type: object
       properties:
@@ -1251,6 +1341,8 @@ components:
         rrcEstCause:
           type: string
           pattern: '^[0-9a-fA-F]+$'
+        satelliteAccessIndicator:
+          type: boolean
       required:
         - n2ConnectionMessageType
     LocationReportingChargingInformation:
@@ -1273,6 +1365,8 @@ components:
           additionalProperties:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/PresenceInfo'
           minProperties: 0
+        satelliteAccessIndicator:
+          type: boolean
       required:
         - locationReportingMessageType
     N2ConnectionMessageType:
@@ -1652,6 +1746,8 @@ components:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
         lCMEndTime:
           $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        satelliteBackhaulInformation:
+            $ref: '#/components/schemas/SatelliteBackhaulInformation'
     MMSChargingInformation:
       type: object
       properties:
@@ -1727,6 +1823,70 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SMAddressInfo'
+    TSNChargingInformation:
+      type: object
+      properties:
+        dNN:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
+        sNSSAI:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Snssai'
+        internalGroupIdentifier:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/GroupId'
+        externalIndividualIdList:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Gpsi'
+          minItems: 0
+        5GSBridgeInformation:
+          $ref: '#/components/schemas/5GSBridgeInformation'
+        tSNQoSInformation:
+          $ref: '#/components/schemas/TSNQoSInformation'
+        tSCAssistanceInformation:
+          $ref: '#/components/schemas/TSCAssistanceInformation'
+        timeSynchronizationInformation:
+          $ref: '#/components/schemas/TimeSynchronizationInformation'
+
+    TSNQoSInformation:
+      type: object
+      properties:
+        priority:
+          type: integer
+        bridgeDelay:
+          type: array
+          items:
+            type: integer
+          minItems: 0
+
+    TSCAssistanceInformation:
+      type: object
+      properties:
+        flowDirection:
+          $ref: '#/components/schemas/TSCFlowDirection'
+        periodicity:
+          type: integer
+
+    TimeSynchronizationInformation:
+      type: object
+      properties:
+        distributionMethod:
+          $ref: '#/components/schemas/TimeDistributionMethod'
+        tSNtimeDomainNumber:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uinteger'
+        temporalValidityInformation:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DurationSec'
+        spatialValidityInformation:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Tai'
+          minItems: 0
+        timeSynchronizationErrorBudget:
+          type: integer
+        synchronizationState:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/SynchronizationState'
+        clockQuality:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ClockQuality'
+        parentTimeSource:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/TimeSource'
 
     PC5ContainerInformation:
       type: object
@@ -1861,7 +2021,45 @@ components:
           minItems: 0
       required:
         - aPIName
-
+    InterCHFInformation:
+      type: object
+      properties:
+        remoteCHFResource:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/Uri'
+        originalNFConsumerId:
+          $ref: '#/components/schemas/NFIdentification'
+    NSACFChargingInformation:
+      type: object
+      properties:
+        nSACChargingIndicator:
+          type: boolean
+    NSACContainerInformation:
+      type: object
+      properties:
+        numberOfUEs:
+          type: integer
+        numberOfPDUs:
+          type: integer
+    NSSAAChargingInformation:
+      type: object
+      properties:
+        nSSAAMessageType:
+          $ref: '#/components/schemas/NSSAAMessageType'
+        userIdentification:
+          $ref: '#/components/schemas/UserInformation'
+        aAAPAddress:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ServerAddressingInfo'
+        aAASAddress:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/ServerAddressingInfo'
+        eAPIDResponse:
+          type: string
+        eAPauthstatus:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/AuthStatus'
+        aMFId:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/AmfId'
+      required:
+        - nSSAAMessageType
+        - userIdentification
     PFIContainerInformation:
       type: object
       properties:
@@ -1903,7 +2101,7 @@ components:
         changeCondition:
           type: string
         radioResourcesId:
-          $ref: '#/components/schemas/RadioResourcesId'
+          $ref: '#/components/schemas/RadioResourcesIndicator'
         radioFrequency:
           type: string 
         pC5RadioTechnology:
@@ -2028,7 +2226,7 @@ components:
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
           minItems: 0
-        optionalCapability :
+        optionalCapability :
           type: array
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/Uint32'
@@ -2157,6 +2355,73 @@ components:
           items:
             $ref: 'TS29571_CommonData.yaml#/components/schemas/MbsSessionId'
           minItems: 1
+    MBSSessionChargingInformation:
+      type: object
+      properties:
+        mBSSessionID:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/MbsSessionId'
+        mBSServiceType:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/MbsServiceType'
+        serviceArea:
+          $ref: '#/components/schemas/ServiceArea'
+        mBSStartTime:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        mBSEndTime:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        servingNetworkFunctionID:
+          $ref: '#/components/schemas/ServingNetworkFunctionID'
+      required:
+        - mBSSessionID
+        - mBSServiceType
+    ServiceArea:
+      type: object
+      properties:
+        mBSServiceArea:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/MbsServiceArea'
+        uPFIDs:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
+          minItems: 0
+        ranNodeIDs:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/GlobalRanNodeId'
+          minItems: 0
+    MBSContainerInformation:
+      type: object
+      properties:
+        timeofFirstUsage:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        timeofLastUsage:
+          $ref: 'TS29571_CommonData.yaml#/components/schemas/DateTime'
+        qoSInformation:
+          $ref: 'TS29512_Npcf_SMPolicyControl.yaml#/components/schemas/QosData'
+        establishedConnectionInfo:
+          $ref: '#/components/schemas/EstablishedConnectionInfo'
+    EstablishedConnectionInfo:
+      type: object
+      properties:
+        uPFIDs:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/NfInstanceId'
+          minItems: 0
+        ranNodeIDs:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/GlobalRanNodeId'
+          minItems: 0
+    SatelliteBackhaulInformation:
+      type: object
+      properties:
+        satelliteBackhaulCategory:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/SatelliteBackhaulCategory'
+          minItems: 0
+        gEOSatelliteID:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/GeoSatelliteId'
     NotificationType:
       anyOf:
         - type: string
@@ -2189,6 +2454,9 @@ components:
             - PCF
             - UDM
             - UPF
+            - TSN_AF
+            - TSCTSF
+            - MB_SMF
         - type: string
     ChargingCharacteristicsSelectionMode:
       anyOf:
@@ -2202,7 +2470,7 @@ components:
       anyOf:
         - type: string
           enum:
-			# SMF TriggerType
+      # SMF TriggerType
             - QUOTA_THRESHOLD
             - QHT
             - FINAL
@@ -2250,7 +2518,8 @@ components:
             - MBS_DELIVERY_METHOD_CHANGE
             - LEAVE_MULTICAST
             - VSMF_CHANGE
-			# IMS TriggerType
+            - SNSSAI_REPLACEMENT
+      # IMS TriggerType
             - SIP_INVITE
             - SIP_RE-INVITE_OR_UPDATE
             - SIP_2XX_ACKNOWLEDGING
@@ -2261,6 +2530,19 @@ components:
             - ABORTING_A_SIP_SESSION_SET-UP
             - SIP_3XX_FINAL_OR_REDIRECTION_RESPONSE
             - SIP_4XX_5XX_OR_6XX_FINAL_RESPONSE
+        # MB-SMF TriggerType
+            - ADDITION_OF_NG_RAN
+            - REMOVAL_OF_NG_RAN
+            - NSAC_THRESHOLD_INITIAL
+            - NSAC_THRESHOLD_UPWARDS_REACHED
+            - NSAC_THRESHOLD_UPWARDS_CROSSED
+            - NSAC_THRESHOLD_DOWNWARDS_CROSSED
+            - NSAC_QUOTA_THRESHOLD
+            - NSAC_QUOTA_EXHAUSTED
+            - NSAC_VALIDITY_TIME
+            - NSAC_QHT
+            - NSAC_THRESHOLD_TERMINATION
+            - NS_TERMINATION
         - type: string
     FinalUnitAction:
       anyOf:
@@ -2751,7 +3033,7 @@ components:
             - 1000_METER
             - UNUSED
         - type: string
-    RadioResourcesId:
+    RadioResourcesIndicator:
       anyOf:
         - type: string
           enum: 
@@ -2764,4 +3046,33 @@ components:
           enum: 
             - SHARED
             - INDIVIDUAL
+        - type: string
+    TSCFlowDirection:
+      anyOf:
+        - type: string
+          enum: 
+            - UPLINK
+            - DOWNLINK
+        - type: string
+    TimeDistributionMethod:
+      anyOf:
+        - type: string
+          enum: 
+            - GPTP
+            - ASTI
+        - type: string
+    NSSAAMessageType:
+      anyOf:
+        - type: string
+          enum: 
+            - Authenticate
+            - Re-Authentication-Notification
+            - Revocation Notification
+        - type: string
+    AllocateUnitIndicator:
+      anyOf:
+        - type: string
+          enum:
+            - CHF_DETERMINED
+            - CTF_DETERMINED
         - type: string

@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: AI/ML NRM
-  version: 17.6.0
+  version: 17.7.0
   description: >-
     OAS 3.0.1 specification of the AI/ML NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.105; AI/ML Management
@@ -177,7 +177,9 @@ components:
                       type: number
                       format: float
                     trainingRequestSource:
-                      $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
+                      oneOf:
+                      - type: string
+                      - $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
                     requestStatus:
                       $ref: '#/components/schemas/RequestStatus'
                     expectedRuntimeContext:

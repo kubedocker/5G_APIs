@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: Scenario specific Intent Expectations
-  version: 18.2.0
+  version: 18.3.0
   description: >-
     OAS 3.0.1 definition of scenario specific Intent Expectations 
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.312; Intent driven management services for mobile networks
@@ -89,7 +89,7 @@ components:
         expectationVerb:
            $ref: 'TS28312_IntentNrm.yaml#/components/schemas/ExpectationVerb'
         expectationObject:
-          $ref: '#/components/schemas/ServiceSupportExpectationObject'
+          $ref: '#/components/schemas/EdgeServiceSupportExpectationObject'
         expectationTargets:
           type: array
           items:
@@ -146,8 +146,6 @@ components:
               - $ref: '#/components/schemas/StartTimeContext'
               - $ref: '#/components/schemas/ResourceSharingLevelContext'
               - $ref: "TS28312_IntentNrm.yaml#/components/schemas/Context"
-        expectationfulfilmentInfo:
-            $ref: "TS28312_IntentNrm.yaml#/components/schemas/FulfilmentInfo" 
       required:
         - expectationId                   
    #-------Definition of the IntentExpectation dataType ----------#    
@@ -196,7 +194,7 @@ components:
               - $ref: '#/components/schemas/CoverageAreaPolygonContext'
               - $ref: '#/components/schemas/ServiceTypeContext'
               - $ref: 'TS28312_IntentNrm.yaml#/components/schemas/Context'
-    ServiceSupportExpectationObject: 
+    EdgeServiceSupportExpectationObject: 
       description: >-
         This data type is the "ExpectationObject" data type with specialisations for EdgeServiceSupportExpectation
       type: object
@@ -212,7 +210,7 @@ components:
           items:
             type: object
             oneOf:
-              - $ref: '#/components/schemas/EdgeIdenfiticationIdContext'
+              - $ref: '#/components/schemas/EdgeIdentificationIdContext'
               - $ref: '#/components/schemas/EdgeIdentificationLocContext'
               - $ref: '#/components/schemas/CoverageAreaTAContext'   
               - $ref: 'TS28312_IntentNrm.yaml#/components/schemas/Context'   
@@ -801,7 +799,7 @@ components:
             $ref: 'TS28312_IntentNrm.yaml#/components/schemas/Frequency'
     UlFrequencyContext:
       description: >-
-        This data type is the "Context" data type with specialisations for Object context "DLFrequencyContext".
+        This data type is the "Context" data type with specialisations for Object context "ULFrequencyContext".
         It describes the uplink frequency information (RF reference frequencies and/ or the frequency 
         operating band) supported by the RAN SubNetwork that the intent expectation is applied.       
       type: object
@@ -856,7 +854,7 @@ components:
           type: array
           items:
             $ref: "TS28312_IntentNrm.yaml#/components/schemas/UEGroup"              
-    EdgeIdenfiticationIdContext:
+    EdgeIdentificationIdContext:
       description: >-
         This data type is the "ObjectContext" data type with specialisations for EdgeIdentificationIdContext      
       type: object

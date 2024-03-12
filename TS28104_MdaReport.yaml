@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: MDA Report
-  version: 18.2.0
+  version: 18.3.0
   description: >-
     OAS 3.0.1 specification of the MDA Report
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.104; MDA Report
@@ -24,8 +24,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MDAOutputEntry'
-        mDARequestRef:
-          $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
         analyticsWindow:
           $ref: '#/components/schemas/TimeWindow'
         confidenceDegree:
@@ -64,3 +62,5 @@ components:
                       type: string
                     mDAOutputs:
                       $ref: '#/components/schemas/MDAOutputs'
+                    mDARequestRef:
+                      $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'

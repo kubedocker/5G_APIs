@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: Intent NRM
-  version: 18.2.0
+  version: 18.3.0
   description: >-
     OAS 3.0.1 definition of the Intent NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.312; Intent driven management services for mobile networks
@@ -12,23 +12,15 @@ externalDocs:
 paths: {}
 components:
   schemas:
+
+  #-------- Definition of types for name-containments ------
+    SubNetwork-ncO-IntentNrm:
+      type: object
+      properties:
+        IntentHandlingFunction:
+          $ref: '#/components/schemas/IntentHandlingFunction-Multiple'
        
    #-------Definition of generic IOCs ----------#  
-
-    SubNetwork-Single:  
-      allOf:
-      - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-      - type: object
-        properties:
-          attributes:
-            $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-Attr'
-      - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-ncO'
-      - type: object
-        properties:
-          SubNetwork:
-            $ref: '#/components/schemas/SubNetwork-Multiple'
-          IntentHandlingFunction:
-            $ref: '#/components/schemas/IntentHandlingFunction-Multiple'
 
     Intent-Single:
       description: >-
@@ -343,7 +335,7 @@ components:
    #-------Definition of the generic ExpectationFulfilmentResult dataType----------------#
     ExpectationFulfilmentResult:
       description: >-
-        It includes the expectationFulfilmentInfo and targetFulfilmetResults for each IntentExpectation.   
+        It includes the expectationFulfilmentInfo and targetFulfilmentResults for each IntentExpectation.   
       type: object
       properties:
         expectaitonId:
@@ -397,6 +389,12 @@ components:
           description: >-
             This will be present if the value of conflictType is TARGET_CONFLICT. It describes the targetName of the conflicting ExpectationTarget with an IntentExpectation           
           type: string  
+        recommendedSolutions:
+          type: string  
+          enum:
+              - MODIFY
+              - DELETE
+
    #-------Definition of the concrete IntentConflictReport dataType----------------#
 
    #-------Definition of the generic IntentFeasibilityCheckReport dataType----------------#
@@ -441,11 +439,6 @@ components:
 
    #------Definition of JSON arrays for name-contained IOCs ---------------#
 
-    SubNetwork-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubNetwork-Single'
-                                
     Intent-Multiple:
       type: array
       items:
@@ -467,7 +460,6 @@ components:
    #----- Definitions in TS 28.312 for TS 28.532 --------------------------#
     resources-intentNrm:
       oneOf:
-       - $ref: '#/components/schemas/SubNetwork-Single'
        - $ref: '#/components/schemas/IntentHandlingFunction-Single'       
        - $ref: '#/components/schemas/Intent-Single'
        - $ref: '#/components/schemas/IntentReport-Single'       

@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: RANSC NRM
-  version: 18.0.0
+  version: 18.1.0
   description: >-
     OAS 3.0.1 definition of the RANSC NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.317; Self-configuration of Radio Access Network Entities (RAN NEs)
@@ -13,24 +13,17 @@ paths: {}
 components:
   schemas:
        
+#-------- Definition of types for name-containments ------
+    SubNetwork-ncO-RanScNrm:
+      type: object
+      properties:
+        ScMgmtProfile:
+          $ref: '#/components/schemas/ScMgmtProfile-Multiple'
+        Sc_Process:
+          $ref: '#/components/schemas/Sc_Process-Multiple'
+
 #-------Definition of IOCs ----------# 
-    SubNetwork-Single:
-      allOf:
-      - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-      - type: object
-        properties:
-          attributes:
-            $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-Attr'
-      - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-ncO'
-      - type: object
-        properties:
-          SubNetwork:
-            $ref: '#/components/schemas/SubNetwork-Multiple'
-          ScMgmtProfile:
-            $ref: '#/components/schemas/ScMgmtProfile-Multiple'
-          Sc_Process:
-            $ref: '#/components/schemas/Sc_Process-Multiple'            
-    
+
     ScMgmtProfile-Single:
       description: >-
         The ScMgmtProfile represents MnS Consumer's requirements for self-configuration management 
@@ -77,7 +70,7 @@ components:
 
 #-------Definition of Data types ----------#  
     NEType:
-      type: integer
+      type: string
       description: It defines the type of RAN NE 
     GnbId:
       type: integer
@@ -93,13 +86,14 @@ components:
       oneOf:
         - $ref: '#/components/schemas/EnbId'
         - $ref: '#/components/schemas/GnbId' 
+        - $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
     NEInfomration:
       description: >-
         It defines the NE Type or the NE instance for which this
         ScMgmtProfile instance is valid.
-      oneOf:
+      anyOf:
         - $ref: '#/components/schemas/NEType'
-        - $ref: '#/components/schemas/NEIdentification'      
+        - $ref: '#/components/schemas/NEIdentification'          
     ScProcessMonitor:
       description: >-
         This data type is the "ProcessMonitor" data type with specialisations
@@ -131,7 +125,7 @@ components:
             - PREPARE_BASIC_CONFIGURATION_AND_OAMLINK
             - RETRIEVE_CONFIGURATION_DATA
             - SETUP_PRECONFIGURED_SIGNALLING_LINKS
-            - TSET_FINAL_STATE_OF_NE
+            - SET_FINAL_STATE_OF_NE
         resultStateInfo:
           oneOf:
             - type: string
@@ -150,10 +144,6 @@ components:
 #-------Definition of Data types ----------#  
 
 #------Definition of JSON arrays for name-contained IOCs ---------------#
-    SubNetwork-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubNetwork-Single'
     ScMgmtProfile-Multiple:
       type: array
       items:
@@ -168,7 +158,6 @@ components:
 #----- Definitions in TS 28.317 for TS 28.532 --------------------------#
     resources-RanScNrm:
       oneOf:
-       - $ref: '#/components/schemas/SubNetwork-Single'
        - $ref: '#/components/schemas/ScMgmtProfile-Single'
        - $ref: '#/components/schemas/Sc_Process-Single'       
 

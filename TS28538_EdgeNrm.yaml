@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: 3GPP Edge NRM
-  version: 18.5.0
+  version: 18.6.0
   description: >-
     OAS 3.0.1 specification of the Edge NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.538; Edge NRM
@@ -42,7 +42,7 @@ components:
     GeographicalCoordinates:
       type: object
       properties:
-        lattitude:
+        latitude:
           type: integer
         longitude:
           type: integer
@@ -71,7 +71,7 @@ components:
           type: integer
         virtualDisk:
           type: integer
-        virutalCPU:
+        virtualCPU:
           type: string
         vnfdId:
           type: string
@@ -97,20 +97,16 @@ components:
           $ref: 'TS28623_ComDefs.yaml#/components/schemas/DateTime'
     EASServicePermission:
       type: string
-      description: any of enumrated value
+      description: any of enumerated value
       enum:
         - TRIAL
         - SILVER
         - GOLD
     EASFeature:
       type: string
-      description: any of enumrated value
-      enum:
-        - SINGLE
-        - MULTIPLE
     EASStatus:
       type: string
-      description: any of enumrated value
+      description: any of enumerated value
       enum:
         - ENABLED
         - DISABLED
@@ -146,18 +142,20 @@ components:
             - FUTURE
         futuristicTriggerTime:
           $ref: 'TS28623_ComDefs.yaml#/components/schemas/DateTime'
-    relocationPolicy:
-      type: string
-      description: any of enumrated value
-      enum:
-        - YES
-        - NO
-        - YESwNOTIFY
     AvailableEDNList:
       type: object
       properties:
         resourceQuota:
           $ref: '#/components/schemas/VirtualResource'
+
+#-------- Definition of types for name-containments ------
+    SubNetwork-ncO-EdgeNrm:
+      type: object
+      properties:
+        ECSFunction:
+          $ref: '#/components/schemas/ECSFunction-Multiple'
+        EdgeDataNetwork:
+          $ref: '#/components/schemas/EdgeDataNetwork-Multiple'
 
 #-------- Definition of concrete IOCs --------------------------------------------
     MnS:
@@ -165,25 +163,9 @@ components:
         - type: object
           properties:
             SubNetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
-
-    SubNetwork-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              allOf:
-                - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-Attr'
-        - type: object
-          properties:
-            Subnetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
-            ECSFunction:
-              $ref: '#/components/schemas/ECSFunction-Multiple'
-            EdgeDataNetwork:
-              $ref: '#/components/schemas/EdgeDataNetwork-Multiple'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-ncO'
+              type: array
+              items:
+                $ref: '#/components/schemas/SubNetwork-ncO-EdgeNrm'
 
     EdgeDataNetwork-Single:
       allOf:
@@ -283,7 +265,7 @@ components:
                       $ref: '#/components/schemas/SoftwareImageInfo'
                     serviceContinuitySupport:
                       type: boolean
-                    eASFunctonRef:
+                    eASFunctionRef:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'  
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
 
@@ -329,13 +311,19 @@ components:
             eASFeature:
               $ref: '#/components/schemas/EASFeature'
             relocationPolicy:
-              $ref: '#/components/schemas/EASFeature'
+              type: string
+              description: any of enumrated value
+              enum:
+                - YES
+                - NO
+                - YESwNOTIFY
             federationID:
               type: string
-            reservationID:
-              type: string
-
-    ResourceReservationJob:
+            eASDeploymentMonitor:
+              $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ProcessMonitor'
+            reservationJobRef:
+              $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
+    EASResourceReservationJob-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
         - type: object
@@ -347,7 +335,7 @@ components:
               items:
                 $ref: '#/components/schemas/ResourceReservationRequirement'
             requestedReservationExpiration:
-              type: string
+              $ref: 'TS28623_ComDefs.yaml#/components/schemas/DateTime'
             resourceReservationStatus:
               type: array
               items:
@@ -381,8 +369,6 @@ components:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
         - type: object
           properties:
-            availableVirtualResource:
-              $ref: '#/components/schemas/VirtualResource'
             availableEASResource:
               $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'
             edgeDataNetworkRef:
@@ -390,11 +376,7 @@ components:
 
 
 #-------- Definition of JSON arrays for name-contained IOCs ----------------------                               
-          
-    SubNetwork-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubNetwork-Single'
+
     EASFunction-Multiple:
       type: array
       items:
@@ -434,7 +416,6 @@ components:
     resources-edgeNrm:
       oneOf:
         - $ref: '#/components/schemas/MnS'
-        - $ref: '#/components/schemas/SubNetwork-Single'
         - $ref: '#/components/schemas/EASFunction-Single'
         - $ref: '#/components/schemas/ECSFunction-Single'
         - $ref: '#/components/schemas/EESFunction-Single'
@@ -444,3 +425,4 @@ components:
         - $ref: '#/components/schemas/EdgeFederation-Single'
         - $ref: '#/components/schemas/OperatorEdgeFederation-Single'
         - $ref: '#/components/schemas/OperatorEdgeDataNetwork-Single'
+        - $ref: '#/components/schemas/EASResourceReservationJob-Single'

@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: NR NRM
-  version: 18.6.0
+  version: 18.7.0
   description: >-
     OAS 3.0.1 specification of the NR NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.541; 5G NRM, NR NRM
@@ -59,6 +59,8 @@ components:
           $ref: 'TS28623_ComDefs.yaml#/components/schemas/PlmnId'
         snssai:
           $ref: '#/components/schemas/Snssai'
+        sliceExpiryTime:
+          $ref: 'TS28623_ComDefs.yaml#/components/schemas/DateTime'          
     PlmnInfoList:
       type: array
       items:
@@ -692,6 +694,73 @@ components:
             minimum: 0
             maximum: 16777215
 
+#-------- Definition of types for name-containments ------
+    SubNetwork-ncO-NrNrm:
+      type: object
+      properties:
+        NRFrequency:
+          $ref: '#/components/schemas/NRFrequency-Multiple'
+        ExternalGnbCuCpFunction:
+          $ref: '#/components/schemas/ExternalGnbCuCpFunction-Multiple'
+        ExternalGnbCuUpFunction:
+          $ref: '#/components/schemas/ExternalGnbCuUpFunction-Multiple'
+        ExternalGnbDuFunction:
+          $ref: '#/components/schemas/ExternalGnbDuFunction-Multiple'
+        ExternalENBFunction:
+          $ref: '#/components/schemas/ExternalENBFunction-Multiple'
+        EUtranFrequency:
+          $ref: '#/components/schemas/EUtranFrequency-Multiple'
+        DESManagementFunction:
+          $ref: '#/components/schemas/DESManagementFunction-Single'
+        DRACHOptimizationFunction:
+          $ref: '#/components/schemas/DRACHOptimizationFunction-Single'
+        DMROFunction:
+          $ref: '#/components/schemas/DMROFunction-Single'
+        DLBOFunction:
+          $ref: '#/components/schemas/DLBOFunction-Single'
+        DPCIConfigurationFunction:
+          $ref: '#/components/schemas/DPCIConfigurationFunction-Single'
+        CPCIConfigurationFunction:
+          $ref: '#/components/schemas/CPCIConfigurationFunction-Single'
+        CESManagementFunction:
+          $ref: '#/components/schemas/CESManagementFunction-Single'
+        Configurable5QISet:
+          $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Configurable5QISet-Multiple'
+        RimRSGlobal:
+          $ref: '#/components/schemas/RimRSGlobal-Single'
+        Dynamic5QISet:
+          $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Dynamic5QISet-Multiple'
+        CCOFunction:
+          $ref: '#/components/schemas/CCOFunction-Single'
+
+    ManagedElement-ncO-NrNrm:
+      type: object
+      properties:
+        GnbDuFunction:
+          $ref: '#/components/schemas/GnbDuFunction-Multiple'
+        GnbCuUpFunction:
+          $ref: '#/components/schemas/GnbCuUpFunction-Multiple'
+        GnbCuCpFunction:
+          $ref: '#/components/schemas/GnbCuCpFunction-Multiple'
+        DESManagementFunction:
+          $ref: '#/components/schemas/DESManagementFunction-Single'
+        DRACHOptimizationFunction:
+          $ref: '#/components/schemas/DRACHOptimizationFunction-Single'
+        DMROFunction:
+          $ref: '#/components/schemas/DMROFunction-Single'
+        DLBOFunction:
+          $ref: '#/components/schemas/DLBOFunction-Single'
+        DPCIConfigurationFunction:
+          $ref: '#/components/schemas/DPCIConfigurationFunction-Single'
+        CPCIConfigurationFunction:
+          $ref: '#/components/schemas/CPCIConfigurationFunction-Single'
+        CESManagementFunction:
+          $ref: '#/components/schemas/CESManagementFunction-Single'
+        Configurable5QISet:
+          $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Configurable5QISet-Multiple'
+        Dynamic5QISet:
+          $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Dynamic5QISet-Multiple'
+
 #-------- Definition of abstract IOCs --------------------------------------------
 
     RrmPolicy_-Attr:
@@ -702,7 +771,6 @@ components:
         rRMPolicyMemberList:
           $ref: '#/components/schemas/RrmPolicyMemberList'
 
-
 #-------- Definition of concrete IOCs --------------------------------------------
 
     MnS:
@@ -710,90 +778,15 @@ components:
         - type: object
           properties:
             SubNetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
+              type: array
+              items:
+                $ref: '#/components/schemas/SubNetwork-ncO-NrNrm'
         - type: object
           properties:
             ManagedElement:
-              $ref: '#/components/schemas/ManagedElement-Multiple'
-
-    SubNetwork-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-ncO'
-        - type: object
-          properties:
-            SubNetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
-            ManagedElement:
-              $ref: '#/components/schemas/ManagedElement-Multiple'
-            NRFrequency:
-              $ref: '#/components/schemas/NRFrequency-Multiple'
-            ExternalGnbCuCpFunction:
-              $ref: '#/components/schemas/ExternalGnbCuCpFunction-Multiple'
-            ExternalENBFunction:
-              $ref: '#/components/schemas/ExternalENBFunction-Multiple'
-            EUtranFrequency:
-              $ref: '#/components/schemas/EUtranFrequency-Multiple'
-            DESManagementFunction:
-              $ref: '#/components/schemas/DESManagementFunction-Single'
-            DRACHOptimizationFunction:
-              $ref: '#/components/schemas/DRACHOptimizationFunction-Single'
-            DMROFunction:
-              $ref: '#/components/schemas/DMROFunction-Single'
-            DLBOFunction:
-              $ref: '#/components/schemas/DLBOFunction-Single'
-            DPCIConfigurationFunction:
-              $ref: '#/components/schemas/DPCIConfigurationFunction-Single'
-            CPCIConfigurationFunction:
-              $ref: '#/components/schemas/CPCIConfigurationFunction-Single'
-            CESManagementFunction:
-              $ref: '#/components/schemas/CESManagementFunction-Single'
-            Configurable5QISet:
-              $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Configurable5QISet-Multiple'
-            RimRSGlobal:
-              $ref: '#/components/schemas/RimRSGlobal-Single'
-            Dynamic5QISet:
-              $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Dynamic5QISet-Multiple'
-            CCOFunction:
-              $ref: '#/components/schemas/CCOFunction-Single'
-    ManagedElement-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-ncO'
-        - type: object
-          properties:
-            GnbDuFunction:
-              $ref: '#/components/schemas/GnbDuFunction-Multiple'
-            GnbCuUpFunction:
-              $ref: '#/components/schemas/GnbCuUpFunction-Multiple'
-            GnbCuCpFunction:
-              $ref: '#/components/schemas/GnbCuCpFunction-Multiple'
-            DESManagementFunction:
-              $ref: '#/components/schemas/DESManagementFunction-Single'
-            DRACHOptimizationFunction:
-              $ref: '#/components/schemas/DRACHOptimizationFunction-Single'
-            DMROFunction:
-              $ref: '#/components/schemas/DMROFunction-Single'
-            DLBOFunction:
-              $ref: '#/components/schemas/DLBOFunction-Single'
-            DPCIConfigurationFunction:
-              $ref: '#/components/schemas/DPCIConfigurationFunction-Single'
-            CPCIConfigurationFunction:
-              $ref: '#/components/schemas/CPCIConfigurationFunction-Single'
-            CESManagementFunction:
-              $ref: '#/components/schemas/CESManagementFunction-Single'
-            Configurable5QISet:
-              $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Configurable5QISet-Multiple'
-            Dynamic5QISet:
-              $ref: 'TS28541_5GcNrm.yaml#/components/schemas/Dynamic5QISet-Multiple'
+              type: array
+              items:
+                $ref: '#/components/schemas/ManagedElement-ncO-NrNrm'
 
     GnbDuFunction-Single:
       allOf:
@@ -1521,7 +1514,10 @@ components:
                       enum:
                          - IS_NOT_ENERGY_SAVING
                          - IS_ENERGY_SAVING
-
+                    mLEntityRef:
+                      $ref: "#'TS28623_ComDefs.yaml#/components/schemas/Dn'"
+                    aIMLInferenceFunctionRef:
+                      $ref: "#'TS28623_ComDefs.yaml#/components/schemas/Dn'"                        
     DRACHOptimizationFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -1555,6 +1551,10 @@ components:
                       $ref: '#/components/schemas/MinimumTimeBetweenHoTriggerChange'
                     tstoreUEcntxt:
                       $ref: '#/components/schemas/TstoreUEcntxt'
+                    mLEntityRef:
+                      $ref: "#'TS28623_ComDefs.yaml#/components/schemas/Dn'"
+                    aIMLInferenceFunctionRef:
+                      $ref: "#'TS28623_ComDefs.yaml#/components/schemas/Dn'"                       
     DLBOFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -1569,7 +1569,10 @@ components:
                           $ref: '#/components/schemas/MaximumDeviationHoTrigger'
                     minimumTimeBetweenHoTriggerChange:
                           $ref: '#/components/schemas/MinimumTimeBetweenHoTriggerChange'
-
+                    mLEntityRef:
+                      $ref: "#'TS28623_ComDefs.yaml#/components/schemas/Dn'"
+                    aIMLInferenceFunctionRef:
+                      $ref: "#'TS28623_ComDefs.yaml#/components/schemas/Dn'"                        
     DPCIConfigurationFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -2012,14 +2015,6 @@ components:
 
 #-------- Definition of JSON arrays for name-contained IOCs ----------------------
 
-    SubNetwork-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubNetwork-Single'
-    ManagedElement-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/ManagedElement-Single'
     GnbDuFunction-Multiple:
       type: array
       items:
@@ -2182,9 +2177,6 @@ components:
     resources-nrNrm:
       oneOf:
         - $ref: '#/components/schemas/MnS'
-        
-        - $ref: '#/components/schemas/SubNetwork-Single'
-        - $ref: '#/components/schemas/ManagedElement-Single'
 
         - $ref: '#/components/schemas/GnbDuFunction-Single'
         - $ref: '#/components/schemas/GnbCuUpFunction-Single'

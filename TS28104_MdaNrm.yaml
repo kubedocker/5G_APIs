@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: MDA NRM
-  version: 18.0.0
+  version: 18.3.0
   description: >-
     OAS 3.0.1 specification of the MDA NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.104; MDA 
@@ -24,6 +24,18 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/MDAOutputPerMDAType'
+
+    AnalyticsScopeType:
+      oneOf:
+        - type: object
+          properties:
+            managedEntitiesScope:
+              $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'
+        - type: object
+          properties:
+            areaScope:
+              $ref: 'TS28623_ComDefs.yaml#/components/schemas/GeoArea'
+ 
 
     MDAOutputPerMDAType:
       type: object
@@ -58,18 +70,7 @@ components:
 
     ReportingTarget:
       $ref: 'TS28623_ComDefs.yaml#/components/schemas/Uri'
-
-    AnalyticsScopeType:
-      oneOf:
-        - type: object
-          properties:
-            managedEntitiesScope:
-              $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'
-        - type: object
-          properties:
-            areaScope:
-              $ref: 'TS28623_ComDefs.yaml#/components/schemas/GeoArea'
-
+      
     AnalyticsSchedule:
       oneOf:
         - type: object
@@ -106,45 +107,25 @@ components:
               format: float
               minimum: 0
 
+#-------- Definition of types for name-containments ------
+    SubNetwork-ncO-MdaNrm:
+      type: object
+      properties:
+        MDAFunction:
+          $ref: '#/components/schemas/MDAFunction-Multiple'
+        MDAReport:
+          $ref: '#/components/schemas/MDAReport-Multiple'
+
+    ManagedElement-ncO-MdaNrm:
+      type: object
+      properties:
+        MDAFunction:
+          $ref: '#/components/schemas/MDAFunction-Multiple'
 #-------- Definition of abstract IOCs --------------------------------------------
 
 
 
 #-------- Definition of concrete IOCs --------------------------------------------
-
-    SubNetwork-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-ncO'
-        - type: object
-          properties:
-            SubNetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
-            ManagedElement:
-              $ref: '#/components/schemas/ManagedElement-Multiple'
-            MDAFunction:
-              $ref: '#/components/schemas/MDAFunction-Multiple'
-            MDAReport:
-              $ref: '#/components/schemas/MDAReport-Multiple'
-
-
-    ManagedElement-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-ncO'
-        - type: object
-          properties:
-            MDAFunction:
-              $ref: '#/components/schemas/MDAFunction-Multiple'
-
     MDAFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -184,21 +165,14 @@ components:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/DateTime'
                     stopTime:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/DateTime'
+                    recommendationFilter:
+                      $ref: '#/components/schemas/AnalyticsScopeType'
 
     MDAReport-Single:
       $ref: 'TS28104_MdaReport.yaml#/components/schemas/MDAReport'
 
 
 #-------- Definition of JSON arrays for name-contained IOCs ----------------------
-
-    SubNetwork-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubNetwork-Single'
-    ManagedElement-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/ManagedElement-Single'
     MDAFunction-Multiple:
       type: array
       items:
@@ -217,9 +191,6 @@ components:
 
     resources-mdaNrm:
       oneOf:
-        - $ref: '#/components/schemas/SubNetwork-Single'
-        - $ref: '#/components/schemas/ManagedElement-Single'
-
         - $ref: '#/components/schemas/MDAFunction-Single'
         - $ref: '#/components/schemas/MDARequest-Single'
         - $ref: '#/components/schemas/MDAReport-Single'

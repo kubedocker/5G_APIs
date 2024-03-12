@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: 3GPP 5GC NRM
-  version: 18.6.0
+  version: 18.7.0
   description: >-
     OAS 3.0.1 specification of the 5GC NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.541; 5G NRM, 5GC NRM
@@ -608,8 +608,21 @@ components:
         dnaiList:
           type: array
           items:
-            type: string
-    
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnai'
+          minItems: 1
+
+    dnaiSatelliteMapping:
+      type: object
+      properties:
+        dnaiList:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnai'
+          minItems: 1
+        geoSatelliteId:
+          type: string
+          pattern: '^[0-9]{5}$'
+
     SnssaiSmfInfoItem:
       type: object
       properties:
@@ -2049,18 +2062,18 @@ components:
               $ref: '#/components/schemas/NwdafInfo'
             minProperties: 1
           minProperties: 1
-        # servedPcscfInfoList:
-          # description: A map (list of key-value pairs) where nfInstanceId serves as key
-          # type: object
-          # additionalProperties:
-            # description: A map (list of key-value pairs) where a valid JSON string serves as key
-            # type: object
-            # additionalProperties:
-              # anyOf:
-                # - $ref: '#/components/schemas/PcscfInfo'
-                # - $ref: 'TS29571_CommonData.yaml#/components/schemas/EmptyObject'
-            # minProperties: 1
-          # minProperties: 1
+        servedPcscfInfoList:
+          description: A map (list of key-value pairs) where nfInstanceId serves as key
+          type: object
+          additionalProperties:
+            description: A map (list of key-value pairs) where a valid JSON string serves as key
+            type: object
+            additionalProperties:
+              anyOf:
+                - $ref: '#/components/schemas/PcscfInfo'
+                - $ref: 'TS29571_CommonData.yaml#/components/schemas/EmptyObject'
+            minProperties: 1
+          minProperties: 1
         servedGmlcInfo:
           description: A map (list of key-value pairs) where nfInstanceId serves as key
           type: object
@@ -2077,12 +2090,12 @@ components:
               - $ref: '#/components/schemas/LmfInfo'
               - $ref: 'TS29571_CommonData.yaml#/components/schemas/EmptyObject'
           minProperties: 1
-        # servedNfInfo:
-          # description: A map (list of key-value pairs) where nfInstanceId serves as key
-          # type: object
-          # additionalProperties:
-            # $ref: '#/components/schemas/NfInfo'
-          # minProperties: 1
+        servedNfInfo:
+          description: A map (list of key-value pairs) where nfInstanceId serves as key
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/NfInfo'
+          minProperties: 1
         servedHssInfoList:
           description: A map (list of key-value pairs) where nfInstanceId serves as key
           type: object
@@ -2212,6 +2225,60 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/NssaafInfo'
           minProperties: 1
+    SatelliteBackhaulInfo:
+      description: defines the list of satellite backhaul information
+      type: object
+      properties:
+        globalRanNodeID:
+          $ref: '#/components/schemas/GlobalRanNodeID'
+        SatelliteBackhaulCategory:
+          anyOf:
+          - type: string
+            enum:
+              - GEO
+              - MEO
+              - LEO
+              - OTHER_SAT
+              - DYNAMIC_GEO
+              - DYNAMIC_MEO
+              - DYNAMIC_LEO
+              - DYNAMIC_OTHER_SAT
+              - NON_SATELLITE
+          - type: string
+        geoSatelliteId:
+          type: string
+          pattern: '^[0-9]{5}$'
+    GlobalRanNodeID:
+      description:  globally identification of an NG-RAN node
+      type: object
+      oneOf:
+        - required: [ pLmnId, n3IwfId]
+        - required: [ plmnId, gNbId]
+        - required: [ pLmnId, ngeNbId]
+        - required: [ plmnId, wagfId]
+        - required: [ pLmnId, tngfId]
+        - required: [ plmnId, twifId]
+      properties:
+        pLmnId:
+          $ref: 'TS28623_ComDefs.yaml#/components/schemas/PlmnId'
+        n3IwfId:
+          type: string
+          pattern: '^[A-Fa-f0-9]+$'
+        gNbId:
+          type: integer
+          minimum: 0
+          maximum: 4294967295
+        ngeNbId:
+          type: string
+          pattern: '^(MacroNGeNB-[A-Fa-f0-9]{5}|LMacroNGeNB-[A-Fa-f0-9]{6}|SMacroNGeNB-[A-Fa-f0-9]{5})$'
+        wagfId:
+          type: string
+          pattern: '^[A-Fa-f0-9]+$'
+        tngfId:
+          type: string
+          pattern: '^[A-Fa-f0-9]+$'
+        twifId:
+          type: string          
     NTNPLMNRestrictionsInfo:
       description: restrictions per PLMN that relates to non-terrestrial network access
       type: object
@@ -2761,130 +2828,177 @@ components:
           minItems: 1
       required:
         - msisdnRanges
+    SliceExpiryInfo :
+      description: Slice validity
+      type: object
+      properties:
+        pLMNInfo:
+          $ref: 'TS28541_NrNrm.yaml#/components/schemas/PlmnInfo'
+        expiryTime:
+          $ref: 'TS28623_ComDefs.yaml#/components/schemas/DateTime'        
+    PcscfInfo:
+      description: Information of a P-CSCF NF Instance
+      type: object
+      properties:
+        accessType:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/AccessType'
+          minItems: 1
+        dnnList:
+          type: array
+          items:
+            $ref: 'TS29571_CommonData.yaml#/components/schemas/Dnn'
+          minItems: 1
+        gmFqdn:
+          $ref: 'TS28623_ComDefs.yaml#/components/schemas/Fqdn'
+        gmIpv4Addresses:
+          type: array
+          items:
+            $ref: 'TS28623_ComDefs.yaml#/components/schemas/Ipv4Addr'
+          minItems: 1
+        gmIpv6Addresses:
+          type: array
+          items:
+            $ref: 'TS28623_ComDefs.yaml#/components/schemas/Ipv6Addr'
+          minItems: 1
+        mwFqdn:
+          $ref: 'TS28623_ComDefs.yaml#/components/schemas/Fqdn'
+        mwIpv4Addresses:
+          type: array
+          items:
+            $ref: 'TS28623_ComDefs.yaml#/components/schemas/Ipv4Addr'
+          minItems: 1
+        mwIpv6Addresses:
+          type: array
+          items:
+            $ref: 'TS28623_ComDefs.yaml#/components/schemas/Ipv6Addr'
+          minItems: 1
+        servedIpv4AddressRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ipv4AddressRange'
+          minItems: 1
+        servedIpv6PrefixRanges:
+          type: array
+          items:
+            $ref: '#/components/schemas/Ipv6PrefixRange'
+          minItems: 1
+    NfInfo:
+      description: Information of a generic NF Instance
+      type: object
+      properties:
+        nfType:
+          $ref: 'TS28623_GenericNrm.yaml#/components/schemas/NFType'
+
+#-------- Definition of types for name-containments ------
+    SubNetwork-ncO-5GcNrm:
+      type: object
+      properties:
+        ExternalAmfFunction:
+          $ref: '#/components/schemas/ExternalAmfFunction-Multiple'
+        ExternalNrfFunction:
+          $ref: '#/components/schemas/ExternalNrfFunction-Multiple'
+        ExternalNssfFunction:
+          $ref: '#/components/schemas/ExternalNssfFunction-Multiple'
+        AmfSet:
+          $ref: '#/components/schemas/AmfSet-Multiple'
+        AmfRegion:
+          $ref: '#/components/schemas/AmfRegion-Multiple'
+        Configurable5QISet:
+          $ref: '#/components/schemas/Configurable5QISet-Multiple'
+        Dynamic5QISet:
+          $ref: '#/components/schemas/Dynamic5QISet-Multiple'
+        EcmConnectionInfo:
+          $ref: '#/components/schemas/EcmConnectionInfo-Multiple'
+
+    ManagedElement-ncO-5GcNrm:
+      type: object
+      properties:
+        AmfFunction:
+          $ref: '#/components/schemas/AmfFunction-Multiple'
+        SmfFunction:
+          $ref: '#/components/schemas/SmfFunction-Multiple'
+        UpfFunction:
+          $ref: '#/components/schemas/UpfFunction-Multiple'
+        N3iwfFunction:   
+          $ref: '#/components/schemas/N3iwfFunction-Multiple'
+        PcfFunction:
+          $ref: '#/components/schemas/PcfFunction-Multiple'
+        AusfFunction:
+          $ref: '#/components/schemas/AusfFunction-Multiple'
+        UdmFunction:
+          $ref: '#/components/schemas/UdmFunction-Multiple'
+        UdrFunction:
+          $ref: '#/components/schemas/UdrFunction-Multiple'
+        UdsfFunction:
+          $ref: '#/components/schemas/UdsfFunction-Multiple'
+        NrfFunction:
+          $ref: '#/components/schemas/NrfFunction-Multiple'
+        NssfFunction:
+          $ref: '#/components/schemas/NssfFunction-Multiple'
+        SmsfFunction:
+          $ref: '#/components/schemas/SmsfFunction-Multiple'
+        LmfFunction:
+          $ref: '#/components/schemas/LmfFunction-Multiple'
+        NgeirFunction:
+          $ref: '#/components/schemas/NgeirFunction-Multiple'
+        SeppFunction:
+          $ref: '#/components/schemas/SeppFunction-Multiple'
+        NwdafFunction:
+          $ref: '#/components/schemas/NwdafFunction-Multiple'
+        ScpFunction:
+          $ref: '#/components/schemas/ScpFunction-Multiple'
+        NefFunction:
+          $ref: '#/components/schemas/NefFunction-Multiple'
+        Configurable5QISet:
+          $ref: '#/components/schemas/Configurable5QISet-Multiple'
+        Dynamic5QISet:
+          $ref: '#/components/schemas/Dynamic5QISet-Multiple'
+        EcmConnectionInfo:
+          $ref: '#/components/schemas/EcmConnectionInfo-Multiple'
+        EASDFFunction:
+          $ref: '#/components/schemas/EASDFFunction-Multiple'
+        NSSAAFFunction:
+          $ref: '#/components/schemas/NssaafFunction-Multiple'
+        AFFunction:
+          $ref: '#/components/schemas/AfFunction-Multiple'
+        DCCFFunction:
+          $ref: '#/components/schemas/DccfFunction-Multiple'
+        ChfFunction:
+          $ref: '#/components/schemas/ChfFunction-Multiple'
+        MFAFFunction:
+          $ref: '#/components/schemas/MfafFunction-Multiple'
+        GMLCFunction:
+          $ref: '#/components/schemas/GmlcFunction-Multiple'
+        TSCTSFFunction:
+          $ref: '#/components/schemas/TsctsfFunction-Multiple'
+        AANFFunction:
+          $ref: '#/components/schemas/AanfFunction-Multiple'
+        BSFFunction:
+          $ref: '#/components/schemas/BsfFunction-Multiple'
+        MBSMFFunction:
+          $ref: '#/components/schemas/MbSmfFunction-Multiple'
+        MBUPFFunction:
+          $ref: '#/components/schemas/MbUpfFunction-Multiple'
+        MNPFFunction:
+          $ref: '#/components/schemas/MnpfFunction-Multiple'
 
 #-------- Definition of concrete IOCs --------------------------------------------
-    ProvMnS:
+    MnS:
       oneOf:
         - type: object
           properties:
             SubNetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
+              type: array
+              items:
+                $ref: '#/components/schemas/SubNetwork-ncO-5GcNrm'
         - type: object
           properties:
             ManagedElement:
-              $ref: '#/components/schemas/ManagedElement-Multiple'
-
-    SubNetwork-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              allOf:
-                - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-ncO'
-        - type: object
-          properties:
-            SubNetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
-            ManagedElement:
-              $ref: '#/components/schemas/ManagedElement-Multiple'
-            ExternalAmfFunction:
-              $ref: '#/components/schemas/ExternalAmfFunction-Multiple'
-            ExternalNrfFunction:
-              $ref: '#/components/schemas/ExternalNrfFunction-Multiple'
-            ExternalNssfFunction:
-                $ref: '#/components/schemas/ExternalNssfFunction-Multiple'
-            AmfSet:
-              $ref: '#/components/schemas/AmfSet-Multiple'
-            AmfRegion:
-              $ref: '#/components/schemas/AmfRegion-Multiple'
-            Configurable5QISet:
-              $ref: '#/components/schemas/Configurable5QISet-Multiple'
-            Dynamic5QISet:
-              $ref: '#/components/schemas/Dynamic5QISet-Multiple'
-            EcmConnectionInfo:
-              $ref: '#/components/schemas/EcmConnectionInfo-Multiple'
-
-    ManagedElement-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              allOf:
-                - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-ncO'
-        - type: object
-          properties:
-            AmfFunction:
-              $ref: '#/components/schemas/AmfFunction-Multiple'
-            SmfFunction:
-              $ref: '#/components/schemas/SmfFunction-Multiple'
-            UpfFunction:
-              $ref: '#/components/schemas/UpfFunction-Multiple'
-            N3iwfFunction:   
-              $ref: '#/components/schemas/N3iwfFunction-Multiple'
-            PcfFunction:
-              $ref: '#/components/schemas/PcfFunction-Multiple'
-            AusfFunction:
-              $ref: '#/components/schemas/AusfFunction-Multiple'
-            UdmFunction:
-              $ref: '#/components/schemas/UdmFunction-Multiple'
-            UdrFunction:
-              $ref: '#/components/schemas/UdrFunction-Multiple'
-            UdsfFunction:
-              $ref: '#/components/schemas/UdsfFunction-Multiple'
-            NrfFunction:
-              $ref: '#/components/schemas/NrfFunction-Multiple'
-            NssfFunction:
-              $ref: '#/components/schemas/NssfFunction-Multiple'
-            SmsfFunction:
-              $ref: '#/components/schemas/SmsfFunction-Multiple'
-            LmfFunction:
-              $ref: '#/components/schemas/LmfFunction-Multiple'
-            NgeirFunction:
-              $ref: '#/components/schemas/NgeirFunction-Multiple'
-            SeppFunction:
-              $ref: '#/components/schemas/SeppFunction-Multiple'
-            NwdafFunction:
-              $ref: '#/components/schemas/NwdafFunction-Multiple'
-            ScpFunction:
-              $ref: '#/components/schemas/ScpFunction-Multiple'
-            NefFunction:
-              $ref: '#/components/schemas/NefFunction-Multiple'
-            Configurable5QISet:
-              $ref: '#/components/schemas/Configurable5QISet-Multiple'
-            Dynamic5QISet:
-              $ref: '#/components/schemas/Dynamic5QISet-Multiple'
-            EcmConnectionInfo:
-              $ref: '#/components/schemas/EcmConnectionInfo-Multiple'
-            EASDFFunction:
-              $ref: '#/components/schemas/EASDFFunction-Multiple'
-            NSSAAFFunction:
-              $ref: '#/components/schemas/NssaafFunction-Multiple'
-            AFFunction:
-              $ref: '#/components/schemas/AfFunction-Multiple'
-            DCCFFunction:
-              $ref: '#/components/schemas/DccfFunction-Multiple'
-            ChfFunction:
-              $ref: '#/components/schemas/ChfFunction-Multiple'
-            MFAFFunction:
-              $ref: '#/components/schemas/MfafFunction-Multiple'
-            GMLCFunction:
-              $ref: '#/components/schemas/GmlcFunction-Multiple'
-            TSCTSFFunction:
-              $ref: '#/components/schemas/TsctsfFunction-Multiple'
-            AANFFunction:
-              $ref: '#/components/schemas/AanfFunction-Multiple'
-            BSFFunction:
-              $ref: '#/components/schemas/BsfFunction-Multiple'
-            MBSMFFunction:
-              $ref: '#/components/schemas/MbSmfFunction-Multiple'
-            MBUPFFunction:
-              $ref: '#/components/schemas/MbUpfFunction-Multiple'
-            MNPFFunction:
-              $ref: '#/components/schemas/MnpfFunction-Multiple'
+              type: array
+              items:
+                $ref: '#/components/schemas/ManagedElement-ncO-5GcNrm'
 
     AmfFunction-Single:
       allOf:
@@ -2917,7 +3031,11 @@ components:
                     nTNPLMNInfoList:
                       $ref: '#/components/schemas/NTNPLMNRestrictionsInfo'
                     amfInfo:
-                      $ref: '#/components/schemas/AmfInfo'  
+                      $ref: '#/components/schemas/AmfInfo'
+                    sliceExpiryInfo:
+                      $ref: '#/components/schemas/SliceExpiryInfo'
+                    SatelliteBackhaulInfoList:
+                      $ref: '#/components/schemas/SatelliteBackhaulInfo'                      
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
         - type: object
           properties:
@@ -2977,6 +3095,7 @@ components:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
                     aMFSetMemberList:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     AmfRegion-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -2997,6 +3116,7 @@ components:
                       $ref: '#/components/schemas/SnssaiList'
                     aMFSetListRef:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     SmfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -3025,6 +3145,10 @@ components:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
                     dynamic5QISetRef:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
+                    dnaiSatelliteMappingList:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/dnaiSatelliteMapping'
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
         - type: object
           properties:
@@ -3245,7 +3369,7 @@ components:
                       $ref: '#/components/schemas/ManagedNFProfile'
                     udrInfo:
                       $ref: '#/components/schemas/UdrInfo'
-
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     UdsfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -3264,7 +3388,7 @@ components:
                       $ref: '#/components/schemas/ManagedNFProfile'
                     udsfInfo:
                       $ref: '#/components/schemas/UdsfInfo'
-
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     NrfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -3653,6 +3777,7 @@ components:
                       $ref: 'TS28541_NrNrm.yaml#/components/schemas/PlmnIdList'
                     amfIdentifier:
                       $ref: '#/components/schemas/AmfIdentifier'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     ExternalNrfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -3665,6 +3790,7 @@ components:
                   properties:
                     plmnIdList:
                       $ref: 'TS28541_NrNrm.yaml#/components/schemas/PlmnIdList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     ExternalNssfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -3677,6 +3803,7 @@ components:
                   properties:
                     plmnIdList:
                       $ref: 'TS28541_NrNrm.yaml#/components/schemas/PlmnIdList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     ExternalSeppFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -3693,7 +3820,7 @@ components:
                       type: integer
                     fqdn:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/Fqdn'
-
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
 
     EP_N2-Single:
       allOf:
@@ -5154,14 +5281,6 @@ components:
 
 #-------- Definition of JSON arrays for name-contained IOCs ----------------------
 
-    SubNetwork-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubNetwork-Single'
-    ManagedElement-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/ManagedElement-Single'
     AmfFunction-Multiple:
       type: array
       items:
@@ -5604,9 +5723,7 @@ components:
 
     resources-5gcNrm:
       oneOf:
-       - $ref: '#/components/schemas/ProvMnS'
-       - $ref: '#/components/schemas/SubNetwork-Single'
-       - $ref: '#/components/schemas/ManagedElement-Single'
+       - $ref: '#/components/schemas/MnS'
        - $ref: '#/components/schemas/AmfFunction-Single'
        - $ref: '#/components/schemas/SmfFunction-Single'
        - $ref: '#/components/schemas/UpfFunction-Single'

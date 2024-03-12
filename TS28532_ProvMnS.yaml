@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: Provisioning MnS
-  version: 18.1.0
+  version: 18.2.0
   description: >-
     OAS 3.0.1 definition of the Provisioning MnS
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.532; Generic management services
@@ -82,7 +82,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponse'
+                $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponseDefault'
       callbacks:
         notifyMOICreation:
           '{request.body#/notificationRecipientAddress}':
@@ -147,6 +147,27 @@ paths:
                     application/json:
                       schema:
                         $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponse'
+        notifyEvent:
+          '{request.body#/notificationRecipientAddress}':
+            post:
+              requestBody:
+                required: true
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/NotifyEvent'
+              responses:
+                '204':
+                  description: >-
+                    Success case ("204 No Content").
+                    The notification is successfully delivered. The response
+                    has no message body.
+                default:
+                  description: Error case.
+                  content:
+                    application/json:
+                      schema:
+                        $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponse'
         notifyMOIChanges:
           '{request.body#/notificationRecipientAddress}':
             post:
@@ -195,8 +216,7 @@ paths:
             This parameter reduces the targeted set of resources by applying a
             filter to the scoped set of resource representations. Only resource
             representations for which the filter construct evaluates to "true"
-            are targeted. No filter language is specified in the present
-            document.
+            are targeted.
           required: false
           schema:
             $ref: 'TS28623_ComDefs.yaml#/components/schemas/Filter'
@@ -224,6 +244,14 @@ paths:
               type: string
           style: form
           explode: false
+        - name: dataNodeSelector
+          in: query
+          description: >-
+            This parameter contains an expression allowing to conditionally
+            select data nodes.
+          required: false
+          schema:
+            $ref: 'TS28623_ComDefs.yaml#/components/schemas/Filter'
       responses:
         '200':
           description: >-
@@ -250,7 +278,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponse'
+                $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponseGet'
     patch:
       summary: Patches one or multiple resources
       description: >-
@@ -307,7 +335,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponse'
+                oneOf:
+                  - $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponseDefault'
+                  - $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponsePatch'
     delete:
       summary: Deletes one resource
       description: >-
@@ -324,7 +354,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponse'
+                $ref: 'TS28623_ComDefs.yaml#/components/schemas/ErrorResponseDefault'
 components:
   schemas:
     CmNotificationTypes:
@@ -333,6 +363,7 @@ components:
         - notifyMOICreation
         - notifyMOIDeletion
         - notifyMOIAttributeValueChanges
+        - notifyEvent
         - notifyMOIChanges
     SourceIndicator:
       type: string
@@ -397,7 +428,16 @@ components:
             - $ref: 'TS28104_MdaNrm.yaml#/components/schemas/resources-mdaNrm'
             - $ref: 'TS28105_AiMlNrm.yaml#/components/schemas/resources-AiMlNrm'                           
             - $ref: 'TS28538_EdgeNrm.yaml#/components/schemas/resources-edgeNrm'
-            - $ref: 'TS28317_RanScNrm.yaml#/components/schemas/resources-RanScNrm'            
+            - $ref: 'TS28317_RanScNrm.yaml#/components/schemas/resources-RanScNrm'   
+            - $ref: 'TS28623_FileManagementNrm.yaml#/components/schemas/resources-fileMgmtNrm'
+            - $ref: 'TS28623_ManagementDataCollectionNrm.yaml#/components/schemas/resources-mgmtDataCollectionNrm'
+            - $ref: 'TS28623_MnSRegistryNrm.yaml#/components/schemas/resources-mnSRegistryNrm'     
+            - $ref: 'TS28623_PmControlNrm.yaml#/components/schemas/resources-pmControlNrm'      
+            - $ref: 'TS28623_QoEMeasurementCollectionNrm.yaml#/components/schemas/resources-qoEMeasuremetCollectionNrm' 
+            - $ref: 'TS28623_SubscriptionControlNrm.yaml#/components/schemas/resources-subscriptionControlNrm'  
+            - $ref: 'TS28623_ThresholdMonitorNrm.yaml#/components/schemas/resources-thresholdMonitorNrm'   
+            - $ref: 'TS28623_TraceControlNrm.yaml#/components/schemas/resources-traceControlNrm'                                                                                                              
+            - $ref: 'TS28319_MsacNrm.yaml#/components/schemas/resources-msacNrm'
     Scope:
       type: object
       properties:
@@ -489,6 +529,19 @@ components:
               $ref: 'TS28623_ComDefs.yaml#/components/schemas/AttributeValueChangeSet'
           required:
             - attributeListValueChanges
+    NotifyEvent:
+      allOf:
+        - $ref: 'TS28623_ComDefs.yaml#/components/schemas/NotificationHeader'
+        - type: object
+          required:
+            - specificProblem
+          properties:
+            specificProblem:
+              $ref: 'TS28532_FaultMnS.yaml#/components/schemas/SpecificProblem'
+            additionalText:
+              type: string
+            additionalInformation:
+              $ref: 'TS28623_ComDefs.yaml#/components/schemas/AttributeNameValuePairSet'
     NotifyMoiChanges:
       allOf:
         - $ref: 'TS28623_ComDefs.yaml#/components/schemas/NotificationHeader'

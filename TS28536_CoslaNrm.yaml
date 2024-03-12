@@ -2,10 +2,10 @@ openapi: 3.0.1
 
 info:
   title: coslaNrm
-  version: 17.3.0
+  version: 17.4.0
   description: >-
     OAS 3.0.1 specification of the Cosla NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 
 externalDocs:
@@ -126,45 +126,34 @@ components:
         taiList:
           $ref: 'TS28541_NrNrm.yaml#/components/schemas/TaiList'
 
+#-------- Definition of types for name-containments ------
+    SubNetwork-ncO-CoslaNrm:
+      type: object
+      properties:
+        AssuranceClosedControlLoop:
+          $ref: '#/components/schemas/AssuranceClosedControlLoop-Multiple'
+ 
+    ManagedElement-ncO-CoslaNrm:
+      type: object
+      properties:
+        AssuranceClosedControlLoop:
+          $ref: '#/components/schemas/AssuranceClosedControlLoop-Multiple'
+
 #-------- Definition of concrete IOCs --------------------------------------------
     MnS:
       oneOf:
         - type: object
           properties:
             SubNetwork:
-              $ref: '#/components/schemas/SubNetwork-Multiple'
+              type: array
+              items:
+                $ref: '#/components/schemas/SubNetwork-ncO-CoslaNrm'
         - type: object
           properties:
             ManagedElement:
-              $ref: '#/components/schemas/ManagedElement-Multiple'
-
-    SubNetwork-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              allOf:
-                - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/SubNetwork-ncO'
-        - type: object
-          properties:
-            AssuranceClosedControlLoop:
-              $ref: '#/components/schemas/AssuranceClosedControlLoop-Multiple'
- 
-    ManagedElement-Single:
-      allOf:
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
-        - type: object
-          properties:
-            attributes:
-              allOf:
-                - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-Attr'
-        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedElement-ncO'
-        - type: object
-          properties:
-            AssuranceClosedControlLoop:
-              $ref: '#/components/schemas/AssuranceClosedControlLoop-Multiple'
+              type: array
+              items:
+                $ref: '#/components/schemas/ManagedElement-ncO-CoslaNrm'
 
     AssuranceClosedControlLoop-Single:
       allOf:
@@ -222,16 +211,7 @@ components:
                       $ref: '#/components/schemas/AssuranceGoalStatusList'
 
 #-------- Definition of JSON arrays for name-contained IOCs ----------------------
-    SubNetwork-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubNetwork-Single'
-
-    ManagedElement-Multiple:
-      type: array
-      items:
-        $ref: '#/components/schemas/ManagedElement-Single'
-                                
+                               
     AssuranceClosedControlLoop-Multiple:
       type: array
       items:
@@ -250,5 +230,3 @@ components:
        - $ref: '#/components/schemas/AssuranceClosedControlLoop-Single'
        - $ref: '#/components/schemas/AssuranceGoal-Single'    
        - $ref: '#/components/schemas/AssuranceReport-Single'
-       - $ref: '#/components/schemas/SubNetwork-Single'
-       - $ref: '#/components/schemas/ManagedElement-Single'

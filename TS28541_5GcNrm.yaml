@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: 3GPP 5GC NRM
-  version: 16.18.0
+  version: 16.19.0
   description: >-
     OAS 3.0.1 specification of the 5GC NRM
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).
     All rights reserved.
 externalDocs:
   description: 3GPP TS 28.541; 5G NRM, 5GC NRM
@@ -611,6 +611,7 @@ components:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/Dn'
                     aMFSetMemberList:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     AmfRegion-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -631,6 +632,7 @@ components:
                       $ref: '#/components/schemas/SnssaiList'
                     aMFSetListRef:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/DnList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     SmfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -851,6 +853,7 @@ components:
                       $ref: '#/components/schemas/SnssaiList'
                     managedNFProfile:
                       $ref: '#/components/schemas/ManagedNFProfile'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     UdsfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -869,6 +872,7 @@ components:
                       $ref: '#/components/schemas/SnssaiList'
                     managedNFProfile:
                       $ref: '#/components/schemas/ManagedNFProfile'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     NrfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -1097,6 +1101,7 @@ components:
                       $ref: 'TS28541_NrNrm.yaml#/components/schemas/PlmnIdList'
                     amfIdentifier:
                       $ref: '#/components/schemas/AmfIdentifier'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     ExternalNrfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -1109,6 +1114,7 @@ components:
                   properties:
                     plmnIdList:
                       $ref: 'TS28541_NrNrm.yaml#/components/schemas/PlmnIdList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     ExternalNssfFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -1121,6 +1127,7 @@ components:
                   properties:
                     plmnIdList:
                       $ref: 'TS28541_NrNrm.yaml#/components/schemas/PlmnIdList'
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
     ExternalSeppFunction-Single:
       allOf:
         - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/Top'
@@ -1137,7 +1144,7 @@ components:
                       type: integer
                     fqdn:
                       $ref: 'TS28623_ComDefs.yaml#/components/schemas/Fqdn'
-
+        - $ref: 'TS28623_GenericNrm.yaml#/components/schemas/ManagedFunction-ncO'
 
     EP_N2-Single:
       allOf:

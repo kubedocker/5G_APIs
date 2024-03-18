@@ -1147,7 +1147,7 @@ The APIs at reference points M1 and M5 are exposed by the 5GMS AF.
 * Fault Supervision MnS (TS 28.532)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28532_FaultMnS.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28532_FaultMnS.yaml))
-* Fault Management Notifications(TS 28.111)
+* Fault Management Notifications (TS 28.111)
 ([Editor](https://forge.3gpp.org/swagger/tools/loader.html?yaml=TS28111_FaultNotifications.yaml))
 ([UI](https://forge.3gpp.org/swagger/tools/loader.html?action=ui&yaml=TS28111_FaultNotifications.yaml))
 * Performance Measurement Job Control MnS (28.550)

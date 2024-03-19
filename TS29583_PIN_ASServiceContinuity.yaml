@@ -2,15 +2,15 @@ openapi: 3.0.0
 
 info:
   title: PINServer Service Continuity Information_API
-  version: 1.0.0-alpha.4
+  version: 1.0.0-alpha.6
   description: |
     API for PINServer Service Continuity Information Reporting.  
-    © 2023, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
+    © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
     All rights reserved.
 
 externalDocs:
   description: >
-    3GPP TS 29.583 V1.0.0; Application layer support for Personal IoT Network (PINAPP);
+    3GPP TS 29.583 V18.0.0; Application layer support for Personal IoT Network (PINAPP);
     Personal IoT Network (PIN) Server Services; Stage 3.
   url: 'http://www.3gpp.org/ftp/Specs/archive/29_series/29.583/'
 

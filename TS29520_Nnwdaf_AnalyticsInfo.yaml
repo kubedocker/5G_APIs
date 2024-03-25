@@ -285,11 +285,6 @@ components:
           items:
             $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/DnPerfInfo'
           minItems: 1
-        pfdDetermInfos:
-          type: array
-          items:
-            $ref: 'TS29520_Nnwdaf_EventsSubscription.yaml#/components/schemas/PfdDeterminationInfo'
-          minItems: 1
         pduSesTrafInfos:
           type: array
           items:

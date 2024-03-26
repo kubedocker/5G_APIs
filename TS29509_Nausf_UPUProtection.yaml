@@ -125,7 +125,6 @@ components:
           type: boolean
         aol:
           type: boolean
-  
 
 #
 # SIMPLE TYPES:

@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 info:
   title: 'IMS AS MediaControl Service'
-  version: '1.0.0-alpha.2'
+  version: 1.0.0-alpha.2
   description: |
     Nimsas_MediaControl Service.  
     © 2024, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA, TTC).  
@@ -10,7 +10,7 @@ info:
 
 externalDocs:
   description: >
-    3GPP TS 29.175 V1.1.0; IP Multimedia Subsystem; IP Multimedia Subsystem (IMS) Application
+    3GPP TS 29.175 V18.0.0; IP Multimedia Subsystem; IP Multimedia Subsystem (IMS) Application
     Server (AS) Services; Stage 3
   url: 'https://www.3gpp.org/ftp/Specs/archive/29_series/29.175'
 
